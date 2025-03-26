@@ -1,0 +1,45 @@
+.footer {
+  right: 0;
+  padding: 75px;
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  background-image: url("./assets/footer_image.png");
+  z-index: -2;
+}
+.left_tower {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  padding: 0;
+}
+
+.right_tower {
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  padding: 0;
+}
+
+.text_field_left {
+  left: 0;
+  bottom: 0;
+  top: 0;
+  padding: 100px;
+  background-image: url("./assets/text_space_left_side.png");
+}
+
+.text_field_right {
+  right: 0;
+  bottom: 0;
+  top: 0;
+  padding: 50px;
+  background-image: url("./assets/text_space_right_side.png");
+}
+
+.text_field {
+  padding: 300px;
+  background-color: #fff5b5;
+  margin: auto;
+  z-index: -1;
+}
