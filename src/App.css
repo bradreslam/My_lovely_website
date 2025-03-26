@@ -5,13 +5,14 @@
   position: absolute;
   bottom: 0;
   background-image: url("./assets/footer_image.png");
-  z-index: -2;
+
 }
 .left_tower {
   left: 0;
   bottom: 0;
   position: absolute;
   padding: 0;
+  z-index: 1;
 }
 
 .right_tower {
@@ -19,6 +20,7 @@
   bottom: 0;
   position: absolute;
   padding: 0;
+  z-index: 1;
 }
 
 .text_field_left {
@@ -38,8 +40,11 @@
 }
 
 .text_field {
-  padding: 300px;
+  width: 800px;
+  height: 100%;
+  bottom: 0;
   background-color: #fff5b5;
   margin: auto;
   z-index: -1;
+  position: fixed;
 }
