@@ -27,7 +27,8 @@
   left: 0;
   bottom: 0;
   top: 0;
-  padding: 100px;
+  padding: 50px;
+  position: relative;
   background-image: url("./assets/text_space_left_side.png");
 }
 
@@ -36,15 +37,20 @@
   bottom: 0;
   top: 0;
   padding: 50px;
+  position: relative;
   background-image: url("./assets/text_space_right_side.png");
 }
 
 .text_field {
-  width: 800px;
-  height: 100%;
-  bottom: 0;
+  flex: 1;
   background-color: #fff5b5;
-  margin: auto;
-  z-index: -1;
-  position: fixed;
+}
+
+.text_field_container {
+  display: flex;
+  width: 50vw;
+  position: absolute;
+  left: 25%;
+  top: 0;
+  bottom: 0;
 }
