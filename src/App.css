@@ -11,7 +11,6 @@
   left: 0;
   bottom: 0;
   position: absolute;
-  padding: 0;
   z-index: 1;
 }
 
@@ -19,14 +18,13 @@
   right: 0;
   bottom: 0;
   position: absolute;
-  padding: 0;
   z-index: 1;
 }
 
 .text_field_left {
   left: 0;
   bottom: 0;
-  top: 0;
+  top: 100px;
   padding: 50px;
   position: relative;
   background-image: url("./assets/text_space_left_side.png");
@@ -35,7 +33,7 @@
 .text_field_right {
   right: 0;
   bottom: 0;
-  top: 0;
+  top: 100px;
   padding: 50px;
   position: relative;
   background-image: url("./assets/text_space_right_side.png");
@@ -43,14 +41,41 @@
 
 .text_field {
   flex: 1;
+  position: relative;
+  top: 100px;
   background-color: #fff5b5;
 }
 
 .text_field_container {
   display: flex;
+  overflow: hidden;
   width: 50vw;
-  position: absolute;
-  left: 25%;
+  height: 100vh;
+  position: relative;
+  left: 50%;
+}
+
+.text_field_top {
+  background-image: url("./assets/text_space_top.png");
   top: 0;
-  bottom: 0;
+  left: 100px;
+  right: 100px;
+  padding: 50px;
+  position: absolute;
+}
+
+.text_field_left_corner {
+  padding: 50px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-image: url("./assets/text_space_left_corner.png");
+}
+
+.text_field_right_corner {
+  padding: 50px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  background-image: url("./assets/text_space_right_corner.png");
 }
