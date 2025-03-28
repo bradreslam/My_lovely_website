@@ -1,0 +1,32 @@
+.footer {
+    right: 0;
+    padding: 75px;
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    background-image: url("./assets/footer_image.png");
+
+}
+.left_tower {
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.right_tower {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 600px) {
+    .left_tower {
+        display: none;
+    }
+
+    .right_tower {
+        display: none;
+    }
+}
