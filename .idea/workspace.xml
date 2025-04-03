@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added mobile responsive">
+      <change beforePath="$PROJECT_DIR$/../My_lovely_website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../My_lovely_website/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My_lovely_website/public/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My_lovely_website/src/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/../My_lovely_website/src/Footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My_lovely_website/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../My_lovely_website/src/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My_lovely_website/src/components/text_field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../My_lovely_website/src/components/text_field.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My_lovely_website/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../My_lovely_website/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +26,21 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../My_lovely_website" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;bradreslam&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/bradreslam/My_lovely_website.git&quot;,
+    &quot;accountId&quot;: &quot;7e023213-cefd-4740-8eb3-488b96a57522&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -29,6 +52,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/bradr/source/repos/untitled&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -74,10 +98,26 @@
       <workItem from="1742975788415" duration="1769000" />
       <workItem from="1742987285332" duration="445000" />
       <workItem from="1742996253492" duration="2070000" />
+      <workItem from="1743330692365" duration="3009000" />
+      <workItem from="1743334036627" duration="165000" />
+      <workItem from="1743404745111" duration="1684000" />
+      <workItem from="1743576489658" duration="596000" />
+      <workItem from="1743660381421" duration="812000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
