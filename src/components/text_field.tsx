@@ -10,7 +10,8 @@ const TextField: React.FC = () => {
                 <div className="text_field_right_corner"></div>
             </div>
             <div className="text_field">
-                <h1>Hello my name is Bram, and I am an ict student at Fontys interested in game design.</h1>
+                <img className="profile" alt="portrait"/>
+                <p>Hello my name is Bram, and I am an ict student at Fontys interested in game design.</p>
             </div>
             <div className="text_field_right"></div>
         </div>
