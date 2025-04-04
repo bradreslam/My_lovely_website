@@ -2,8 +2,24 @@ p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: black;
   font-size: 15pt;
+  padding-left: 10px;
 }
 
 h1 {
   color: black;
+}
+
+.profile {
+  content:url("assets/thumbnail_IMG_3158.jpg");
+  width: 150px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile {
+    width: 100px;
+    height: 100px;
+  }
 }
