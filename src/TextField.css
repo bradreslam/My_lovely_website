@@ -57,6 +57,17 @@
     background-image: url("./assets/text_space_right_corner.png");
 }
 
+.introduction {
+    display: flex;
+    flex-direction: row;
+    background-color: #e2da8f;
+    padding: 20px;
+    border-radius: 15px;
+    border-color: #e2ca7b;
+    border-style: solid;
+    border-width: 4px;
+}
+
 @media only screen and (max-width: 600px) {
     .text_field_container {
         width: 100vw;
