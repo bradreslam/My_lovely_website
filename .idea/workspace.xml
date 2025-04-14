@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="fixed mobile responsiveness.">
-      <change afterPath="$PROJECT_DIR$/src/Content.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/codect_showcase.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/link_dropbox.tsx" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="fixed a bunch of responsiveness issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TextField.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextField.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/text_space_left_corner.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/text_space_left_corner.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/text_space_left_side.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/text_space_left_side.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/text_space_right_corner.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/text_space_right_corner.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/text_space_right_side.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/text_space_right_side.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/text_field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text_field.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,6 +113,8 @@
       <workItem from="1744531735395" duration="3827000" />
       <workItem from="1744641034018" duration="3045000" />
       <workItem from="1744644242935" duration="859000" />
+      <workItem from="1744645307382" duration="67000" />
+      <workItem from="1744645542143" duration="325000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -149,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743704101314</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fixed a bunch of responsiveness issues">
+      <option name="closed" value="true" />
+      <created>1744645350112</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1744645350112</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +169,7 @@
     <MESSAGE value="added mobile responsive, and added some temp text" />
     <MESSAGE value="added tab icon." />
     <MESSAGE value="fixed mobile responsiveness." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed mobile responsiveness." />
+    <MESSAGE value="fixed a bunch of responsiveness issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed a bunch of responsiveness issues" />
   </component>
 </project>

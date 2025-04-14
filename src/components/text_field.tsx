@@ -17,7 +17,7 @@ const TextField: React.FC = () => {
                 <div className="line"/>
                 <div className="project_segment">
                     <video controls>
-                        <source src="../src/assets/codect_showcase.mp4" type="video/mp4"></source>
+                        <source src="/codect_showcase.mp4" type="video/mp4"></source>
                         Your browser does not support the video tag.
                     </video>
                     <p>This project is called Codect, and served as a small game.
