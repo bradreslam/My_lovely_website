@@ -26,10 +26,10 @@
 
 .project_segment {
     width: 100%;
-    height: 300px;
     display: flex;
     flex-direction: row;
-    padding: 10px;
+    min-height: 50px;
+    height: fit-content;
 }
 
 .project_segment video{
@@ -40,7 +40,6 @@
 .project_segment p{
     width: 40%;
     height: 100%;
-    padding-right: 10px;
 }
 
 .line {
@@ -53,17 +52,31 @@
     bottom: 10px;
 }
 
+@media only screen and (max-width: 400px) {
+    .introduction{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .profile {
+        width: 100px;
+        height: 100px;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
     .project_segment {
         flex-direction: column;
-        height: 500px;
+        height: fit-content;
     }
     .project_segment video{
         width: 100%;
-        height: 70%;
+        height: fit-content;
     }
     .project_segment p{
-        width: 100%;
-        height: 30%;
+        width: 90%;
+        height: fit-content;
+        font-size: medium;
     }
 }

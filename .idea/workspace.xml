@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="fixed a bunch of responsiveness issues">
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="put the video in the public directory so it gets included with vite build">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/text_field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text_field.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Content.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Content.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TextField.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextField.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +65,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bradr\source\repos\My_lovely_website\public" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="npm dev" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -114,7 +120,8 @@
       <workItem from="1744641034018" duration="3045000" />
       <workItem from="1744644242935" duration="859000" />
       <workItem from="1744645307382" duration="67000" />
-      <workItem from="1744645542143" duration="325000" />
+      <workItem from="1744645542143" duration="474000" />
+      <workItem from="1744656644923" duration="1300000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -148,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744645350112</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="put the video in the public directory so it gets included with vite build">
+      <option name="closed" value="true" />
+      <created>1744646012734</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744646012734</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +185,7 @@
     <MESSAGE value="added tab icon." />
     <MESSAGE value="fixed mobile responsiveness." />
     <MESSAGE value="fixed a bunch of responsiveness issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed a bunch of responsiveness issues" />
+    <MESSAGE value="put the video in the public directory so it gets included with vite build" />
+    <option name="LAST_COMMIT_MESSAGE" value="put the video in the public directory so it gets included with vite build" />
   </component>
 </project>
