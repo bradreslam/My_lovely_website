@@ -1,0 +1,69 @@
+.introduction {
+    display: flex;
+    flex-direction: row;
+    background-color: #e2da8f;
+    padding: 20px;
+    border-radius: 15px;
+    border-color: #e2ca7b;
+    border-style: solid;
+    border-width: 4px;
+}
+
+.profile {
+    content:url("assets/thumbnail_IMG_3158.jpg");
+    width: 150px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .profile {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.project_segment {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.project_segment video{
+    width: 60%;
+    height: 100%;
+}
+
+.project_segment p{
+    width: 40%;
+    height: 100%;
+    padding-right: 10px;
+}
+
+.line {
+    border-bottom: 4px solid #e2ac36;
+    width: 90%;
+    margin-top: 4px;
+    left: 5%;
+    position: relative;
+    padding-bottom: 20px;
+    bottom: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .project_segment {
+        flex-direction: column;
+        height: 500px;
+    }
+    .project_segment video{
+        width: 100%;
+        height: 70%;
+    }
+    .project_segment p{
+        width: 100%;
+        height: 30%;
+    }
+}
