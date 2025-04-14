@@ -1,8 +1,8 @@
 .text_field_container {
     display: flex;
-    overflow: hidden; /* Prevent scrolling of the parent */
+    overflow: hidden;
     width: 70vw;
-    height: 100vh; /* Constrain height to viewport */
+    height: 100vh;
     position: relative;
     left: 22%;
 }
@@ -32,6 +32,7 @@
     background-color: #fff5b5;
     overflow-y: auto;
     max-height: calc(100vh - 100px);
+    margin-bottom: 200px;
 }
 
 .text_field_top {
