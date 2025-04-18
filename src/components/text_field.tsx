@@ -1,4 +1,5 @@
 import React from 'react';
+import Showreel from './Image_showreel.tsx';
 
 const TextField: React.FC = () => {
     return (
@@ -16,7 +17,7 @@ const TextField: React.FC = () => {
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
-                    <video controls>
+                    <video controls playsInline={true}>
                         <source src="/codect_showcase.mp4" type="video/mp4"></source>
                         Your browser does not support the video tag.
                     </video>
@@ -26,7 +27,8 @@ const TextField: React.FC = () => {
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
-
+                    <Showreel></Showreel>
+                    <p>I put some drawings I made in this slider, so you can have a look at my art style.</p>
                 </div>
             </div>
             <div className="text_field_right"></div>

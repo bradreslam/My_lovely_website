@@ -4,7 +4,7 @@
     left: 0;
     position: absolute;
     bottom: 0;
-    background-image: url("./assets/footer_image.png");
+    background-image: url("../assets/footer_image.png");
 
 }
 .left_tower {
@@ -12,7 +12,7 @@
     bottom: 0;
     position: absolute;
     z-index: 1;
-    content:url("./assets/left_tower.png");
+    content:url("../assets/left_tower.png");
 }
 
 .right_tower {
@@ -20,7 +20,7 @@
     bottom: 0;
     position: absolute;
     z-index: 1;
-    content:url("./assets/right_tower.png");
+    content:url("../assets/right_tower.png");
 }
 
 @media only screen and (max-width: 600px) {
