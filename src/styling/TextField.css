@@ -4,7 +4,8 @@
     width: 70vw;
     height: 100vh;
     position: relative;
-    left: 22%;
+    left: min(220px, 100%);
+
 }
 
 .text_field_left {
@@ -73,5 +74,6 @@
     .text_field_container {
         width: 80vw;
         left: 13%;
+        height: calc(100vh - 140px)
     }
 }
