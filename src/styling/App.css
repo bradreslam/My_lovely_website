@@ -15,4 +15,11 @@ h1 {
   background-color: #2f77e2;
   z-index: -30;
   position: fixed;
+  top: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  p {
+    font-size: medium;
+  }
 }

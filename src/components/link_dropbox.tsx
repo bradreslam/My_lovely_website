@@ -1,24 +1,45 @@
-class Dropdown {
-    private options: string[];
+import React from 'react';
+import {useState} from "react";
 
-    constructor(options: string[]) {
-        this.options = options;
+const Dropdown: React.FC = () => {
+
+    const [moved, setMoved] = useState(false);
+
+    const links = [
+        { distance: 140, label: "LinkedIn" },
+        { distance: 70, label: "Github" }
+    ];
+
+    const addresses: { [key: string]: string } = {
+        "LinkedIn":"https://www.linkedin.com/in/bram-alders-a5b939300/",
+        "Github":"https://github.com/bradreslam"
     }
 
-    render(): void {
-        const dropdownElement = document.createElement('select');
-
-        this.options.forEach((option) => {
-            const optionElement = document.createElement('option');
-            optionElement.text = option;
-            dropdownElement.add(optionElement);
-        });
-
-        document.body.appendChild(dropdownElement);
+    function redirect(name:string) : void {
+        window.open(
+            addresses[name],
+            '_blank'
+        )
     }
-}
 
-// Example usage
-const dropdownOptions = ['Option 1', 'Option 2', 'Option 3'];
-const dropdown = new Dropdown(dropdownOptions);
-dropdown.render();
+    return (
+        <div className="dropdown">
+            <button className="dropdown_cover" onClick={() => setMoved(!moved)}>Dropdown</button>
+            {links.map((link) => (
+                <button
+                    key={link.label}
+                    className="dropdown_link"
+                    style={{
+                        transform: moved ? `translateY(${link.distance}px)` : 'none',
+                        transition: 'transform 0.3s ease',
+                    }}
+                    onClick={() => redirect(link.label)}
+                >
+                    {link.label}
+                    <img alt="icon" src={`/${link.label}.png`}/>
+                </button>
+            ))}
+        </div>
+    );
+};
+export default Dropdown;

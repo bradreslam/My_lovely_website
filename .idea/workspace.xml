@@ -4,29 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added some more mobile responsiveness.">
-      <change afterPath="$PROJECT_DIR$/public/DrawingPart1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/DrawingPart2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/DrawingPart3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/DrawingPart4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/DrawingPart5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/HeartSchematic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/MysteryLandscape.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/SpaceSub.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/arrow-next.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/arrow-prev.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Background.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Image_showreel.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styling/Showreel.css" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="Added a new segment containing an image slider, and added a background.">
+      <change afterPath="$PROJECT_DIR$/public/Github.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/LinkedIn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/dropdown_base.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/dropdown_cog.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/dropdown_segement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styling/Drowpdown.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Content.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Content.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TextField.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/TextField.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/text_field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text_field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Background.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Background.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/link_dropbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/link_dropbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/TextField.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/TextField.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
-        <option value="CSS File" />
         <option value="TypeScript JSX File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -145,7 +136,10 @@
       <workItem from="1744787403825" duration="1733000" />
       <workItem from="1744805785361" duration="3233000" />
       <workItem from="1744977511090" duration="2072000" />
-      <workItem from="1744980373573" duration="1413000" />
+      <workItem from="1744980373573" duration="1806000" />
+      <workItem from="1744998730389" duration="968000" />
+      <workItem from="1745061960534" duration="2600000" />
+      <workItem from="1745072307229" duration="6862000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -195,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744658138855</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added a new segment containing an image slider, and added a background.">
+      <option name="closed" value="true" />
+      <created>1744982145646</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1744982145646</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +221,7 @@
     <MESSAGE value="fixed a bunch of responsiveness issues" />
     <MESSAGE value="put the video in the public directory so it gets included with vite build" />
     <MESSAGE value="added some more mobile responsiveness." />
-    <option name="LAST_COMMIT_MESSAGE" value="added some more mobile responsiveness." />
+    <MESSAGE value="Added a new segment containing an image slider, and added a background." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a new segment containing an image slider, and added a background." />
   </component>
 </project>
