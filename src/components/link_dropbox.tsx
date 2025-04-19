@@ -24,7 +24,12 @@ const Dropdown: React.FC = () => {
 
     return (
         <div className="dropdown">
-            <button className="dropdown_cover" onClick={() => setMoved(!moved)}>Dropdown</button>
+            <div className="dropdown_background"/>
+            <div className="dropdown_cog" style={{
+                transform: moved ? "rotate(-90deg)" : "none",
+                transition: 'transform 0.3s ease'
+            }}></div>
+            <button className="dropdown_cover" onClick={() => setMoved(!moved)}>profile links</button>
             {links.map((link) => (
                 <button
                     key={link.label}
