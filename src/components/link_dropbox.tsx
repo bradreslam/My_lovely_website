@@ -6,13 +6,15 @@ const Dropdown: React.FC = () => {
     const [moved, setMoved] = useState(false);
 
     const links = [
+        { distance: 210, label: "Itch.io" },
         { distance: 140, label: "LinkedIn" },
         { distance: 70, label: "Github" }
     ];
 
     const addresses: { [key: string]: string } = {
         "LinkedIn":"https://www.linkedin.com/in/bram-alders-a5b939300/",
-        "Github":"https://github.com/bradreslam"
+        "Github":"https://github.com/bradreslam",
+        "Itch.io":"https://bradreslam.itch.io/"
     }
 
     function redirect(name:string) : void {
