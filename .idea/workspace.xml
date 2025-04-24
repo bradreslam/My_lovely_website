@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="fixed some small css errors">
-      <change afterPath="$PROJECT_DIR$/public/Itch.io.png" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="Added a new segment including an embedded game.">
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.apple-touch-icon.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.audio.position.worklet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.audio.worklet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.icon.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.pck" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/nyctophobia/index.wasm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/link_dropbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/link_dropbox.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/text_field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text_field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styling/TextField.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/TextField.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/Content.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Content.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +79,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bradr\source\repos\My_lovely_website\src\styling" />
       <recent name="C:\Users\bradr\source\repos\My_lovely_website\public" />
+      <recent name="C:\Users\bradr\source\repos\My_lovely_website\src\styling" />
     </key>
   </component>
   <component name="RunManager">
@@ -142,6 +152,9 @@
       <workItem from="1745404591120" duration="123000" />
       <workItem from="1745485006855" duration="163000" />
       <workItem from="1745485182313" duration="455000" />
+      <workItem from="1745485660572" duration="137000" />
+      <workItem from="1745512535725" duration="332000" />
+      <workItem from="1745515630980" duration="2128000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -231,7 +244,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745156150050</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Altered some text and added Itch.io link, also added a thumbnail to the codect video">
+      <option name="closed" value="true" />
+      <created>1745485784570</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1745485784570</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Altered some text and added Itch.io link, also added a thumbnail to the codect video">
+      <option name="closed" value="true" />
+      <created>1745485792907</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1745485792907</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +289,9 @@
     <MESSAGE value="Added a small cog to the link dropdown, and changed its title." />
     <MESSAGE value="changed the video to hopefully now work on ios." />
     <MESSAGE value="fixed some small css errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed some small css errors" />
+    <MESSAGE value="Altered some text and added Itch.io link" />
+    <MESSAGE value="Altered some text and added Itch.io link, also added a thumbnail to the codect video" />
+    <MESSAGE value="Added a new segment including an embedded game." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a new segment including an embedded game." />
   </component>
 </project>
