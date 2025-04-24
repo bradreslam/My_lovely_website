@@ -29,6 +29,19 @@ const TextField: React.FC = () => {
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
+                    <div className="game_player">
+                        <iframe src="/nyctophobia/index.html"></iframe>
+                    </div>
+                    <p>This is a small platformer game I made with an partner,
+                        its called nyctophobia which means fear of the dark.
+                        The original scope of the game was a lot bigger than this,
+                        it included more levels and a monster that would chase you around.
+                        However because of time constraints we had to scrap those ideas.
+                        I mainly worked on the player movement, player animations, all the sounds and the
+                        background.</p>
+                </div>
+                <div className="line"/>
+                <div className="project_segment">
                     <Showreel></Showreel>
                     <p>I put some drawings I made in this slider, so you can have a look at my art style.</p>
                 </div>
