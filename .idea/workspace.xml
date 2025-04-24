@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="changed the video to hopefully now work on ios.">
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="fixed some small css errors">
+      <change afterPath="$PROJECT_DIR$/public/Itch.io.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styling/Drowpdown.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Drowpdown.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styling/Showreel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Showreel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/link_dropbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/link_dropbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/text_field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text_field.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/TextField.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/TextField.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +135,13 @@
       <workItem from="1745081407407" duration="56000" />
       <workItem from="1745085651453" duration="1129000" />
       <workItem from="1745132608046" duration="988000" />
+      <workItem from="1745156033951" duration="123000" />
+      <workItem from="1745165927236" duration="603000" />
+      <workItem from="1745322239714" duration="15000" />
+      <workItem from="1745403541499" duration="12000" />
+      <workItem from="1745404591120" duration="123000" />
+      <workItem from="1745485006855" duration="163000" />
+      <workItem from="1745485182313" duration="455000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -214,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745086784904</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixed some small css errors">
+      <option name="closed" value="true" />
+      <created>1745156150050</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1745156150050</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +259,7 @@
     <MESSAGE value="Added a new styled dropdown containing links to different websites." />
     <MESSAGE value="Added a small cog to the link dropdown, and changed its title." />
     <MESSAGE value="changed the video to hopefully now work on ios." />
-    <option name="LAST_COMMIT_MESSAGE" value="changed the video to hopefully now work on ios." />
+    <MESSAGE value="fixed some small css errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some small css errors" />
   </component>
 </project>

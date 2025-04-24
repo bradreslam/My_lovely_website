@@ -32,7 +32,6 @@
     top: 100px;
     background-color: #fff5b5;
     overflow-y: auto;
-    max-height: calc(100vh - 100px);
     padding-bottom: 300px;
 }
 
@@ -74,6 +73,6 @@
     .text_field_container {
         width: 80vw;
         left: 13%;
-        height: calc(100vh - 140px)
+        height: calc(100vh - 140px);
     }
 }
