@@ -3,6 +3,7 @@ import React, {useState} from "react";
 const Game_player: React.FC = () => {
 
     const [playing, setPlaying] = useState(false)
+    const [fullScreen, setFullScreen] = useState(false)
 
     function loadIframe() {
         setPlaying(true)
@@ -28,22 +29,30 @@ const Game_player: React.FC = () => {
     }
 
     return(
-            <div className="game_player">
-                <iframe src="/nyctophobia/index.html" style={{
-                    display: !playing ? 'none' : 'block',
-                }}></iframe>
-                <button onClick={() => !playing ? loadIframe() : unloadIframe()} style={{
-                    position: 'relative',
-                    left: playing ? '0' : 'calc(50% - 25px)',
-                    top: playing ? '0' : 'calc(50% - 25px)',
-                    display: 'block',
-                    width: '50px',
-                    height: '50px',
-                }}>
-                    <img src={!playing ? '/play-circle.svg': '/cross.svg'} alt="play button"/>
-                </button>
-            </div>
-    );
+        <div className="game_player" style={{
+            position: fullScreen ? 'fixed' : 'relative',
+            zIndex: fullScreen ? '100': '5',
+            width: fullScreen ? '100vw' : 'auto',
+            height: fullScreen ? '100vh' : 'auto',
+            top: fullScreen ? '0' : 'auto',
+            left: fullScreen ? '0' : 'auto',
+        }}>
+            <button onClick={() => !playing ? loadIframe() : unloadIframe()} style={{
+                left: playing ? '0' : 'calc(50% - 35px)',
+                bottom: playing ? '0' : 'calc(50% - 35px)',
+                zIndex: fullScreen ? '100': '7'
+            }}>
+                <img src={!playing ? '/play_icon.svg' : '/cross.svg'} alt="play button"/>
+            </button>
+            <button onClick={() => setFullScreen(!fullScreen)} style={{
+                right: '0',
+                bottom: '0',
+                zIndex: fullScreen ? '100': '7'
+            }}>
+                <img src='/full_screen_icon.svg' alt='full screen button'/>
+            </button>
+        </div>
+);
 }
 
 export default Game_player;
