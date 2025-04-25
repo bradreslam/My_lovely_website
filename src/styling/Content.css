@@ -99,10 +99,16 @@
         flex-direction: column;
         height: fit-content;
     }
-    .project_segment video, .project_segment iframe{
+    .project_segment video {
         width: 100%;
         height: fit-content;
     }
+
+    .game_player {
+        width: 100%;
+        min-height: 300px;
+    }
+
     .project_segment p{
         width: 90%;
         height: fit-content;
