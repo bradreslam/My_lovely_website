@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="Improved the styling of the play button and added a fullscreen button.">
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="fixed game player having no height at small screens">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Image_showreel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Image_showreel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styling/Content.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Content.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/Showreel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Showreel.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +150,8 @@
       <workItem from="1745566269840" duration="1158000" />
       <workItem from="1745570826103" duration="3445000" />
       <workItem from="1745575000578" duration="115000" />
-      <workItem from="1745578779290" duration="3134000" />
+      <workItem from="1745578779290" duration="3455000" />
+      <workItem from="1745582944994" duration="2314000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -277,7 +281,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745581717911</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fixed game player having no height at small screens">
+      <option name="closed" value="true" />
+      <created>1745582192728</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1745582192728</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,6 +323,7 @@
     <MESSAGE value="Added a new segment including an embedded game." />
     <MESSAGE value="Added a very simple play and stop button to the game player." />
     <MESSAGE value="Improved the styling of the play button and added a fullscreen button." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved the styling of the play button and added a fullscreen button." />
+    <MESSAGE value="fixed game player having no height at small screens" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed game player having no height at small screens" />
   </component>
 </project>
