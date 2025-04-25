@@ -1,7 +1,9 @@
 import React from 'react';
 import Showreel from './Image_showreel.tsx';
+import Game_player from './Game_player';
 
 const TextField: React.FC = () => {
+
     return (
         <div className="text_field_container">
             <div className="text_field_left"></div>
@@ -29,10 +31,8 @@ const TextField: React.FC = () => {
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
-                    <div className="game_player">
-                        <iframe src="/nyctophobia/index.html"></iframe>
-                    </div>
-                    <p>This is a small platformer game I made with an partner,
+                    <Game_player></Game_player>
+                    <p>This is a small platformer game I made with a partner,
                         its called nyctophobia which means fear of the dark.
                         The original scope of the game was a lot bigger than this,
                         it included more levels and a monster that would chase you around.

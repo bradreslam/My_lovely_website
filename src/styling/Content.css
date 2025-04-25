@@ -39,6 +39,7 @@
 
 .game_player {
     flex-grow: 1;
+    background-color: black;
 }
 
 .game_player iframe {
