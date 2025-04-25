@@ -52,7 +52,7 @@ const Showreel: React.FC = () => {
                 opacity: fullScreen ? '0.5' : '0',
                 border: fullScreen ? 'auto' : 'none',
             }}>
-                <img alt='close full screen' src='/cross.svg' style={{
+                <img alt='close full screen' src='/exit_full_screen_icon.svg' style={{
                     display: fullScreen ? 'block' : 'none',
                 }}/>
             </button>

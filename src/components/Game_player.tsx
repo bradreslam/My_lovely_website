@@ -49,7 +49,7 @@ const Game_player: React.FC = () => {
                 bottom: '0',
                 zIndex: fullScreen ? '100': '7'
             }}>
-                <img src='/full_screen_icon.svg' alt='full screen button'/>
+                <img src={ !fullScreen ? '/full_screen_icon.svg': '/exit_full_screen_icon.svg'} alt='full screen button'/>
             </button>
         </div>
 );
