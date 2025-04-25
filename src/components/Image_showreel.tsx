@@ -14,6 +14,7 @@ const images = [DrawingPart1, DrawingPart2, DrawingPart3, DrawingPart4, DrawingP
 
 const Showreel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [fullScreen, setFullScreen] = useState(false);
 
     const showPrev = () => {
         setCurrentIndex((prevIndex) =>
@@ -28,9 +29,32 @@ const Showreel: React.FC = () => {
     };
 
     return (
-        <div className="showreel">
+        <div className="showreel" style={{
+            width: fullScreen ? '100vw' : '60%',
+            height: fullScreen ? '100vh' : 'auto',
+            position: fullScreen ? 'fixed' : 'relative',
+            top: fullScreen ? '0' : 'auto',
+            left: fullScreen ? '0' : 'auto',
+            zIndex: fullScreen ? '100': '5',
+            maxHeight: fullScreen ? '100vh' : '364px',
+        }}>
             <button type="button" onClick={showPrev} className="prev_button">
                 <i>Prev</i>
+            </button>
+            <button className="full_screen_button" onClick={() => setFullScreen(!fullScreen)} style={{
+                position: fullScreen ? 'fixed': 'absolute',
+                width: fullScreen ? '70px' : '100%',
+                height: fullScreen ? '70px' : '100%',
+                top: fullScreen ? '0' : 'auto',
+                left: fullScreen ? '0' : 'auto',
+                zIndex: fullScreen ? '101': '5',
+                background: 'none',
+                opacity: fullScreen ? '0.5' : '0',
+                border: fullScreen ? 'auto' : 'none',
+            }}>
+                <img alt='close full screen' src='/cross.svg' style={{
+                    display: fullScreen ? 'block' : 'none',
+                }}/>
             </button>
             <img
                 alt="image couldn't be loaded"

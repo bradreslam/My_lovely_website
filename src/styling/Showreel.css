@@ -1,8 +1,5 @@
 .showreel {
     background-color: black;
-    max-height: 364px;
-    width: 60%;
-    position: relative;
     overflow: hidden;
 }
 
@@ -50,9 +47,16 @@
     height: 20px;
 }
 
+.full_screen_button img {
+    width: 44px;
+    height: 44px;
+    left: -6px;
+    top: -1px;
+}
+
 @media only screen and (max-width: 1000px) {
     .showreel{
-        width: 100%;
+        min-width: 100%;
         height: fit-content;
     }
 }
