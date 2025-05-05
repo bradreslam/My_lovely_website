@@ -15,13 +15,17 @@ const TextField: React.FC = () => {
             <div className="text_field">
                 <div className="introduction">
                     <img className="profile" alt="portrait"/>
-                    <p>Hello my name is Bram. I am a software development student from Fontys in the Netherlands.
+                    <p>Hello my name is Bram. I am a software development student from
+                        <a href="https://www.fontys.nl/Studeren/Opleidingen/HBO-ICT.htm" target="_blank"> Fontys</a> in the Netherlands.
                        My goal is to become an solo indie game developer.
                     </p>
                     <p>
-                        <br/><b>Experience:</b><br/>&#9679; Writing in C#<br/>
-                        &#9679; Using Godot <br/>&#9679; Using git<br/>
-                        &#9679; Working in a team environment<br/>&#9679; Making 2d sprites and animations
+                        <br/><b>Experience:</b><br/>&#9679; Writing in C#, Python, Html, Typescript, and css<br/>
+                        &#9679; Using Godot <br/>
+                        &#9679; Using git<br/>
+                        &#9679; Working in a team environment<br/>
+                        &#9679; Working with Agile and Scrum<br/>
+                        &#9679; Making 2d sprites and animations
                     </p>
                 </div>
                 <div className="line"/>
