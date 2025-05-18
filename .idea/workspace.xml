@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="Added a new segment to the introduction listing my experiences">
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="Added some more experiences and a hyperlink in place of the fontys in my introduction that goes to the fontys website.">
+      <change afterPath="$PROJECT_DIR$/public/the_waiting_room/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.audio.position.worklet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.audio.worklet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.pck" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.wasm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Game_player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Game_player.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/text_field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text_field.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/Content.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Content.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +164,8 @@
       <workItem from="1745592455603" duration="242000" />
       <workItem from="1745860202108" duration="193000" />
       <workItem from="1746272092808" duration="935000" />
-      <workItem from="1746458010562" duration="475000" />
+      <workItem from="1746458010562" duration="650000" />
+      <workItem from="1747590514347" duration="950000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -323,7 +335,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746273028737</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added some more experiences and a hyperlink in place of the fontys in my introduction that goes to the fontys website.">
+      <option name="closed" value="true" />
+      <created>1746458656791</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1746458656791</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,6 +382,7 @@
     <MESSAGE value="altered the fullscreen icon when going full screen." />
     <MESSAGE value="Made a small adjustment to make the footer disappear at a certain height." />
     <MESSAGE value="Added a new segment to the introduction listing my experiences" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a new segment to the introduction listing my experiences" />
+    <MESSAGE value="Added some more experiences and a hyperlink in place of the fontys in my introduction that goes to the fontys website." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some more experiences and a hyperlink in place of the fontys in my introduction that goes to the fontys website." />
   </component>
 </project>
