@@ -41,6 +41,7 @@
 .game_player {
     flex-grow: 1;
     background-color: black;
+    min-height: 340px;
     position: relative;
 }
 

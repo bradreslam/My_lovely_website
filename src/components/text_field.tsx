@@ -41,7 +41,7 @@ const TextField: React.FC = () => {
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
-                    <Game_player></Game_player>
+                    <Game_player gameName = "nyctophobia"></Game_player>
                     <p>This is a small platformer game I made with a partner,
                         its called nyctophobia which means fear of the dark.
                         The original scope of the game was a lot bigger than this,
@@ -49,6 +49,11 @@ const TextField: React.FC = () => {
                         However because of time constraints we had to scrap those ideas.
                         I mainly worked on the player movement, player animations, all the sounds and the
                         background.</p>
+                </div>
+                <div className="line"/>
+                <div className="project_segment">
+                    <Game_player gameName = "the_waiting_room"></Game_player>
+                    <p>This is a game I made for a game jam in 4 days, the theme was "one room wonders".</p>
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
