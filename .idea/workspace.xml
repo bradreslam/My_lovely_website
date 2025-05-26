@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="fixed a small error in my game" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="fixed a small error in my game">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/the_waiting_room/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/the_waiting_room/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.audio.position.worklet.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.audio.worklet.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.pck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/the_waiting_room/the waiting room.wasm" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,6 +164,8 @@
       <workItem from="1746458010562" duration="650000" />
       <workItem from="1747590514347" duration="1176000" />
       <workItem from="1747593003565" duration="45000" />
+      <workItem from="1747639291531" duration="259000" />
+      <workItem from="1747819080551" duration="1000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -346,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747593036142</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="fixed a small error in my game">
+      <option name="closed" value="true" />
+      <created>1747639359251</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1747639359251</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
