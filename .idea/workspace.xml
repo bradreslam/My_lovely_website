@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="fixed game" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added missing game files">
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_entrance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/HomePage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Footer.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,6 +73,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bradr\source\repos\My_lovely_website\src\pages" />
       <recent name="C:\Users\bradr\source\repos\My_lovely_website\public" />
       <recent name="C:\Users\bradr\source\repos\My_lovely_website\src\styling" />
     </key>
@@ -158,6 +169,13 @@
       <workItem from="1748248480005" duration="77000" />
       <workItem from="1748275628623" duration="673000" />
       <workItem from="1748329856121" duration="172000" />
+      <workItem from="1748330298812" duration="56000" />
+      <workItem from="1748856840429" duration="1000" />
+      <workItem from="1750700222335" duration="4072000" />
+      <workItem from="1750704846591" duration="581000" />
+      <workItem from="1750743514751" duration="667000" />
+      <workItem from="1750746174956" duration="4000" />
+      <workItem from="1750749058221" duration="974000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -375,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748330020297</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="added missing game files">
+      <option name="closed" value="true" />
+      <created>1748330341021</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1748330341021</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +419,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added tab icon." />
     <MESSAGE value="fixed mobile responsiveness." />
     <MESSAGE value="fixed a bunch of responsiveness issues" />
     <MESSAGE value="put the video in the public directory so it gets included with vite build" />
@@ -418,6 +443,7 @@
     <MESSAGE value="fixed a small error in my game" />
     <MESSAGE value="added a hint system to the game jam game." />
     <MESSAGE value="fixed game" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed game" />
+    <MESSAGE value="added missing game files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added missing game files" />
   </component>
 </project>

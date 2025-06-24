@@ -1,23 +1,16 @@
-import Footer from "./components/footer";
-import TextField from "./components/text_field.tsx";
-import Background from "./components/Background.tsx";
-import Dropdown from "./components/link_dropbox.tsx";
-import './styling/App.css'
-import './styling/TextField.css'
-import './styling/Footer.css'
-import './styling/Content.css'
-import './styling/Showreel.css'
-import './styling/Drowpdown.css'
+import HomePage from "./pages/HomePage.tsx";
+import Maze from "./pages/Maze.tsx";
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
-    <>
-        <Background/>
-        <TextField/>
-        <Dropdown></Dropdown>
-        <Footer/>
-    </>
+    <Router>
+        <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/maze" element={<Maze />} /> {/* 👈 New route */}
+        </Routes>
+    </Router>
   );
 };
 

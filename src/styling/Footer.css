@@ -23,6 +23,24 @@
     z-index: 12;
     content:url("../assets/right_tower.png");
 }
+.maze_door {
+    background-image: url("../assets/maze_entrance.png");
+    bottom: 0;
+    position: absolute;
+    z-index: 12;
+    padding-bottom: 65px;
+    padding-right: 45px;
+}
+
+.footer button {
+    background-color: transparent;
+    border: none;
+}
+
+.footer button:hover {
+    outline: none;
+    box-shadow: none;
+}
 
 @media only screen and (max-width: 600px) {
     .left_tower {
