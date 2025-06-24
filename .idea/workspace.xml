@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added missing game files">
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_entrance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/HomePage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="Added some new assets for the maze, and started work on the maze.">
+      <change afterPath="$PROJECT_DIR$/src/styling/Maze.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styling/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
-        <option value="CSS File" />
         <option value="TypeScript JSX File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -45,6 +39,9 @@
     &quot;accountId&quot;: &quot;7e023213-cefd-4740-8eb3-488b96a57522&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -176,6 +173,8 @@
       <workItem from="1750743514751" duration="667000" />
       <workItem from="1750746174956" duration="4000" />
       <workItem from="1750749058221" duration="974000" />
+      <workItem from="1750775950706" duration="3873000" />
+      <workItem from="1750782182207" duration="1144000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -401,7 +400,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748330341021</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added some new assets for the maze, and started work on the maze.">
+      <option name="closed" value="true" />
+      <created>1750776691758</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1750776691758</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +426,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed mobile responsiveness." />
     <MESSAGE value="fixed a bunch of responsiveness issues" />
     <MESSAGE value="put the video in the public directory so it gets included with vite build" />
     <MESSAGE value="added some more mobile responsiveness." />
@@ -444,6 +450,7 @@
     <MESSAGE value="added a hint system to the game jam game." />
     <MESSAGE value="fixed game" />
     <MESSAGE value="added missing game files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added missing game files" />
+    <MESSAGE value="Added some new assets for the maze, and started work on the maze." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some new assets for the maze, and started work on the maze." />
   </component>
 </project>
