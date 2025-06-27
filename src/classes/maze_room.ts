@@ -1,14 +1,15 @@
 import {torch} from "./torch.ts"
 import {Interactable} from "./interactable.ts"
 import {wall_types} from "../enums/wall_types.ts"
+import {Direction} from "../enums/direction.ts"
 
 export class room {
-    N_wall: wall_types | null;
-    E_wall: wall_types | null;
-    S_wall: wall_types | null;
-    W_Wall: wall_types | null;
-    Interactable: Interactable | null;
-    torch: torch | null;
+    public N_wall: wall_types | null;
+    public E_wall: wall_types | null;
+    public S_wall: wall_types | null;
+    public W_Wall: wall_types | null;
+    public Interactable: Interactable | null;
+    public torch: torch | null;
 
     constructor(
         N_wall: wall_types | null = null,
@@ -25,4 +26,13 @@ export class room {
         this.Interactable = Interactable;
         this.torch = torch;
     }
+
+    public getWall(direction: Direction): wall_types | null {
+        switch (direction) {
+            case Direction.N: return this.N_wall;
+            case Direction.E: return this.E_wall;
+            case Direction.S: return this.S_wall;
+            case Direction.W: return this.W_Wall;
+            default: return null;
+        }
 }

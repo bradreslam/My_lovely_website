@@ -5,7 +5,7 @@ import {Interactable} from "../classes/interactable.ts"
 import {Direction} from "../enums/direction.ts"
 import {torch} from "../classes/torch.ts"
 
-const maze_layout = {
+const maze_layout:{[key:number]:room} = {
     1: new room(null, wall_types.wall, wall_types.wall, wall_types.wall, new Interactable(Direction.N,Interactable_types.entrance), null),
     2: new room(wall_types.gate,wall_types.gate,wall_types.wall,wall_types.wall,null,null),
     3: new room(wall_types.wall,wall_types.gate,wall_types.wall,wall_types.gate,new Interactable(Direction.S,Interactable_types.chest2), null),

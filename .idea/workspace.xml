@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="altered the texture of the back wall">
-      <change afterPath="$PROJECT_DIR$/src/classes/interactable.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/maze_room.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/torch.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/enums/direction.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/enums/interactable_types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/enums/wall_types.ts" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added the layout off the maze and all the classes, etc to store the info">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/back_wall.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/maze_assets/back_wall.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/back_wall_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/maze_assets/back_wall_dark.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/back_wall_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/maze_assets/back_wall_light.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/ceiling.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/maze_assets/ceiling.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/ceiling_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/maze_assets/ceiling_dark.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/floor.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/maze_assets/floor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_wall.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/maze_assets/side_wall.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/maze_assets/side_wall_dark.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/maze_assets/side_wall_light.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/maze_room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/maze_room.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +181,11 @@
       <workItem from="1750837537874" duration="49000" />
       <workItem from="1750838700432" duration="4000" />
       <workItem from="1750844162415" duration="5114000" />
-      <workItem from="1750872726529" duration="7099000" />
+      <workItem from="1750872726529" duration="7517000" />
+      <workItem from="1750951304024" duration="616000" />
+      <workItem from="1750953044436" duration="1593000" />
+      <workItem from="1750959123414" duration="2780000" />
+      <workItem from="1751014241535" duration="1293000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -444,7 +435,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750844237002</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="added the layout off the maze and all the classes, etc to store the info">
+      <option name="closed" value="true" />
+      <created>1750880403343</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1750880403343</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added some more mobile responsiveness." />
     <MESSAGE value="Added a new segment containing an image slider, and added a background." />
     <MESSAGE value="Added a new styled dropdown containing links to different websites." />
     <MESSAGE value="Added a small cog to the link dropdown, and changed its title." />
@@ -487,6 +485,7 @@
     <MESSAGE value="Added some new assets for the maze, and started work on the maze." />
     <MESSAGE value="Fixed the layout of the maze images." />
     <MESSAGE value="altered the texture of the back wall" />
-    <option name="LAST_COMMIT_MESSAGE" value="altered the texture of the back wall" />
+    <MESSAGE value="added the layout off the maze and all the classes, etc to store the info" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the layout off the maze and all the classes, etc to store the info" />
   </component>
 </project>
