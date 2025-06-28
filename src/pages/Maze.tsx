@@ -8,18 +8,21 @@ import {wall_types} from "../enums/wall_types.ts";
 
 const Maze: React.FC = () => {
 
-    let current_room:room = new room()
-    let Facing:Direction
+    let current_room:room;
+    let current_room_index:number;
+    let Facing:Direction;
     const Left_wall:HTMLImageElement = document.getElementById("left_wall") as HTMLImageElement;
     const Right_wall:HTMLImageElement = document.getElementById("right_wall") as HTMLImageElement;
     const Wall:HTMLImageElement = document.getElementById("wall") as HTMLImageElement;
     const Floor:HTMLImageElement = document.getElementById("floor") as HTMLImageElement;
     const Ceiling:HTMLImageElement = document.getElementById("ceiling") as HTMLImageElement;
 
-    const get_room = (X: number, Y: number)=> {
-        const room_number:number = X + Y * (X - 1)
-        return maze_layout[room_number]
-    }
+    window.onload = () => {
+        const Y = parseInt(new URLSearchParams(window.location.search).get("Y")||"",10)
+        const X = parseInt(new URLSearchParams(window.location.search).get("X")||"",10)
+        current_room_index = X+Y*(X-1)
+        updateRoom()
+    };
 
     const move = () => {
         if(current_room.getWall(Facing) === wall_types.gate || current_room.getWall(Facing) === null){
@@ -59,10 +62,20 @@ const Maze: React.FC = () => {
     }
 
     const updateRoom = () => {
+        const Y = parseInt(new URLSearchParams(window.location.search).get("Y")||"",10)
+        const X = parseInt(new URLSearchParams(window.location.search).get("X")||"",10)
+        if(current_room_index != X+Y*(X-1))
+        {
+            current_room_index = X+Y*(X-1)
+            current_room = maze_layout[current_room_index]
+        }
         if (current_room != null) {
             if (Left_wall != null && Right_wall != null && Floor != null) {
                 Left_wall.src = maze_dictionary[current_room.N_wall]
+                Wall.src = maze_dictionary[current_room.E_wall]["normal"]["front"]
+                Right_wall.src = maze_dictionary[current_room.S_wall]["normal"]["side"]
                 Floor.src = maze_dictionary["floor"]
+                Ceiling.src = maze_dictionary["Ceilings"]["ceiling"]
             }
         }
     }

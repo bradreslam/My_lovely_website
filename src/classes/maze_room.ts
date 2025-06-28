@@ -4,20 +4,20 @@ import {wall_types} from "../enums/wall_types.ts"
 import {Direction} from "../enums/direction.ts"
 
 export class room {
-    public N_wall: wall_types | null;
-    public E_wall: wall_types | null;
-    public S_wall: wall_types | null;
-    public W_Wall: wall_types | null;
+    public N_wall: wall_types;
+    public E_wall: wall_types;
+    public S_wall: wall_types;
+    public W_Wall: wall_types;
     public Interactable: Interactable | null;
     public torch: torch | null;
 
     constructor(
-        N_wall: wall_types | null = null,
-        E_wall: wall_types | null = null,
-        S_wall: wall_types | null = null,
-        W_Wall: wall_types | null = null,
-        Interactable: Interactable | null = null,
-        torch: torch | null = null
+        N_wall: wall_types,
+        E_wall: wall_types,
+        S_wall: wall_types,
+        W_Wall: wall_types,
+        Interactable: Interactable | null,
+        torch: torch | null
     ) {
         this.N_wall = N_wall;
         this.E_wall = E_wall;
@@ -27,12 +27,16 @@ export class room {
         this.torch = torch;
     }
 
-    public getWall(direction: Direction): wall_types | null {
+    public getWall(direction: Direction): wall_types {
         switch (direction) {
-            case Direction.N: return this.N_wall;
-            case Direction.E: return this.E_wall;
-            case Direction.S: return this.S_wall;
-            case Direction.W: return this.W_Wall;
-            default: return null;
+            case Direction.N:
+                return this.N_wall;
+            case Direction.E:
+                return this.E_wall;
+            case Direction.S:
+                return this.S_wall;
+            case Direction.W:
+                return this.W_Wall;
         }
+    }
 }

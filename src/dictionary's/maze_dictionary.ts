@@ -15,6 +15,7 @@ const maze_dictionary = {
         "dark": {"side": side_wall_dark, "front": back_wall_dark},
         "normal": {"side": side_wall, "front": back_wall},
     },
+    "Hall":null,
     "Ceilings":{
         "ceiling": ceiling,
         "ceiling_dark": ceiling_dark,
