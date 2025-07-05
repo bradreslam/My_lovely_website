@@ -8,21 +8,19 @@ import {wall_types} from "../enums/wall_types.ts";
 
 const Maze: React.FC = () => {
 
-    let current_room:room = new room()
+    let current_room:room = maze_layout[1]
     let Facing:Direction
+    //let snake_location:number[] = []
+    //const snake_origin:number = 30
+    //const snake_path:number[] = []
     const Left_wall:HTMLImageElement = document.getElementById("left_wall") as HTMLImageElement;
     const Right_wall:HTMLImageElement = document.getElementById("right_wall") as HTMLImageElement;
     const Wall:HTMLImageElement = document.getElementById("wall") as HTMLImageElement;
     const Floor:HTMLImageElement = document.getElementById("floor") as HTMLImageElement;
     const Ceiling:HTMLImageElement = document.getElementById("ceiling") as HTMLImageElement;
 
-    const get_room = (X: number, Y: number)=> {
-        const room_number:number = X + Y * (X - 1)
-        return maze_layout[room_number]
-    }
-
     const move = () => {
-        if(current_room.getWall(Facing) === wall_types.gate || current_room.getWall(Facing) === null){
+        if(current_room.getWall(Facing) === wall_types.gate || current_room.getWall(Facing) === wall_types.hall){
             switch(Facing){
                 case Direction.N: 
                     { const Y = parseInt(new URLSearchParams(window.location.search).get("Y")||"",10)+1
@@ -60,12 +58,50 @@ const Maze: React.FC = () => {
 
     const updateRoom = () => {
         if (current_room != null) {
-            if (Left_wall != null && Right_wall != null && Floor != null) {
-                Left_wall.src = maze_dictionary[current_room.N_wall]
-                Floor.src = maze_dictionary["floor"]
+            const Y = parseInt(new URLSearchParams(window.location.search).get("Y")||"",10)
+            const X = parseInt(new URLSearchParams(window.location.search).get("X")||"",10)
+            const current_location:number = X + Y-1 * 7
+            if (current_room.index_number === current_location)
+            {
+            if (Left_wall != null && Right_wall != null && Floor != null && Wall != null) 
+                {
+                    if (Facing != 0)
+                    {
+                        const src = maze_dictionary[current_room[Facing-1+"wall" as keyof room]]["normal"]["side"]
+                        if(src != null && typeof src == "string")
+                        {
+                            Left_wall.src = src
+                        }
+                    }
+                    else{
+                        Left_wall.src = maze_dictionary[current_room[Direction[3]+"_wall" as keyof room]]
+                    }
+                    Wall.src = maze_dictionary[current_room[Facing+'_wall' as keyof room]]
+                    if (Facing != 3)
+                    {
+                        Right_wall.src = maze_dictionary[current_room[Facing+1+"_wall" as keyof room]]
+                    }
+                    else{
+                        Right_wall.src = maze_dictionary[current_room[Direction[0]+"_wall" as keyof room]]
+                    }
+                    Floor.src = maze_dictionary["floor"]
+                }
             }
         }
     }
+
+    //const updateSnake = () => {
+    //    let snake_location:number | null = localStorage.getItem("Snake")
+    //    if (snake_location === null)
+    //    {
+    //        snake_location = snake_origin
+    //        localStorage.setItem("snake", snake_location)
+    //    }
+    //    else
+    //    {
+    //        snake_location = snake_path[snake_path.indexOf(snake_location)+1]
+    //    }
+    //}
 
     const turn = (direction:boolean) => {
         if(!direction){

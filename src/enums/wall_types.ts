@@ -4,4 +4,5 @@ export enum wall_types{
     door2,
     door3,
     gate,
+    hall
 }
