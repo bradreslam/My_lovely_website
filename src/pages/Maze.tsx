@@ -9,8 +9,8 @@ import {wall_types} from "../enums/wall_types.ts";
 
 const Maze: React.FC = () => {
 
-    let current_room:room = maze_layout[1]
-    let Facing:Direction
+    let current_room:room = maze_layout[8]
+    let Facing:Direction = Direction.N
     //let snake_location:number[] = []
     //const snake_origin:number = 30
     //const snake_path:number[] = []
@@ -19,6 +19,10 @@ const Maze: React.FC = () => {
     const Wall:HTMLImageElement = document.getElementById("wall") as HTMLImageElement;
     const Floor:HTMLImageElement = document.getElementById("floor") as HTMLImageElement;
     const Ceiling:HTMLImageElement = document.getElementById("ceiling") as HTMLImageElement;
+
+    window.onload = () => {
+        updateRoom()
+    }
 
     const move = () => {
         if(current_room.getWall(Facing) === wall_types.gate || current_room.getWall(Facing) === wall_types.hall){

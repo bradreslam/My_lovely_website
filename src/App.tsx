@@ -8,7 +8,7 @@ const App: React.FC = () => {
     <Router>
         <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/maze" element={<Maze />} /> {/* 👈 New route */}
+            <Route path="/maze/:X/:Y" element={<Maze />} />
         </Routes>
     </Router>
   );
