@@ -1,6 +1,7 @@
 import "../styling/Maze.css"
 import {Direction} from "../enums/direction.ts"
 import maze_dictionary from "../dictionary's/maze_dictionary.ts"
+import maze_wall_dictionary from "../dictionary's/maze_wall_dictionary.ts";
 import maze_layout from "../dictionary's/maze_layout.ts";
 import {room} from "../classes/maze_room.ts"
 import React from "react";
@@ -67,24 +68,29 @@ const Maze: React.FC = () => {
                 {
                     if (Facing != 0)
                     {
-                        const src = maze_dictionary[current_room[Facing-1+"wall" as keyof room]]["normal"]["side"]
+                        const src = maze_wall_dictionary[current_room.getWall(Facing - 1)]["normal"]["side"]
                         if(src != null && typeof src == "string")
                         {
                             Left_wall.src = src
                         }
                     }
                     else{
-                        Left_wall.src = maze_dictionary[current_room[Direction[3]+"_wall" as keyof room]]
+                        Left_wall.src = maze_wall_dictionary[current_room.getWall(Direction.W)]["normal"]["side"]
                     }
-                    Wall.src = maze_dictionary[current_room[Facing+'_wall' as keyof room]]
+                    Wall.src = maze_wall_dictionary[current_room.getWall(Facing)]["normal"]["front"]
                     if (Facing != 3)
                     {
-                        Right_wall.src = maze_dictionary[current_room[Facing+1+"_wall" as keyof room]]
+                        Right_wall.src = maze_wall_dictionary[current_room.getWall(Facing+1)]["normal"]["side"]
                     }
                     else{
-                        Right_wall.src = maze_dictionary[current_room[Direction[0]+"_wall" as keyof room]]
+                        Right_wall.src = maze_wall_dictionary[current_room.getWall(Direction.N)]["normal"]["side"]
                     }
                     Floor.src = maze_dictionary["floor"]
+                    Ceiling.src = maze_dictionary["Ceilings"]["ceiling"]
+                }
+                else{
+                    current_room = maze_layout[current_location]
+                    updateRoom()
                 }
             }
         }
