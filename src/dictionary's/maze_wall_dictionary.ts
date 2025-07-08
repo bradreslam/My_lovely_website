@@ -1,9 +1,9 @@
-import side_wall_light from "../../public/maze_assets/side_wall_light.png"
-import back_wall_dark from "../../public/maze_assets/back_wall_dark.png"
-import back_wall from "../../public/maze_assets/back_wall.png"
-import back_wall_light from "../../public/maze_assets/back_wall_light.png"
-import side_wall_dark from "../../public/maze_assets/side_wall_dark.png"
-import side_wall from "../../public/maze_assets/side_wall.png"
+import side_wall_light from "../assets/maze_assets/side_wall_light.png"
+import back_wall_dark from "../assets/maze_assets/back_wall_dark.png"
+import back_wall from "../assets/maze_assets/back_wall.png"
+import back_wall_light from "../assets/maze_assets/back_wall_light.png"
+import side_wall_dark from "../assets/maze_assets/side_wall_dark.png"
+import side_wall from "../assets/maze_assets/side_wall.png"
 import {wall_types} from "../enums/wall_types.ts"
 
 const maze_wall_dictionary:{[key:string]: {[key:string]: {[key:string]: string}}} = {
