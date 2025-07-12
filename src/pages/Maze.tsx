@@ -3,14 +3,13 @@ import {Direction} from "../enums/direction.ts"
 import maze_dictionary from "../dictionary's/maze_dictionary.ts"
 import maze_wall_dictionary from "../dictionary's/maze_wall_dictionary.ts";
 import maze_layout from "../dictionary's/maze_layout.ts";
-import {room} from "../classes/maze_room.ts"
 import React, {useEffect, useState} from "react";
 import {wall_types} from "../enums/wall_types.ts";
 
 const Maze: React.FC = () => {
 
-    let current_room:room = maze_layout[8]
-    let Facing:Direction = Direction.N
+    const [currentRoom, setCurrentRoom] = useState(maze_layout[8])
+    const [facing, setFacing] = useState(Direction.N)
     //let snake_location:number[] = []
     //const snake_origin:number = 30
     //const snake_path:number[] = []
@@ -25,8 +24,8 @@ const Maze: React.FC = () => {
     }, []);
 
     const move = () => {
-        if(current_room.getWall(Facing) === wall_types.gate || current_room.getWall(Facing) === wall_types.hall){
-            switch(Facing){
+        if(currentRoom.getWall(facing) === wall_types.gate || currentRoom.getWall(facing) === wall_types.hall){
+            switch(facing){
                 case Direction.N: 
                     { const Y = parseInt(new URLSearchParams(window.location.search).get("Y")||"",10)+1
                         const params = new URLSearchParams(window.location.search);
@@ -62,27 +61,27 @@ const Maze: React.FC = () => {
     }
 
     const updateRoom = () => {
-        if (current_room != null) {
+        if (currentRoom != null) {
             const Y = parseInt(new URLSearchParams(window.location.search).get("Y")||"",10)
             const X = parseInt(new URLSearchParams(window.location.search).get("X")||"",10)
             const current_location:number = X + Y-1 * 7
-            if (current_room.index_number === current_location) {
-                if (Facing != 0) {
-                setLeftWallSrc(maze_wall_dictionary[current_room.getWall(Facing - 1)]["normal"]["side"]);
+            if (currentRoom.index_number === current_location) {
+                if (facing != 0) {
+                setLeftWallSrc(maze_wall_dictionary[currentRoom.getWall(facing - 1)]["normal"]["side"]);
                 } else {
-                setLeftWallSrc(maze_wall_dictionary[current_room.getWall(Direction.W)]["normal"]["side"]);
+                setLeftWallSrc(maze_wall_dictionary[currentRoom.getWall(Direction.W)]["normal"]["side"]);
                 }
-                setWallSrc(maze_wall_dictionary[current_room.getWall(Facing)]["normal"]["front"]);
-                if (Facing != 3) {
-                setRightWallSrc(maze_wall_dictionary[current_room.getWall(Facing + 1)]["normal"]["side"]);
+                setWallSrc(maze_wall_dictionary[currentRoom.getWall(facing)]["normal"]["front"]);
+                if (facing != 3) {
+                setRightWallSrc(maze_wall_dictionary[currentRoom.getWall(facing + 1)]["normal"]["side"]);
                 } else {
-                setRightWallSrc(maze_wall_dictionary[current_room.getWall(Direction.N)]["normal"]["side"]);
+                setRightWallSrc(maze_wall_dictionary[currentRoom.getWall(Direction.N)]["normal"]["side"]);
                 }
                     setFloorSrc(maze_dictionary["floor"])
                     setCeilingSrc(maze_dictionary["Ceilings"]["ceiling"])
                 }
                 else{
-                    current_room = maze_layout[current_location]
+                    setCurrentRoom(maze_layout[current_location])
                     updateRoom()
                 }
             }
@@ -103,22 +102,22 @@ const Maze: React.FC = () => {
 
     const turn = (direction:boolean) => {
         if(!direction){
-            if (Facing != 3){
-                Facing = 0
+            if (facing != 3){
+                setFacing(Direction.N)
                 updateRoom()
             }
             else{
-                Facing += 1
+                setFacing(facing + 1)
                 updateRoom()
             }
         }
         else{
-            if (Facing != 0){
-                Facing -= 1
+            if (facing != 0){
+                setFacing(facing - 1)
                 updateRoom()
             }
             else{
-                Facing = 3
+                setFacing(Direction.W)
                 updateRoom()
             }
         }
