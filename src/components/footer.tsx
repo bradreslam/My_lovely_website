@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate('/maze?X=1&Y=2');
+        navigate('/maze/1/2');
     };
 
     return (

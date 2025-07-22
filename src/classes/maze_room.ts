@@ -10,14 +10,16 @@ export class room {
     public W_Wall: wall_types;
     public Interactable: Interactable | null;
     public torch: torch | null;
+    public index_number: number;
 
     constructor(
         N_wall: wall_types,
         E_wall: wall_types,
         S_wall: wall_types,
         W_Wall: wall_types,
-        Interactable: Interactable | null,
-        torch: torch | null
+        Interactable: Interactable | null = null,
+        torch: torch | null = null,
+        index_number:number
     ) {
         this.N_wall = N_wall;
         this.E_wall = E_wall;
@@ -25,18 +27,15 @@ export class room {
         this.W_Wall = W_Wall;
         this.Interactable = Interactable;
         this.torch = torch;
+        this.index_number = index_number
     }
 
     public getWall(direction: Direction): wall_types {
         switch (direction) {
-            case Direction.N:
-                return this.N_wall;
-            case Direction.E:
-                return this.E_wall;
-            case Direction.S:
-                return this.S_wall;
-            case Direction.W:
-                return this.W_Wall;
+            case Direction.N: return this.N_wall;
+            case Direction.E: return this.E_wall;
+            case Direction.S: return this.S_wall;
+            case Direction.W: return this.W_Wall;
         }
     }
 }
