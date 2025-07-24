@@ -11,16 +11,19 @@
 .left_turn{
     left: 0;
     padding-right: 20%;
+    z-index: 5;
 }
 
 .right_turn{
     right: 0;
     padding-left: 20%;
+    z-index: 5;
 }
 
 .forward{
     left: 40%;
     padding-left: 20%;
+    z-index: 5;
 }
 
 .flex_box {
