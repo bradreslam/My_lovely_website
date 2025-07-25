@@ -8,6 +8,7 @@ export class room {
     public E_wall: wall_types;
     public S_wall: wall_types;
     public W_Wall: wall_types;
+    public Ceiling: boolean;
     public Interactable: Interactable | null;
     public torch: torch | null;
     public index_number: number;
@@ -17,6 +18,7 @@ export class room {
         E_wall: wall_types,
         S_wall: wall_types,
         W_Wall: wall_types,
+        Ceiling: boolean,
         Interactable: Interactable | null = null,
         torch: torch | null = null,
         index_number:number
@@ -25,6 +27,7 @@ export class room {
         this.E_wall = E_wall;
         this.S_wall = S_wall;
         this.W_Wall = W_Wall;
+        this.Ceiling = Ceiling;
         this.Interactable = Interactable;
         this.torch = torch;
         this.index_number = index_number

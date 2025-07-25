@@ -4,20 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="auto update workspace.xml">
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/gate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/gate_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/gate_light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_entrance_blocked.png" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="Updated my maze code and blocked of the maze entrance.">
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/empty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_gate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_light.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_light.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/maze-template.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_wall.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_wall.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/maze_room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/maze_room.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_wall_dictionary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_wall_dictionary.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styling/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styling/Maze.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Maze.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +211,9 @@
       <workItem from="1753344446645" duration="1991000" />
       <workItem from="1753355495303" duration="809000" />
       <workItem from="1753367946082" duration="260000" />
-      <workItem from="1753381337383" duration="2132000" />
+      <workItem from="1753381337383" duration="2455000" />
+      <workItem from="1753437335818" duration="2723000" />
+      <workItem from="1753444367859" duration="2175000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -483,7 +487,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753202131369</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Updated my maze code and blocked of the maze entrance.">
+      <option name="closed" value="true" />
+      <created>1753384120216</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1753384120216</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,7 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added a small cog to the link dropdown, and changed its title." />
     <MESSAGE value="changed the video to hopefully now work on ios." />
     <MESSAGE value="fixed some small css errors" />
     <MESSAGE value="Altered some text and added Itch.io link" />
@@ -526,6 +537,7 @@
     <MESSAGE value="added the layout off the maze and all the classes, etc to store the info" />
     <MESSAGE value="Worked some more on the maze code" />
     <MESSAGE value="auto update workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto update workspace.xml" />
+    <MESSAGE value="Updated my maze code and blocked of the maze entrance." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated my maze code and blocked of the maze entrance." />
   </component>
 </project>
