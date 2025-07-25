@@ -28,10 +28,14 @@ const Footer: React.FC = () => {
         <div className="footer">
             <div className="left_tower"/>
             <div className="right_tower"/>
-            <button className="maze_door" onClick={handleClick} style={{right: `${doorPosition * (90 - 10) + 10}%`}}>
-                <image className="maze_door_block" style={{ transform: doorOpen? `translateY(65px)`: 'none',
-                    transition: 'transform 1s ease'}}/>
-            </button>
+            <div className="maze_door_container" style={{right: `${doorPosition * (90 - 10) + 10}%`}}>
+                <button className="maze_door" onClick={handleClick}>
+                    <image className="maze_door_block" style={{
+                        transform: doorOpen ? `translateY(65px)` : 'none',
+                        transition: 'transform 1s ease'
+                    }}/>
+                </button>
+            </div>
         </div>
     );
 };

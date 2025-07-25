@@ -23,6 +23,15 @@
     z-index: 12;
     content:url("../assets/right_tower.png");
 }
+
+.maze_door_container {
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    height: 75px;
+    width: 65px;
+}
+
 .maze_door {
     background-image: url("../assets/maze_entrance.png");
     bottom: 0;

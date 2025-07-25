@@ -16,11 +16,11 @@ const Maze: React.FC = () => {
     //let snake_location:number[] = []
     //const snake_origin:number = 30
     //const snake_path:number[] = []
-    const [leftWallSrc, setLeftWallSrc] = useState("");
-    const [rightWallSrc, setRightWallSrc] = useState("");
-    const [wallSrc, setWallSrc] = useState("");
-    const [floorSrc, setFloorSrc] = useState("");
-    const [ceilingSrc, setCeilingSrc] = useState("");
+    const [leftWallSrc, setLeftWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["side"]);
+    const [rightWallSrc, setRightWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["side"]);
+    const [wallSrc, setWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["front"]);
+    const [floorSrc, setFloorSrc] = useState(maze_dictionary["floor"]);
+    const [ceilingSrc, setCeilingSrc] = useState(maze_dictionary["ceiling"]["normal"]);
 
     useEffect(() => {
         updateRoom()
@@ -28,7 +28,7 @@ const Maze: React.FC = () => {
 
     useEffect(() => {
         updateRoom()
-    }, [currentRoom, facing]);
+    }, [currentRoom, facing, navigate]);
 
     const move = () => {
         if(currentRoom.getWall(facing) === wall_types.gate || currentRoom.getWall(facing) === wall_types.hall){
@@ -114,8 +114,13 @@ const Maze: React.FC = () => {
                     setRightWallSrc(maze_wall_dictionary[currentRoom.getWall(Direction.N)]["normal"]["side"]);
                 }
                 setFloorSrc(maze_dictionary["floor"])
-                setCeilingSrc(maze_dictionary["Ceilings"]["ceiling"])
+                if(currentRoom.Ceiling){
+                    setCeilingSrc(maze_dictionary["ceiling"]["normal"])
                 }
+                else{
+                    setCeilingSrc(maze_dictionary["ceiling"][""])
+                }
+            }
             else{
                 setCurrentRoom(maze_layout[current_location])
             }
