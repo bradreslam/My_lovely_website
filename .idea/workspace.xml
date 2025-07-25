@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="fixed the maze so you can move around now, also made it so the falling boards from the door disappear.">
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="maybe fixed the site crashing when refreshing">
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/Maze.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Maze.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +204,9 @@
       <workItem from="1753381337383" duration="2455000" />
       <workItem from="1753437335818" duration="2723000" />
       <workItem from="1753444367859" duration="2336000" />
-      <workItem from="1753446936656" duration="419000" />
+      <workItem from="1753446936656" duration="1950000" />
+      <workItem from="1753459414277" duration="773000" />
+      <workItem from="1753465205810" duration="4199000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -491,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753446697583</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="maybe fixed the site crashing when refreshing">
+      <option name="closed" value="true" />
+      <created>1753447601050</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1753447601050</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed some small css errors" />
     <MESSAGE value="Altered some text and added Itch.io link" />
     <MESSAGE value="Altered some text and added Itch.io link, also added a thumbnail to the codect video" />
     <MESSAGE value="Added a new segment including an embedded game." />
@@ -534,6 +546,19 @@
     <MESSAGE value="auto update workspace.xml" />
     <MESSAGE value="Updated my maze code and blocked of the maze entrance." />
     <MESSAGE value="fixed the maze so you can move around now, also made it so the falling boards from the door disappear." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed the maze so you can move around now, also made it so the falling boards from the door disappear." />
+    <MESSAGE value="maybe fixed the site crashing when refreshing" />
+    <option name="LAST_COMMIT_MESSAGE" value="maybe fixed the site crashing when refreshing" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/pages/Maze.tsx</url>
+          <line>122</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

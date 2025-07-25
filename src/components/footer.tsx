@@ -17,7 +17,6 @@ const Footer: React.FC = () => {
         }
         if(clickCount < 4){
             setClickCount(clickCount+1)
-            console.log(clickCount)
         }
         else{
             setDoorOpen(true);
