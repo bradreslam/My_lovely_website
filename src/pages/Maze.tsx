@@ -5,7 +5,7 @@ import maze_wall_dictionary from "../dictionary's/maze_wall_dictionary.ts";
 import maze_layout from "../dictionary's/maze_layout.ts";
 import React, {useEffect, useState} from "react";
 import {wall_types} from "../enums/wall_types.ts";
-import {useParams, useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 const Maze: React.FC = () => {
 
@@ -19,6 +19,8 @@ const Maze: React.FC = () => {
     const [leftWallSrc, setLeftWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["side"]);
     const [rightWallSrc, setRightWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["side"]);
     const [wallSrc, setWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["front"]);
+    const [leftBackWallSrc, setLeftBackWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["side"]);
+    const [rightBackWallSrc, setRightBackWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["side"]);
     const [floorSrc, setFloorSrc] = useState(maze_dictionary["floor"]);
     const [ceilingSrc, setCeilingSrc] = useState(maze_dictionary["ceiling"]["normal"]);
 
@@ -102,16 +104,36 @@ const Maze: React.FC = () => {
             }
             const current_location:number = x + ((y-1) * 7)
             if (currentRoom.index_number === current_location) {
+                let left_wall_direction:Direction
                 if (facing != 0) {
-                    setLeftWallSrc(maze_wall_dictionary[currentRoom.getWall(facing - 1)]["normal"]["side"]);
+                    left_wall_direction = facing-1
                 } else {
-                    setLeftWallSrc(maze_wall_dictionary[currentRoom.getWall(Direction.W)]["normal"]["side"]);
+                    left_wall_direction = Direction.W
+                }
+                setLeftWallSrc(maze_wall_dictionary[currentRoom.getWall(left_wall_direction)]["normal"]["side"]);
+                if (currentRoom.getWall(left_wall_direction) === wall_types.gate ||
+                    currentRoom.getWall(left_wall_direction) === wall_types.hall){
+                    const next_room = get_next_room(left_wall_direction,x,y)
+                    setLeftBackWallSrc(maze_wall_dictionary[next_room.getWall(facing)]["normal"]["front"])
+                }
+                else{
+                    setLeftBackWallSrc(maze_dictionary["ceiling"][""])
                 }
                     setWallSrc(maze_wall_dictionary[currentRoom.getWall(facing)]["normal"]["front"]);
+                let right_wall_direction:Direction
                 if (facing != 3) {
-                    setRightWallSrc(maze_wall_dictionary[currentRoom.getWall(facing + 1)]["normal"]["side"]);
+                    right_wall_direction = facing+1
                 } else {
-                    setRightWallSrc(maze_wall_dictionary[currentRoom.getWall(Direction.N)]["normal"]["side"]);
+                    right_wall_direction = Direction.N
+                }
+                setRightWallSrc(maze_wall_dictionary[currentRoom.getWall(right_wall_direction)]["normal"]["side"]);
+                if (currentRoom.getWall(right_wall_direction) === wall_types.gate ||
+                    currentRoom.getWall(right_wall_direction) === wall_types.hall){
+                    const next_room = get_next_room(right_wall_direction,x,y)
+                    setRightBackWallSrc(maze_wall_dictionary[next_room.getWall(facing)]["normal"]["front"])
+                }
+                else{
+                    setRightBackWallSrc(maze_dictionary["ceiling"][""])
                 }
                 setFloorSrc(maze_dictionary["floor"])
                 if(currentRoom.Ceiling){
@@ -124,6 +146,26 @@ const Maze: React.FC = () => {
             else{
                 setCurrentRoom(maze_layout[current_location])
             }
+        }
+    }
+
+    const get_next_room = (direction:Direction, x:number, y:number) => {
+        switch(direction){
+            case Direction.N:{
+                return maze_layout[x + ((y) * 7)]
+                }
+
+            case Direction.E:{
+                return maze_layout[x + ((y-1) * 7)+1]
+                }
+
+            case Direction.S:{
+                return maze_layout[x + ((y-2) * 7)]
+                }
+
+            case Direction.W:{
+                return maze_layout[x + ((y-1) * 7)-1]
+                }
         }
     }
 
@@ -166,7 +208,11 @@ const Maze: React.FC = () => {
                     <img id="floor" className="floor" src={floorSrc} alt="floor not found"/>
                     <img id="left_wall" className="left_wall" src={leftWallSrc}
                          alt="left_wall not found"/>
+                    <img id="left_back_wall" className="left_back_wall" src={leftBackWallSrc}
+                         alt="left_wall not found"/>
                     <img id="right_wall" className="right_wall" src={rightWallSrc}
+                         alt="right_wall not found"/>
+                    <img id="right_back_wall" className="right_back_wall" src={rightBackWallSrc}
                          alt="right_wall not found"/>
                     <img id="wall" className="wall" src={wallSrc} alt="wall not found"/>
                     <img id="ceiling" className="ceiling" src={ceilingSrc} alt="ceiling not found"/>

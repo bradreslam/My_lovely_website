@@ -44,9 +44,10 @@
     overflow: hidden;
 }
 
-.floor, .right_wall, .left_wall, .ceiling, .wall {
+.floor, .right_wall, .left_wall, .ceiling, .wall .right_back_wall, .left_back_wall{
     object-fit: contain;
     position: absolute;
+    overflow: hidden;
 }
 
 .floor {
@@ -60,16 +61,32 @@
 .left_wall {
     height: 100%;
     left: 0;
-    z-index: 2;
+    z-index: 3;
     bottom: 0;
 }
 
 .right_wall {
     height: 100%;
     right: 0;
-    z-index: 2;
+    z-index: 3;
     transform: scaleX(-1);
     bottom: 0;
+}
+
+.right_back_wall {
+    height: 100%;
+    z-index: 2;
+    bottom: 0;
+    width: 100%;
+    transform: translateX(46%);
+}
+
+.left_back_wall {
+    height: 100%;
+    z-index: 2;
+    bottom: 0;
+    width: 100%;
+    transform: translateX(-46%);
 }
 
 .wall {
@@ -77,12 +94,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     height: 100%;
-    z-index: 3;
+    z-index: 4;
+    position: absolute;
 }
 
 .ceiling {
     width: 100%;
     top: 0;
-    z-index: 4;
+    z-index: 5;
     left: 0;
 }
