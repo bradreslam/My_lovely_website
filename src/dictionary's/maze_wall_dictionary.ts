@@ -4,6 +4,10 @@ import back_wall from "../assets/maze_assets/back_wall.png"
 import back_wall_light from "../assets/maze_assets/back_wall_light.png"
 import side_wall_dark from "../assets/maze_assets/side_wall_dark.png"
 import side_wall from "../assets/maze_assets/side_wall.png"
+import ceiling_wall from "../assets/maze_assets/no_ceiling.png"
+import ceiling_wall_dark from "../assets/maze_assets/no_ceiling_dark.png"
+import ceiling_gate from "../assets/maze_assets/no_ceiling_gate.png"
+import ceiling_gate_dark from "../assets/maze_assets/no_ceiling_gate_dark.png"
 import gate from "../assets/maze_assets/gate.png"
 import gate_dark from "../assets/maze_assets/gate_dark.png"
 import gate_light from "../assets/maze_assets/gate_light.png"
@@ -18,14 +22,14 @@ import {wall_types} from "../enums/wall_types.ts"
 
 const maze_wall_dictionary:{[key:string]: {[key:string]: {[key:string]: string}}} = {
     [wall_types.wall]: {
-        "light": {"side": side_wall_light, "front": back_wall_light},
-        "dark": {"side": side_wall_dark, "front": back_wall_dark},
-        "normal": {"side": side_wall, "front": back_wall},
+        "light": {"side": side_wall_light, "front": back_wall_light, "ceiling":ceiling_wall},
+        "dark": {"side": side_wall_dark, "front": back_wall_dark, "ceiling":ceiling_wall_dark},
+        "normal": {"side": side_wall, "front": back_wall, "ceiling":ceiling_wall},
     },
     [wall_types.gate]: {
-        "light": {"side": side_gate_light, "front": gate_light},
-        "dark": {"side": side_gate_dark, "front": gate_dark},
-        "normal": {"side": side_gate, "front": gate},
+        "light": {"side": side_gate_light, "front": gate_light, "ceiling":ceiling_gate},
+        "dark": {"side": side_gate_dark, "front": gate_dark, "ceiling":ceiling_gate_dark},
+        "normal": {"side": side_gate, "front": gate, "ceiling":ceiling_gate},
     },
     [wall_types.hall]: {
         "light": {"side": side_hall_light, "front": empty},
@@ -33,19 +37,19 @@ const maze_wall_dictionary:{[key:string]: {[key:string]: {[key:string]: string}}
         "normal": {"side": side_hall, "front": empty},
     },
     [wall_types.door1]: {
-        "light": {"side": side_wall_light, "front": back_wall_light},
-        "dark": {"side": side_wall_dark, "front": back_wall_dark},
-        "normal": {"side": side_wall, "front": back_wall},
+        "light": {"side": side_wall_light, "front": back_wall_light, "ceiling":ceiling_gate},
+        "dark": {"side": side_wall_dark, "front": back_wall_dark, "ceiling":ceiling_gate_dark},
+        "normal": {"side": side_wall, "front": back_wall, "ceiling":ceiling_gate},
     },
     [wall_types.door2]: {
-        "light": {"side": side_wall_light, "front": back_wall_light},
-        "dark": {"side": side_wall_dark, "front": back_wall_dark},
-        "normal": {"side": side_wall, "front": back_wall},
+        "light": {"side": side_wall_light, "front": back_wall_light, "ceiling":ceiling_gate},
+        "dark": {"side": side_wall_dark, "front": back_wall_dark, "ceiling":ceiling_gate_dark},
+        "normal": {"side": side_wall, "front": back_wall, "ceiling":ceiling_gate},
     },
     [wall_types.door3]: {
-        "light": {"side": side_wall_light, "front": back_wall_light},
-        "dark": {"side": side_wall_dark, "front": back_wall_dark},
-        "normal": {"side": side_wall, "front": back_wall},
+        "light": {"side": side_wall_light, "front": back_wall_light, "ceiling":ceiling_gate},
+        "dark": {"side": side_wall_dark, "front": back_wall_dark, "ceiling":ceiling_gate_dark},
+        "normal": {"side": side_wall, "front": back_wall, "ceiling":ceiling_gate},
     }
 }
 

@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="maybe fixed the site crashing when refreshing">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added the ability to look in a part of the room next to you if there is a door in the maze and removed .htaccess file because it wasn't working.">
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/no_ceiling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/no_ceiling_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/no_ceiling_darkness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/no_ceiling_gate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/no_ceiling_gate_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_gate.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_gate.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_light.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_hall.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_light.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_wall.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_wall.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_light.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_wall_dictionary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_wall_dictionary.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styling/Maze.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Maze.css" afterDir="false" />
     </list>
@@ -206,7 +219,16 @@
       <workItem from="1753444367859" duration="2336000" />
       <workItem from="1753446936656" duration="1950000" />
       <workItem from="1753459414277" duration="773000" />
-      <workItem from="1753465205810" duration="4199000" />
+      <workItem from="1753465205810" duration="4477000" />
+      <workItem from="1753533474627" duration="3131000" />
+      <workItem from="1753544834284" duration="488000" />
+      <workItem from="1753548025229" duration="531000" />
+      <workItem from="1753548595822" duration="204000" />
+      <workItem from="1753608512136" duration="608000" />
+      <workItem from="1753621138283" duration="601000" />
+      <workItem from="1753636361466" duration="983000" />
+      <workItem from="1753790048251" duration="2101000" />
+      <workItem from="1753796638793" duration="1004000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -504,7 +526,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753447601050</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="added the ability to look in a part of the room next to you if there is a door in the maze and removed .htaccess file because it wasn't working.">
+      <option name="closed" value="true" />
+      <created>1753469712892</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1753469712892</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +552,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Altered some text and added Itch.io link" />
     <MESSAGE value="Altered some text and added Itch.io link, also added a thumbnail to the codect video" />
     <MESSAGE value="Added a new segment including an embedded game." />
     <MESSAGE value="Added a very simple play and stop button to the game player." />
@@ -547,18 +576,7 @@
     <MESSAGE value="Updated my maze code and blocked of the maze entrance." />
     <MESSAGE value="fixed the maze so you can move around now, also made it so the falling boards from the door disappear." />
     <MESSAGE value="maybe fixed the site crashing when refreshing" />
-    <option name="LAST_COMMIT_MESSAGE" value="maybe fixed the site crashing when refreshing" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/pages/Maze.tsx</url>
-          <line>122</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="added the ability to look in a part of the room next to you if there is a door in the maze and removed .htaccess file because it wasn't working." />
+    <option name="LAST_COMMIT_MESSAGE" value="added the ability to look in a part of the room next to you if there is a door in the maze and removed .htaccess file because it wasn't working." />
   </component>
 </project>

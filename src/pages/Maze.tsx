@@ -4,6 +4,7 @@ import maze_dictionary from "../dictionary's/maze_dictionary.ts"
 import maze_wall_dictionary from "../dictionary's/maze_wall_dictionary.ts";
 import maze_layout from "../dictionary's/maze_layout.ts";
 import React, {useEffect, useState} from "react";
+import ceiling_darkness from "../assets/maze_assets/no_ceiling_darkness.png";
 import {wall_types} from "../enums/wall_types.ts";
 import {useNavigate, useParams} from "react-router-dom";
 
@@ -21,6 +22,10 @@ const Maze: React.FC = () => {
     const [wallSrc, setWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["front"]);
     const [leftBackWallSrc, setLeftBackWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["side"]);
     const [rightBackWallSrc, setRightBackWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["side"]);
+    const [leftFrontWallSrc, setLeftFrontWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["side"]);
+    const [rightFrontWallSrc, setRightFrontWallSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["side"]);
+    const [leftFrontCeilingSrc, setLeftFrontCeilingSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["ceiling"]);
+    const [rightFrontCeilingSrc, setRightFrontCeilingSrc] = useState(maze_wall_dictionary[wall_types.wall]["normal"]["ceiling"]);
     const [floorSrc, setFloorSrc] = useState(maze_dictionary["floor"]);
     const [ceilingSrc, setCeilingSrc] = useState(maze_dictionary["ceiling"]["normal"]);
 
@@ -110,30 +115,49 @@ const Maze: React.FC = () => {
                 } else {
                     left_wall_direction = Direction.W
                 }
-                setLeftWallSrc(maze_wall_dictionary[currentRoom.getWall(left_wall_direction)]["normal"]["side"]);
-                if (currentRoom.getWall(left_wall_direction) === wall_types.gate ||
-                    currentRoom.getWall(left_wall_direction) === wall_types.hall){
+                const leftWall = currentRoom.getWall(left_wall_direction)
+                setLeftWallSrc(maze_wall_dictionary[leftWall]["normal"]["side"]);
+                if (leftWall === wall_types.gate || leftWall === wall_types.hall){
                     const next_room = get_next_room(left_wall_direction,x,y)
                     setLeftBackWallSrc(maze_wall_dictionary[next_room.getWall(facing)]["normal"]["front"])
                 }
                 else{
                     setLeftBackWallSrc(maze_dictionary["ceiling"][""])
                 }
-                    setWallSrc(maze_wall_dictionary[currentRoom.getWall(facing)]["normal"]["front"]);
+
                 let right_wall_direction:Direction
                 if (facing != 3) {
                     right_wall_direction = facing+1
                 } else {
                     right_wall_direction = Direction.N
                 }
-                setRightWallSrc(maze_wall_dictionary[currentRoom.getWall(right_wall_direction)]["normal"]["side"]);
-                if (currentRoom.getWall(right_wall_direction) === wall_types.gate ||
-                    currentRoom.getWall(right_wall_direction) === wall_types.hall){
+                const right_wall = currentRoom.getWall(right_wall_direction)
+                setRightWallSrc(maze_wall_dictionary[right_wall]["normal"]["side"]);
+                if (right_wall === wall_types.gate || right_wall === wall_types.hall){
                     const next_room = get_next_room(right_wall_direction,x,y)
                     setRightBackWallSrc(maze_wall_dictionary[next_room.getWall(facing)]["normal"]["front"])
                 }
                 else{
                     setRightBackWallSrc(maze_dictionary["ceiling"][""])
+                }
+                const wall = currentRoom.getWall(facing)
+                setWallSrc(maze_wall_dictionary[wall]["normal"]["front"]);
+                if(wall === wall_types.gate || wall === wall_types.hall){
+                    const next_room = get_next_room(facing,x,y)
+                    setLeftFrontWallSrc(maze_wall_dictionary[next_room.getWall(left_wall_direction)]["normal"]["side"])
+                    setRightFrontWallSrc(maze_wall_dictionary[next_room.getWall(right_wall_direction)]["normal"]["side"])
+                    if(!next_room.Ceiling || !currentRoom.Ceiling){
+                        setLeftFrontCeilingSrc(maze_wall_dictionary[next_room.getWall(right_wall_direction)]["normal"]["ceiling"])
+                        setRightFrontCeilingSrc(maze_wall_dictionary[next_room.getWall(left_wall_direction)]["normal"]["ceiling"])
+                    }
+                    else if(leftFrontCeilingSrc !== maze_dictionary["ceiling"][""]){
+                        setLeftFrontCeilingSrc(maze_dictionary["ceiling"][""])
+                        setRightFrontCeilingSrc(maze_dictionary["ceiling"][""])
+                    }
+                }
+                else if(leftFrontWallSrc !== maze_dictionary["ceiling"][""]){
+                    setRightFrontWallSrc(maze_dictionary["ceiling"][""])
+                    setLeftFrontWallSrc(maze_dictionary["ceiling"][""])
                 }
                 setFloorSrc(maze_dictionary["floor"])
                 if(currentRoom.Ceiling){
@@ -210,12 +234,19 @@ const Maze: React.FC = () => {
                          alt="left_wall not found"/>
                     <img id="left_back_wall" className="left_back_wall" src={leftBackWallSrc}
                          alt="left_wall not found"/>
+                    <img id="left_wall_front" className="left_wall_front" src={leftFrontWallSrc}
+                         alt="left_wall_front not found"/>
                     <img id="right_wall" className="right_wall" src={rightWallSrc}
                          alt="right_wall not found"/>
                     <img id="right_back_wall" className="right_back_wall" src={rightBackWallSrc}
                          alt="right_wall not found"/>
+                    <img id="right_wall_front" className="right_wall_front" src={rightFrontWallSrc}
+                         alt="right_wall_front not found"/>
                     <img id="wall" className="wall" src={wallSrc} alt="wall not found"/>
                     <img id="ceiling" className="ceiling" src={ceilingSrc} alt="ceiling not found"/>
+                    <img id="ceiling_darkness" className="front_ceiling" src={ceiling_darkness} alt="ceiling darkness not found"/>
+                    <img id="front_ceiling_left" className="front_ceiling_left" src={rightFrontCeilingSrc}  alt="front_ceiling not found"/>
+                    <img id="front_ceiling_right" className="front_ceiling_right" src={leftFrontCeilingSrc} alt="front_ceiling not found"/>
                     <button className="left_turn" onClick={() => turn(true)}/>
                     <button className="forward" onClick={move}/>
                     <button className="right_turn" onClick={() => turn(false)}/>

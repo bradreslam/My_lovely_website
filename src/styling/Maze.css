@@ -89,6 +89,21 @@
     transform: translateX(-46%);
 }
 
+.right_wall_front {
+    height: 100%;
+    z-index: 2;
+    width: 100%;
+    position: absolute;
+    transform: scale(50%) scaleX(-1) translateY(-6%) translateX(1%);
+}
+
+.left_wall_front {
+    height: 100%;
+    z-index: 2;
+    width: 100%;
+    position: absolute;
+    transform: scale(50%) translateY(-6%) translateX(1%);
+}
 .wall {
     top: 50%;
     left: 50%;
@@ -103,4 +118,28 @@
     top: 0;
     z-index: 5;
     left: 0;
+}
+
+.front_ceiling {
+    height: 100%;
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+    transform: scale(50%) translateY(-110%);
+}
+
+.front_ceiling_left {
+    height: 100%;
+    z-index: 0;
+    width: 100%;
+    position: absolute;
+    transform: scale(50%) translateY(-106%) translateX(1%);
+}
+
+.front_ceiling_right {
+    height: 100%;
+    z-index: 0;
+    width: 100%;
+    position: absolute;
+    transform: scale(50%) scaleX(-1) translateY(-106%) translateX(1%);
 }
