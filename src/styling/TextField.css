@@ -14,7 +14,7 @@
     min-height: 100%;
     padding: 26px;
     position: relative;
-    background-image: url("../assets/text_space_left_side.png");
+    background-image: url("../assets/text_space_side.png");
 }
 
 .text_field_right {
@@ -23,7 +23,8 @@
     min-height: 100%;
     padding: 26px;
     position: relative;
-    background-image: url("../assets/text_space_right_side.png");
+    background-image: url("../assets/text_space_side.png");
+    transform: scaleX(-1);
 }
 
 .text_field {
@@ -50,7 +51,7 @@
     top: 0;
     left: 0;
     position: absolute;
-    background-image: url("../assets/text_space_left_corner.png");
+    background-image: url("../assets/text_space_corner.png");
 }
 
 .text_field_right_corner {
@@ -59,7 +60,8 @@
     top: 0;
     right: 0;
     position: absolute;
-    background-image: url("../assets/text_space_right_corner.png");
+    background-image: url("../assets/text_space_corner.png");
+    transform: scaleX(-1);
 }
 
 @media only screen and (max-width: 600px) {

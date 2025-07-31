@@ -4,25 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added the ability to look in a part of the room next to you if there is a door in the maze and removed .htaccess file because it wasn't working.">
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/no_ceiling.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/no_ceiling_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/no_ceiling_darkness.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/no_ceiling_gate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/no_ceiling_gate_dark.png" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added walls to the left and right in the second room the player can see">
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_darkness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_gate_ceiling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_gate_ceiling_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_torch_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_torch_off_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_torch_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_wall_ceiling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_wall_ceiling_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/ceiling_side_darkness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_ceiling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_ceiling_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_torch_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_torch_off_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_torch_on.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_gate.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_gate.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_dark.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_light.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_hall.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_dark.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_light.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_wall.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_wall.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_dark.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_light.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/floor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/floor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/text_space_left_corner.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/text_space_corner.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/text_space_left_side.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/text_space_side.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/text_space_right_corner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/text_space_right_side.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_wall_dictionary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_wall_dictionary.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Footer.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styling/Maze.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Maze.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/TextField.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/TextField.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +101,7 @@
       <recent name="C:\Users\bradr\source\repos\My_lovely_website\src\styling" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.npm dev">
+  <component name="RunManager" selected="JavaScript Debug.JSDebug">
     <configuration name="JSDebug" type="JavascriptDebugType" uri="http://localhost:5173/" useFirstLineBreakpoints="true">
       <method v="2" />
     </configuration>
@@ -229,6 +239,13 @@
       <workItem from="1753636361466" duration="983000" />
       <workItem from="1753790048251" duration="2101000" />
       <workItem from="1753796638793" duration="1004000" />
+      <workItem from="1753812008380" duration="575000" />
+      <workItem from="1753862550602" duration="1088000" />
+      <workItem from="1753873739127" duration="1647000" />
+      <workItem from="1753948595544" duration="2294000" />
+      <workItem from="1753955210219" duration="545000" />
+      <workItem from="1753959900242" duration="3189000" />
+      <workItem from="1753969917260" duration="941000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -534,7 +551,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753469712892</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="added walls to the left and right in the second room the player can see">
+      <option name="closed" value="true" />
+      <created>1753812049778</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1753812049778</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,7 +577,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Altered some text and added Itch.io link, also added a thumbnail to the codect video" />
     <MESSAGE value="Added a new segment including an embedded game." />
     <MESSAGE value="Added a very simple play and stop button to the game player." />
     <MESSAGE value="Improved the styling of the play button and added a fullscreen button." />
@@ -577,6 +601,7 @@
     <MESSAGE value="fixed the maze so you can move around now, also made it so the falling boards from the door disappear." />
     <MESSAGE value="maybe fixed the site crashing when refreshing" />
     <MESSAGE value="added the ability to look in a part of the room next to you if there is a door in the maze and removed .htaccess file because it wasn't working." />
-    <option name="LAST_COMMIT_MESSAGE" value="added the ability to look in a part of the room next to you if there is a door in the maze and removed .htaccess file because it wasn't working." />
+    <MESSAGE value="added walls to the left and right in the second room the player can see" />
+    <option name="LAST_COMMIT_MESSAGE" value="added walls to the left and right in the second room the player can see" />
   </component>
 </project>

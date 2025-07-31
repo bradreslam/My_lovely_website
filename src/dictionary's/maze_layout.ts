@@ -35,7 +35,7 @@ const maze_layout:{[key:number]:room} = {
     27: new room(wall_types.gate,wall_types.gate,wall_types.gate,wall_types.wall,true,null,null, 27),
     28: new room(wall_types.gate,wall_types.wall,wall_types.gate,wall_types.gate,true,null,new torch(true, Direction.E), 28),
     29: new room(wall_types.gate,wall_types.gate,wall_types.wall,wall_types.wall,true,null,new torch(true, Direction.W), 29),
-    30: new room(wall_types.wall,wall_types.hall,wall_types.gate,wall_types.gate,true,null,null, 30),
+    30: new room(wall_types.wall,wall_types.hall,wall_types.gate,wall_types.gate,false,null,null, 30),
     31: new room(wall_types.gate,wall_types.hall,wall_types.hall,wall_types.hall,false,new Interactable(Direction.N,Interactable_types.nest),null, 31),
     32: new room(wall_types.wall,wall_types.hall,wall_types.wall,wall_types.hall,false,null,new torch(true, Direction.S), 32),
     33: new room(wall_types.gate,wall_types.wall,wall_types.hall,wall_types.hall,false,null,null, 33),

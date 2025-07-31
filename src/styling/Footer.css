@@ -42,13 +42,10 @@
 }
 
 .maze_door_block {
-    background-image: url("../assets/maze_entrance_blocked.png");
     bottom: 0;
     left: 0;
     position: absolute;
     z-index: 12;
-    padding-bottom: 65px;
-    padding-right: 65px;
 }
 
 .footer button {
