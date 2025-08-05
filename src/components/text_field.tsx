@@ -17,7 +17,6 @@ const TextField: React.FC = () => {
                     <img className="profile" alt="portrait"/>
                     <p>Hello my name is Bram. I am a software development student from
                         <a href="https://www.fontys.nl/Studeren/Opleidingen/HBO-ICT.htm" target="_blank"> Fontys</a> in the Netherlands.
-                       My goal is to become an solo indie game developer.
                     </p>
                     <p>
                         <br/><b>Experience:</b><br/>&#9679; Writing in C#, Python, Html, Typescript, and css<br/>

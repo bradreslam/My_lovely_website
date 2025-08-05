@@ -9,6 +9,7 @@ import torch_off_dark from "../assets/maze_assets/back_torch_off_dark.png"
 import side_torch from "../assets/maze_assets/side_torch_on.png"
 import side_torch_off from "../assets/maze_assets/side_torch_off.png"
 import side_torch_off_dark from "../assets/maze_assets/side_torch_off_dark.png"
+import {torch_state} from "../enums/torch_state.ts"
 
 const maze_dictionary = {
     "ceiling":{
@@ -19,8 +20,8 @@ const maze_dictionary = {
     },
     "floor": floor,
     "torch":{
-        true:{"side": side_torch, "front": torch},
-        false:{"side": side_torch_off, "front": torch_off},
+        [torch_state.on]:{"side": side_torch, "front": torch},
+        [torch_state.off]:{"side": side_torch_off, "front": torch_off},
         "dark":{"side": side_torch_off_dark, "front": torch_off_dark},
     }
 }
