@@ -1,12 +1,15 @@
 import {Direction} from "../enums/direction.ts"
 import {Interactable_types} from "../enums/interactable_types.ts"
+import {item} from "../enums/items.ts"
 
 export class Interactable {
     orientation:Direction;
-    interacteble:Interactable_types
+    interactable:Interactable_types;
+    item:item | null;
 
-    constructor(orientation:Direction, interactable:Interactable_types) {
+    constructor(orientation:Direction, interactable:Interactable_types, item:item | null = null) {
         this.orientation = orientation;
-        this.interacteble = interactable;
+        this.interactable = interactable;
+        this.item = item;
     }
 }

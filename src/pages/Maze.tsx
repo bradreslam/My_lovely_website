@@ -3,7 +3,7 @@ import {Direction} from "../enums/direction.ts"
 import maze_dictionary from "../dictionary's/maze_dictionary.ts"
 import maze_wall_dictionary from "../dictionary's/maze_wall_dictionary.ts";
 import maze_layout from "../dictionary's/maze_layout.ts";
-import React, {useEffect, useState, useCallback} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import ceiling_darkness from "../assets/maze_assets/no_ceiling_darkness.png";
 import ceiling_side_darkness from "../assets/maze_assets/ceiling_side_darkness.png";
 import back_darkness from "../assets/maze_assets/back_darkness.png"
@@ -12,10 +12,16 @@ import {useNavigate, useParams} from "react-router-dom";
 import {room} from "../classes/maze_room.ts"
 import empty from "../assets/maze_assets/empty.png"
 import {torch_state} from "../enums/torch_state.ts";
+import {Interactable_types} from "../enums/interactable_types.ts"
+import {Lightlevel} from "../enums/lightlevel.ts"
+import {item} from "../enums/items.ts"
+import maze_item_dictionary from "../dictionary's/maze_item_dictionary.ts"
+import hitbox_dictionary from "../dictionary's/maze_interactable_hitbox.ts"
 
 const Maze: React.FC = () => {
 
     const { X, Y } = useParams<{ X: string; Y: string }>();
+    const [inventory, setInventory] = useState<item[]>([]);
     const navigate = useNavigate();
     const [currentRoom, setCurrentRoom] = useState(maze_layout[8])
     const [facing, setFacing] = useState(Direction.N)
@@ -29,6 +35,7 @@ const Maze: React.FC = () => {
     const [leftBackWallSrc, setLeftBackWallSrc] = useState(empty);
     const [rightBackWallSrc, setRightBackWallSrc] = useState(empty);
     const [leftFrontWallSrc, setLeftFrontWallSrc] = useState(empty);
+    const [inventoryOpen, setInventoryOpen] = useState(true);
     const [leftFrontSideWallSrc, setLeftFrontSideWallSrc] = useState(empty);
     const [rightFrontSideWallSrc, setRightFrontSideWallSrc] = useState(empty);
     const [rightFrontWallSrc, setRightFrontWallSrc] = useState(empty);
@@ -43,6 +50,34 @@ const Maze: React.FC = () => {
     const [torchLeft, setTorchDirection] = useState(true)
     const [frontTorchSrc, setFrontTorch] = useState(empty);
     const [frontTorchLeft, setFrontTorchDirection] = useState(true)
+    const [frontItemLeft, setFrontItemLeft] = useState(true)
+    const [frontItemStair, setFrontItemStair] = useState(false);
+    const [itemLeft, setItemLeft] = useState(true)
+    const [itemSrc, setItemSrc] = useState(empty);
+    const [frontItemSrc, setFrontItemSrc] = useState(empty);
+    const [currentRoomLightLevel, setCurrentRoomLightLevel] = useState(Lightlevel.normal);
+    const [heldItem, setHeldItem] = useState<item | null>(null);
+    const [itemHitbox, setItemHitbox] = useState<React.CSSProperties>(
+        hitbox_dictionary[Interactable_types.chest]["front"]);
+
+    window.onbeforeunload = function() {
+        localStorage.clear();
+    }
+
+    const inventory_add_item = (item:item)=> {
+        setInventory([...inventory,item])
+        localStorage.setItem("items", JSON.stringify(inventory))
+    }
+
+    const inventory_remove_item = (index:number)=> {
+        setInventory(inventory.splice(index))
+        localStorage.setItem("items", JSON.stringify(inventory))
+    }
+
+    const inventory_hold_item = (item:item)=> {
+        document.body.style.cursor = `url(${maze_item_dictionary[item]}), auto`;
+        setHeldItem(item)
+    }
 
     const move = (forwards:boolean) => {
         let direction = facing
@@ -160,43 +195,198 @@ const Maze: React.FC = () => {
         }
     }
 
+    const set_current_room_item = useCallback(() => {
+        const exit_maze = (location:string) => {
+            if (location === "home"){
+                navigate('/')
+            }
+            else if (location === "left_tower"){
+                navigate('/left_tower')
+            }
+            else{
+                navigate('/right_tower')
+            }
+        }
+        
+        if(currentRoom.Interactable !== null){
+            const item = currentRoom.Interactable
+            setItemLeft(true)
+            if(item.interactable === Interactable_types.stair){
+                if(currentRoomLightLevel != Lightlevel.dark){
+                    if(currentRoom.index_number === 1){
+                        exit_maze("home")
+                    }
+                    else if(currentRoom.index_number === 7){
+                        exit_maze("right_tower")
+                    }
+                    else{
+                        exit_maze("left_tower")
+                    }
+                }
+                else{
+                    if(currentRoom.index_number === 1){
+                        navigate(`/maze/1/2`)
+                    }
+                    else if(currentRoom.index_number === 7){
+                        navigate(`/maze/7/2`)
+                    }
+                    else{
+                        navigate(`/maze/2/7`)
+                    }
+                }
+            }
+            else{
+                if(item.interactable == Interactable_types.chest
+                    && localStorage.getItem("chest"+currentRoom.index_number) == "open"){
+                    if(item.orientation === facing){
+                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["front_open"])
+                    }
+                    else if(facing != Direction.N && facing != Direction.W){
+                        if(item.orientation === facing-1){
+                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
+                        }
+                        else if(item.orientation === facing+1){
+                            setItemLeft(false)
+                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
+                        }
+                        else{
+                            setItemSrc(empty)
+                        }
+                    }
+                    else if(facing === Direction.N){
+                        if(item.orientation === Direction.E){
+                            setItemLeft(false)
+                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
+                        }
+                        else if(item.orientation === Direction.W){
+                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
+                        }
+                        else{
+                            setItemSrc(empty)
+                        }
+                    }
+                    else{
+                        if(item.orientation === Direction.S){
+                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
+                        }
+                        else if(item.orientation === Direction.N){
+                            setItemLeft(false)
+                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
+                        }
+                        else{
+                            setItemSrc(empty)
+                        }
+
+                    }
+                }
+                else if(item.orientation === facing){
+                    setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["front"])
+                    setItemHitbox(hitbox_dictionary[item.interactable]["front"])
+                }
+                else if(facing != Direction.N && facing != Direction.W){
+                    if(item.orientation === facing-1){
+                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
+                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
+                    }
+                    else if(item.orientation === facing+1){
+                        setItemLeft(false)
+                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
+                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
+                    }
+                    else{
+                        setItemSrc(empty)
+                        //setItemHitbox("")
+                    }
+                }
+                else if(facing === Direction.N){
+                    if(item.orientation === Direction.E){
+                        setItemLeft(false)
+                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
+                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
+                    }
+                    else if(item.orientation === Direction.W){
+                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
+                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
+                    }
+                    else{
+                        setItemSrc(empty)
+                        //setItemHitbox("")
+                    }
+                }
+                else{
+                    if(item.orientation === Direction.S){
+                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
+                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
+                    }
+                    else if(item.orientation === Direction.N){
+                        setItemLeft(false)
+                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
+                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
+                    }
+                    else{
+                        setItemSrc(empty)
+                        //setItemHitbox("")
+                    }
+                }
+            }
+        }
+        else{
+            setItemSrc(empty)
+            //setItemHitbox("")
+        }
+    },[currentRoom.Interactable, currentRoom.index_number, currentRoomLightLevel, facing, navigate]);
+
+    const item_interact = () => {
+        if(currentRoomLightLevel != Lightlevel.dark){
+            if(currentRoom.Interactable?.interactable === Interactable_types.chest
+                && localStorage.getItem("chest"+currentRoom.index_number) !== "open"){
+                localStorage.setItem("chest"+currentRoom.index_number, "open");
+                set_current_room_item()
+                if(currentRoom.Interactable.item != null){
+                    inventory_add_item(currentRoom.Interactable.item)
+                }
+            }
+        }
+    }
+
     const updateRoom = useCallback(() => {
         const set_current_room_torch = () =>{
             if(currentRoom.torch !== null){
+                const torch = currentRoom.torch
                 setTorchDirection(true)
-                if(currentRoom.torch.orientation == facing)
-                    setTorchSrc(maze_dictionary["torch"][currentRoom.torch.lit]["front"])
+                if(torch.orientation == facing)
+                    setTorchSrc(maze_dictionary["torch"][torch.lit]["front"])
                 else if(facing != Direction.N && facing != Direction.W){
-                    if(currentRoom.torch.orientation === facing-1){
-                        setTorchSrc(maze_dictionary["torch"][currentRoom.torch.lit]["side"])
+                    if(torch.orientation === facing-1){
+                        setTorchSrc(maze_dictionary["torch"][torch.lit]["side"])
                     }
-                    else if(currentRoom.torch.orientation === facing+1){
+                    else if(torch.orientation === facing+1){
                         setTorchDirection(false)
-                        setTorchSrc(maze_dictionary["torch"][currentRoom.torch.lit]["side"])
+                        setTorchSrc(maze_dictionary["torch"][torch.lit]["side"])
                     }
                     else{
                         setTorchSrc(empty)
                     }
                 }
                 else if(facing === Direction.N){
-                    if(currentRoom.torch.orientation === Direction.E){
+                    if(torch.orientation === Direction.E){
                         setTorchDirection(false)
-                        setTorchSrc(maze_dictionary["torch"][currentRoom.torch.lit]["side"]) //right
+                        setTorchSrc(maze_dictionary["torch"][torch.lit]["side"]) //right
                     }
-                    else if(currentRoom.torch.orientation === Direction.W){
-                        setTorchSrc(maze_dictionary["torch"][currentRoom.torch.lit]["side"])
+                    else if(torch.orientation === Direction.W){
+                        setTorchSrc(maze_dictionary["torch"][torch.lit]["side"])
                     }
                     else{
                         setTorchSrc(empty)
                     }
                 }
                 else{
-                    if(currentRoom.torch.orientation === Direction.S){
-                        setTorchSrc(maze_dictionary["torch"][currentRoom.torch.lit]["side"])
+                    if(torch.orientation === Direction.S){
+                        setTorchSrc(maze_dictionary["torch"][torch.lit]["side"])
                     }
-                    else if(currentRoom.torch.orientation === Direction.N){
+                    else if(torch.orientation === Direction.N){
                         setTorchDirection(false)
-                        setTorchSrc(maze_dictionary["torch"][currentRoom.torch.lit]["side"])
+                        setTorchSrc(maze_dictionary["torch"][torch.lit]["side"])
                     }
                     else{
                         setTorchSrc(empty)
@@ -208,30 +398,31 @@ const Maze: React.FC = () => {
             }
         }
 
-        const set_next_room_torch = (next_room:room, nextRoomLightLevel:string) =>{
+        const set_next_room_torch = (next_room:room, nextRoomLightLevel:Lightlevel) =>{
             if(next_room.torch != null){
+                const torch = next_room.torch
                 setFrontTorchDirection(true)
-                if(nextRoomLightLevel != "dark"){
-                    if(next_room.torch.orientation != facing){
-                        if(next_room.torch.orientation === facing-1 ||
-                            facing === Direction.N && next_room.torch.orientation === Direction.W){
-                            setFrontTorch(maze_dictionary["torch"][next_room.torch.lit]["side"])
+                if(nextRoomLightLevel != Lightlevel.dark){
+                    if(torch.orientation != facing){
+                        if(torch.orientation === facing-1 ||
+                            facing === Direction.N && torch.orientation === Direction.W){
+                            setFrontTorch(maze_dictionary["torch"][torch.lit]["side"])
                         }
                         else{
                             setFrontTorchDirection(false)
-                            setFrontTorch(maze_dictionary["torch"][next_room.torch.lit]["side"])
+                            setFrontTorch(maze_dictionary["torch"][torch.lit]["side"])
                         }
                     }
                     else{
-                        setFrontTorch(maze_dictionary["torch"][next_room.torch.lit]["front"])
+                        setFrontTorch(maze_dictionary["torch"][torch.lit]["front"])
                     }
                 }
                 else{
-                    if(next_room.torch.orientation != facing){
-                        setFrontTorch(maze_dictionary["torch"]["dark"]["side"])
+                    if(torch.orientation != facing){
+                        setFrontTorch(maze_dictionary["torch"][Lightlevel.dark]["side"])
                     }
                     else{
-                        setFrontTorch(maze_dictionary["torch"]["dark"]["front"])
+                        setFrontTorch(maze_dictionary["torch"][Lightlevel.dark]["front"])
                     }
                 }
             }
@@ -240,42 +431,74 @@ const Maze: React.FC = () => {
             }
         }
 
+        const set_next_room_item = (next_room:room, nextRoomLightLevel:Lightlevel) =>{
+            if(next_room.Interactable != null){
+                const item = next_room.Interactable
+                setFrontItemLeft(true)
+                if(item.interactable === Interactable_types.stair){
+                    setFrontItemStair(true)
+                    setFrontItemSrc(maze_dictionary[Interactable_types.stair][nextRoomLightLevel])
+                }
+                else{
+                    setFrontItemStair(false)
+                    if(item.orientation != facing){
+                        if(item.orientation === facing-1 ||
+                            facing === Direction.N && item.orientation === Direction.W){
+                            setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side"])
+                        }
+                        else{
+                            setFrontItemLeft(false)
+                            setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side"])
+                        }
+                    }
+                    else{
+                        setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["front"])
+                    }
+                }
+            }
+            else{
+                setFrontItemSrc(empty)
+            }
+        }
+
         const get_light_level = (Room: room) => {
             if(Room.torch?.lit === torch_state.on){
-                return "light"
+                return Lightlevel.light
             }
             else{
                 const N_wall= Room.getWall(Direction.N)
                 if(N_wall === wall_types.gate || N_wall === wall_types.hall){
                     const N_room = get_next_room(Direction.N, Room.index_number)
                     if(N_room.torch?.lit === torch_state.on){
-                        return "normal"
+                        return Lightlevel.normal
                     }
                 }
                 const E_wall= Room.getWall(Direction.E)
                 if(E_wall === wall_types.gate || E_wall === wall_types.hall){
                     const E_room = get_next_room(Direction.E, Room.index_number)
                     if(E_room.torch?.lit === torch_state.on){
-                        return "normal"
+                        return Lightlevel.normal
                     }
                 }
                 const S_wall= Room.getWall(Direction.S)
                 if(S_wall === wall_types.gate || S_wall === wall_types.hall){
                     const S_room = get_next_room(Direction.S, Room.index_number)
                     if(S_room.torch?.lit === torch_state.on){
-                        return "normal"
+                        return Lightlevel.normal
                     }
                 }
                 const W_wall= Room.getWall(Direction.W)
                 if(W_wall === wall_types.gate || W_wall === wall_types.hall){
                     const W_room = get_next_room(Direction.W, Room.index_number)
                     if(W_room.torch?.lit === torch_state.on){
-                        return "normal"
+                        return Lightlevel.normal
                     }
                 }
-                return "dark"
+                return Lightlevel.dark
             }
         }
+
+        setCurrentRoomLightLevel(get_light_level(currentRoom))
 
         if (currentRoom != null) {
             if (!X || !Y) {
@@ -290,7 +513,6 @@ const Maze: React.FC = () => {
             }
             const current_location:number = x + ((y-1) * 7)
             if (currentRoom.index_number === current_location) {
-                const lightLevelCurrentRoom = get_light_level(currentRoom)
                 let left_wall_direction:Direction
                 if (facing != 0) {
                     left_wall_direction = facing-1
@@ -298,7 +520,7 @@ const Maze: React.FC = () => {
                     left_wall_direction = Direction.W
                 }
                 const leftWall = currentRoom.getWall(left_wall_direction)
-                setLeftWallSrc(maze_wall_dictionary[leftWall][lightLevelCurrentRoom]["side"]);
+                setLeftWallSrc(maze_wall_dictionary[leftWall][currentRoomLightLevel]["side"]);
                 if (leftWall === wall_types.gate || leftWall === wall_types.hall){
                     const next_room = get_next_room(left_wall_direction,currentRoom.index_number)
                     const nextRoomLightLevel = get_light_level(next_room)
@@ -315,7 +537,7 @@ const Maze: React.FC = () => {
                     right_wall_direction = Direction.N
                 }
                 const right_wall = currentRoom.getWall(right_wall_direction)
-                setRightWallSrc(maze_wall_dictionary[right_wall][lightLevelCurrentRoom]["side"]);
+                setRightWallSrc(maze_wall_dictionary[right_wall][currentRoomLightLevel]["side"]);
                 if (right_wall === wall_types.gate || right_wall === wall_types.hall){
                     const next_room = get_next_room(right_wall_direction,currentRoom.index_number)
                     const nextRoomLightLevel = get_light_level(next_room)
@@ -326,9 +548,10 @@ const Maze: React.FC = () => {
                 }
 
                 set_current_room_torch()
+                set_current_room_item()
 
                 const wall = currentRoom.getWall(facing)
-                setWallSrc(maze_wall_dictionary[wall][lightLevelCurrentRoom]["front"]);
+                setWallSrc(maze_wall_dictionary[wall][currentRoomLightLevel]["front"]);
                 if(wall === wall_types.gate || wall === wall_types.hall){
                     const next_room = get_next_room(facing,currentRoom.index_number)
                     const nextRoomLightLevel = get_light_level(next_room)
@@ -336,7 +559,7 @@ const Maze: React.FC = () => {
                     if(wall === wall_types.hall){
                         const leftFrontWall = next_room.getWall(left_wall_direction)
                         setLeftFrontWallSrc(maze_wall_dictionary[leftFrontWall][nextRoomLightLevel]["side"])
-                        if(leftFrontWall === wall_types.hall){
+                        if(leftFrontWall === wall_types.hall || leftFrontWall === wall_types.gate){
                             const leftSideRoom = get_next_room(left_wall_direction,next_room.index_number)
                             const leftSideRoomLightLevel = get_light_level(leftSideRoom)
                             setLeftFrontSideWallSrc(maze_wall_dictionary[leftSideRoom.getWall(facing)][leftSideRoomLightLevel]["front"])
@@ -362,6 +585,7 @@ const Maze: React.FC = () => {
                         }
                     }
                     set_next_room_torch(next_room,nextRoomLightLevel)
+                    set_next_room_item(next_room,nextRoomLightLevel)
                 }
                 else if(wallFrontSrc !== empty) {
                     setWallFrontSrc(empty)
@@ -378,7 +602,7 @@ const Maze: React.FC = () => {
                 }
                 setFloorSrc(maze_dictionary["floor"])
                 if(currentRoom.Ceiling){
-                    setCeilingSrc(maze_dictionary["ceiling"][lightLevelCurrentRoom])
+                    setCeilingSrc(maze_dictionary["ceiling"][currentRoomLightLevel])
                 }
                 else{
                     setCeilingSrc(empty)
@@ -388,7 +612,7 @@ const Maze: React.FC = () => {
                 setCurrentRoom(maze_layout[current_location])
             }
         }
-    }, [X, Y, currentRoom, facing, leftFrontCeilingSrc, rightFrontCeilingSrc, wallFrontSrc])
+    }, [X, Y, currentRoom, currentRoomLightLevel, facing, leftFrontCeilingSrc, rightFrontCeilingSrc, set_current_room_item, wallFrontSrc])
 
     //const updateSnake = () => {
     //    let snake_location:number | null = localStorage.getItem("Snake")
@@ -424,7 +648,11 @@ const Maze: React.FC = () => {
 
     useEffect(() => {
         updateRoom()
-    }, );
+        //const items = JSON.parse(localStorage.getItem('items') as string);
+        //if (items) {
+            //setInventory(items);
+        //}
+    }, [updateRoom], );
 
     useEffect(() => {
         updateRoom()
@@ -451,11 +679,13 @@ const Maze: React.FC = () => {
                     <img id="wall_front" className="wall_front" src={wallFrontSrc} alt="wall not found"/>
                     <img id="left_side_wall_front" className="left_side_wall_front" src={leftFrontSideWallSrc}
                          alt="left_side_wall not found"/>
-                    <img id ="left_side_wall_front_ceiling" className="left_side_wall_front_ceiling" src={leftFrontSideWallCeilingSrc}
+                    <img id="left_side_wall_front_ceiling" className="left_side_wall_front_ceiling"
+                         src={leftFrontSideWallCeilingSrc}
                          alt="wall ceiling not found"/>
                     <img id="right_side_wall_front" className="right_side_wall_front" src={rightFrontSideWallSrc}
                          alt="right_side_wall not found"/>
-                    <img id="right_side_wall_front_ceiling" className="right_side_wall_front_ceiling" src={rightFrontSideWallCeilingSrc}
+                    <img id="right_side_wall_front_ceiling" className="right_side_wall_front_ceiling"
+                         src={rightFrontSideWallCeilingSrc}
                          alt="wall ceiling not found"/>
                     <img id="side_wall_front_ceiling_darkness" className="side_darkness" src={ceiling_side_darkness}
                          alt="ceiling darkness not found"/>
@@ -468,17 +698,51 @@ const Maze: React.FC = () => {
                          alt="front_ceiling not found"/>
                     <img id="front_ceiling_right" className="front_ceiling_right" src={leftFrontCeilingSrc}
                          alt="front_ceiling not found"/>
-                    <img id="back_darkness" className="back_darkness" src={back_darkness} alt="back_darkness not found"/>
+                    <img id="back_darkness" className="back_darkness" src={back_darkness}
+                         alt="back_darkness not found"/>
                     <button className="left_turn" onClick={() => turn(true)}/>
                     <button className="forward" onClick={() => move(true)}/>
                     <button className="backward" onClick={() => move(false)}/>
                     <button className="right_turn" onClick={() => turn(false)}/>
                     <img id="torch" className="torch" src={torchSrc} alt="torch not found" style={{
-                        transform: torchLeft? 'none': 'scaleX(-1)'
+                        transform: torchLeft ? 'none' : 'scaleX(-1)'
                     }}/>
-                    <img id="front_torch" className="front_torch" src={frontTorchSrc} alt="front torch not found" style={{
-                        transform: `translate(-50%, -50%) scale(45%) translateY(-6%) translateX(1%) ${frontTorchLeft? '': 'scaleX(-1)'}`
+                    <img id="front_torch" className="front_torch" src={frontTorchSrc} alt="front torch not found"
+                         style={{
+                             transform: `translate(-50%, -50%) scale(45%) translateY(-6%) translateX(1%) ${frontTorchLeft ? '' : 'scaleX(-1)'}`
+                         }}/>
+                    <img id="item" className="item" src={itemSrc} alt="item not found" style={{
+                        transform: `${itemLeft ? '' : 'scaleX(-1)'}`
                     }}/>
+                    <button id="item_trigger" disabled={itemSrc === empty} className="item_trigger" style={{...itemHitbox,
+                        right: !itemLeft? `${itemHitbox.left}` : "",
+                        left: itemLeft ? `${itemHitbox.left}` : "",
+                        zIndex: itemHitbox != null? "51": "0",
+                    }} onClick={item_interact}/>
+                    <img id="front_item" className="front_item" src={frontItemSrc} alt="item not found" style={{
+                        transform: `${frontItemStair ? "" : "translate(-50%, -50%) scale(45%) translateY(-6%) translateX(1%)"} ${frontItemLeft ? '' : 'scaleX(-1)'}`
+                    }}/>
+                    <div id="inventory" className="inventory" style={{
+                        transform: inventoryOpen ? "translateX(-85%)" : "none",
+                        transition: 'transform 1s ease',
+                    }}>
+                        <ul className="inventory_list">
+                            {inventory.map((item) => (
+                                <li key={item} className="inventory_slot">
+                                    <button className="inventory_slot_trigger" onClick={() => inventory_hold_item(item)} disabled={heldItem === null}/>
+                                    <img className="inventory_slot_icon" src={maze_item_dictionary[item]} alt="item"/></li>
+                            ))}
+                        </ul>
+                        <img id="inventory_background" className="inventory_background" alt="inventory"
+                             src={maze_dictionary["inventory"]}/>
+                        <button className="inventory_toggle" onClick={() => setInventoryOpen(!inventoryOpen)}>
+                            <img className="inventory_toggle_icon" src={maze_dictionary["inventory_toggle"]}
+                                 alt="toggle" style={{
+                                transform: !inventoryOpen ? "rotate(180deg) translateX(-10%) translateY(4%)" : "none",
+                                transition: 'transform 1s ease'
+                            }}/>
+                        </button>
+                    </div>
                 </div>
             </div>
         </>
