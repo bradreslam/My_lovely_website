@@ -5,6 +5,20 @@
     position: absolute;
 }
 
+.left_turn:focus,
+.left_turn:active,
+.right_turn:focus,
+.right_turn:active,
+.forward:focus,
+.forward:active,
+.backward:focus,
+.backward:active,
+.item_trigger:focus,
+.item_trigger:active {
+    outline: none;
+    box-shadow: none;
+}
+
 .left_turn, .right_turn{
     top: 0;
     bottom: 0;
@@ -54,6 +68,7 @@
     display: grid;
     position: relative;
     overflow: hidden;
+    user-select: none;
 }
 
 .floor, .right_wall, .left_wall, .ceiling, .wall .right_back_wall, .left_back_wall, .side_darkness{
@@ -246,8 +261,6 @@
 }
 
 .front_item {
-    top: 50%;
-    left: 50%;
     height: 100%;
     width: 100%;
     z-index: 4;
@@ -291,6 +304,7 @@
     position: relative;
     width: 90%;
     height: 90%;
+    cursor: pointer;
 }
 
 .inventory_list {
@@ -329,4 +343,13 @@
     padding-left: 13%;
     padding-top: 13%;
     z-index: 84;
+}
+
+.map, .compass {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 80;
 }

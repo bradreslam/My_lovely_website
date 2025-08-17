@@ -1,0 +1,49 @@
+.telescope, .stairs, .lighter{
+    all: unset;
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+}
+
+.telescope:focus,
+.telescope:active,
+.stairs:focus,
+.stairs:active,
+.lighter:active,
+.lighter:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.telescope {
+    bottom: 25%;
+    width: 10%;
+    height: 10%;
+    left: 35%;
+    z-index: 5;
+}
+
+.stairs {
+    width: 30%;
+    height: 20%;
+    right: 0;
+    bottom: 5%;
+    z-index: 4;
+}
+
+.lighter {
+    width: 10%;
+    height: 10%;
+    left: 23%;
+    top: 45.5%;
+    background-image: url("../assets/maze_assets/flint.png");
+    background-repeat: no-repeat;
+}

@@ -1,22 +1,24 @@
-import "../styling/Maze.css"
-import {Direction} from "../enums/direction.ts"
+import "../styling/Maze.css";
+import {Direction} from "../enums/direction.ts";
 import maze_dictionary from "../dictionary's/maze_dictionary.ts"
 import maze_wall_dictionary from "../dictionary's/maze_wall_dictionary.ts";
 import maze_layout from "../dictionary's/maze_layout.ts";
 import React, {useCallback, useEffect, useState} from "react";
 import ceiling_darkness from "../assets/maze_assets/no_ceiling_darkness.png";
 import ceiling_side_darkness from "../assets/maze_assets/ceiling_side_darkness.png";
-import back_darkness from "../assets/maze_assets/back_darkness.png"
+import back_darkness from "../assets/maze_assets/back_darkness.png";
+import backpack_map from "../assets/maze_assets/backpack_map.png";
+import backpack_compass from "../assets/maze_assets/backpack_compass.png";
 import {wall_types} from "../enums/wall_types.ts";
 import {useNavigate, useParams} from "react-router-dom";
-import {room} from "../classes/maze_room.ts"
-import empty from "../assets/maze_assets/empty.png"
+import {room} from "../classes/maze_room.ts";
+import empty from "../assets/maze_assets/empty.png";
 import {torch_state} from "../enums/torch_state.ts";
-import {Interactable_types} from "../enums/interactable_types.ts"
-import {Lightlevel} from "../enums/lightlevel.ts"
-import {item} from "../enums/items.ts"
-import maze_item_dictionary from "../dictionary's/maze_item_dictionary.ts"
-import hitbox_dictionary from "../dictionary's/maze_interactable_hitbox.ts"
+import {Interactable_types} from "../enums/interactable_types.ts";
+import {Lightlevel} from "../enums/lightlevel.ts";
+import {item} from "../enums/items.ts";
+import maze_item_dictionary from "../dictionary's/maze_item_dictionary.ts";
+import hitbox_dictionary from "../dictionary's/maze_interactable_hitbox.ts";
 
 const Maze: React.FC = () => {
 
@@ -60,18 +62,25 @@ const Maze: React.FC = () => {
     const [itemHitbox, setItemHitbox] = useState<React.CSSProperties>(
         hitbox_dictionary[Interactable_types.chest]["front"]);
 
-    window.onbeforeunload = function() {
-        localStorage.clear();
+    const inventory_add_item = (Item:item)=> {
+        if(Item === item.map){
+            sessionStorage.setItem("map", "true")
+        }
+        else if(Item === item.compass){
+            sessionStorage.setItem("compass", "true")
+        }
+        else{
+            setInventory(prev => {
+                const updated = [...prev, Item];
+                sessionStorage.setItem("items", JSON.stringify(updated));
+                return updated;
+            });
+        }
     }
 
-    const inventory_add_item = (item:item)=> {
-        setInventory([...inventory,item])
-        localStorage.setItem("items", JSON.stringify(inventory))
-    }
-
-    const inventory_remove_item = (index:number)=> {
-        setInventory(inventory.splice(index))
-        localStorage.setItem("items", JSON.stringify(inventory))
+    const inventory_remove_item = (item:item)=> {
+        setInventory(inventory.splice(inventory.indexOf(item)))
+        sessionStorage.setItem("items", JSON.stringify(inventory))
     }
 
     const inventory_hold_item = (item:item)=> {
@@ -79,7 +88,7 @@ const Maze: React.FC = () => {
         setHeldItem(item)
     }
 
-    const move = (forwards:boolean) => {
+    const move = useCallback((forwards:boolean) => {
         let direction = facing
         if(!forwards){
             switch(facing){
@@ -173,7 +182,7 @@ const Maze: React.FC = () => {
                         break; }
             }
         }
-    }
+    },[X, Y, currentRoom, facing, navigate])
 
     const get_next_room = (direction:Direction, location:number) => {
         switch(direction){
@@ -237,7 +246,7 @@ const Maze: React.FC = () => {
             }
             else{
                 if(item.interactable == Interactable_types.chest
-                    && localStorage.getItem("chest"+currentRoom.index_number) == "open"){
+                    && sessionStorage.getItem("chest"+currentRoom.index_number) == "open"){
                     if(item.orientation === facing){
                         setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["front_open"])
                     }
@@ -339,8 +348,8 @@ const Maze: React.FC = () => {
     const item_interact = () => {
         if(currentRoomLightLevel != Lightlevel.dark){
             if(currentRoom.Interactable?.interactable === Interactable_types.chest
-                && localStorage.getItem("chest"+currentRoom.index_number) !== "open"){
-                localStorage.setItem("chest"+currentRoom.index_number, "open");
+                && sessionStorage.getItem("chest"+currentRoom.index_number) !== "open"){
+                sessionStorage.setItem("chest"+currentRoom.index_number, "open");
                 set_current_room_item()
                 if(currentRoom.Interactable.item != null){
                     inventory_add_item(currentRoom.Interactable.item)
@@ -441,18 +450,36 @@ const Maze: React.FC = () => {
                 }
                 else{
                     setFrontItemStair(false)
-                    if(item.orientation != facing){
-                        if(item.orientation === facing-1 ||
-                            facing === Direction.N && item.orientation === Direction.W){
-                            setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side"])
+                    if(item.interactable === Interactable_types.chest &&
+                        sessionStorage.getItem("chest"+next_room.index_number) == "open"){
+                        if(item.orientation != facing){
+                            if(item.orientation === facing-1 ||
+                                facing === Direction.N && item.orientation === Direction.W){
+                                setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side_open"])
+                            }
+                            else{
+                                setFrontItemLeft(false)
+                                setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side_open"])
+                            }
                         }
                         else{
-                            setFrontItemLeft(false)
-                            setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side"])
+                            setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["front_open"])
                         }
                     }
                     else{
-                        setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["front"])
+                        if(item.orientation != facing){
+                            if(item.orientation === facing-1 ||
+                                facing === Direction.N && item.orientation === Direction.W){
+                                setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side"])
+                            }
+                            else{
+                                setFrontItemLeft(false)
+                                setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side"])
+                            }
+                        }
+                        else{
+                            setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["front"])
+                        }
                     }
                 }
             }
@@ -513,6 +540,7 @@ const Maze: React.FC = () => {
             }
             const current_location:number = x + ((y-1) * 7)
             if (currentRoom.index_number === current_location) {
+                const wall = currentRoom.getWall(facing)
                 let left_wall_direction:Direction
                 if (facing != 0) {
                     left_wall_direction = facing-1
@@ -524,7 +552,12 @@ const Maze: React.FC = () => {
                 if (leftWall === wall_types.gate || leftWall === wall_types.hall){
                     const next_room = get_next_room(left_wall_direction,currentRoom.index_number)
                     const nextRoomLightLevel = get_light_level(next_room)
-                    setLeftBackWallSrc(maze_wall_dictionary[next_room.getWall(facing)][nextRoomLightLevel]["front"])
+                    const leftBackWall = next_room.getWall(facing)
+                    setLeftBackWallSrc(maze_wall_dictionary[leftBackWall][nextRoomLightLevel]["front"])
+                    if (leftBackWall === wall_types.hall && wall !== wall_types.hall){
+                        setLeftFrontSideWallSrc(empty)
+                        setLeftFrontSideWallCeilingSrc(empty)
+                    }
                 }
                 else{
                     setLeftBackWallSrc(maze_dictionary["ceiling"][""])
@@ -541,7 +574,12 @@ const Maze: React.FC = () => {
                 if (right_wall === wall_types.gate || right_wall === wall_types.hall){
                     const next_room = get_next_room(right_wall_direction,currentRoom.index_number)
                     const nextRoomLightLevel = get_light_level(next_room)
-                    setRightBackWallSrc(maze_wall_dictionary[next_room.getWall(facing)][nextRoomLightLevel]["front"])
+                    const rightBackWall = next_room.getWall(facing)
+                    setRightBackWallSrc(maze_wall_dictionary[rightBackWall][nextRoomLightLevel]["front"])
+                    if (rightBackWall === wall_types.hall && wall !== wall_types.hall){
+                        setRightFrontSideWallSrc(empty)
+                        setRightFrontSideWallCeilingSrc(empty)
+                    }
                 }
                 else{
                     setRightBackWallSrc(maze_dictionary["ceiling"][""])
@@ -550,7 +588,6 @@ const Maze: React.FC = () => {
                 set_current_room_torch()
                 set_current_room_item()
 
-                const wall = currentRoom.getWall(facing)
                 setWallSrc(maze_wall_dictionary[wall][currentRoomLightLevel]["front"]);
                 if(wall === wall_types.gate || wall === wall_types.hall){
                     const next_room = get_next_room(facing,currentRoom.index_number)
@@ -627,7 +664,7 @@ const Maze: React.FC = () => {
     //    }
     //}
 
-    const turn = (direction:boolean) => {
+    const turn = useCallback((direction:boolean) => {
         if(!direction){
             if (facing == 3){
                 setFacing(Direction.N)
@@ -644,15 +681,95 @@ const Maze: React.FC = () => {
                 setFacing(Direction.W)
             }
         }
-    }
+    },[facing])
 
     useEffect(() => {
+        const clickHandler = () => {
+            const wall = currentRoom.getWall(facing)
+            if (wall === wall_types.door1 && heldItem === item.key1){
+                sessionStorage.setItem("door1","open")
+                inventory_remove_item(heldItem)
+                setHeldItem(null)
+                maze_layout[43].E_wall = wall_types.gate
+                maze_layout[44].W_Wall = wall_types.gate
+            }
+            else if (wall === wall_types.door2 && heldItem === item.key2){
+                sessionStorage.setItem("door2","open")
+                inventory_remove_item(heldItem)
+                setHeldItem(null)
+                maze_layout[22].E_wall = wall_types.gate
+                maze_layout[23].W_Wall = wall_types.gate
+            }
+            else if (wall === wall_types.door3 && heldItem === item.key3){
+                sessionStorage.setItem("door3","open")
+                inventory_remove_item(heldItem)
+                setHeldItem(null)
+                maze_layout[24].E_wall = wall_types.gate
+                maze_layout[25].W_Wall = wall_types.gate
+            }
+            else if (heldItem === item.matches && currentRoom.torch?.lit === torch_state.off) {
+                sessionStorage.setItem("torch"+currentRoom.index_number,"lit")
+                setHeldItem(null)
+                const torch = maze_layout[currentRoom.index_number].torch;
+                if (torch != null) {
+                    torch.lit = torch_state.on;
+                }
+            }
+            else{
+                setHeldItem(null)
+            }
+            document.body.style.cursor = `default`;
+        }
+
+        const keyDownHandler = (event: KeyboardEvent) => {
+            if(event.code === "ArrowUp" || event.code === "KeyW"){
+                move(true)
+            }
+            else if(event.code === "ArrowDown" || event.code === "KeyS"){
+                move(false)
+            }
+            else if(event.code === "ArrowLeft" || event.code === "KeyA"){
+                turn(true)
+            }
+            else if(event.code === "ArrowRight" || event.code === "KeyD"){
+                turn(false)
+            }
+            else if(event.code === "KeyZ" || event.code === "KeyE"){
+                setInventoryOpen(!inventoryOpen)
+            }
+        }
+
+        const initGameData = () =>{
+            if (sessionStorage.getItem("door1") === "open"){
+                maze_layout[43].E_wall = wall_types.gate
+                maze_layout[44].W_Wall = wall_types.gate
+            }
+            if (sessionStorage.getItem("door2") === "open"){
+                maze_layout[22].E_wall = wall_types.gate
+                maze_layout[23].W_Wall = wall_types.gate
+            }
+            if (sessionStorage.getItem("door3") === "open"){
+                maze_layout[24].E_wall = wall_types.gate
+                maze_layout[25].W_Wall = wall_types.gate
+            }
+            const raw = sessionStorage.getItem("items");
+            const parsed: item[] = raw ? JSON.parse(raw) : [];
+            setInventory(parsed)
+        }
+        
+        initGameData()
         updateRoom()
         //const items = JSON.parse(localStorage.getItem('items') as string);
         //if (items) {
             //setInventory(items);
         //}
-    }, [updateRoom], );
+        window.addEventListener("keydown", keyDownHandler);
+        window.addEventListener("mousedown", clickHandler);
+        return () => {
+            window.removeEventListener("keydown", keyDownHandler);
+            window.removeEventListener("mousedown", clickHandler);
+        }
+    }, [currentRoom, facing, heldItem, inventoryOpen, move, turn, updateRoom], );
 
     useEffect(() => {
         updateRoom()
@@ -700,10 +817,18 @@ const Maze: React.FC = () => {
                          alt="front_ceiling not found"/>
                     <img id="back_darkness" className="back_darkness" src={back_darkness}
                          alt="back_darkness not found"/>
-                    <button className="left_turn" onClick={() => turn(true)}/>
-                    <button className="forward" onClick={() => move(true)}/>
-                    <button className="backward" onClick={() => move(false)}/>
-                    <button className="right_turn" onClick={() => turn(false)}/>
+                    <button className="left_turn" style={{
+                        zIndex: heldItem == null ? "" : "0"
+                    }} onClick={() => turn(true)}/>
+                    <button className="forward" style={{
+                        zIndex: heldItem == null ? "" : "0"
+                    }} onClick={() => move(true)}/>
+                    <button className="backward" style={{
+                        zIndex: heldItem == null ? "" : "0"
+                    }} onClick={() => move(false)}/>
+                    <button className="right_turn" style={{
+                        zIndex: heldItem == null ? "" : "0"
+                    }} onClick={() => turn(false)}/>
                     <img id="torch" className="torch" src={torchSrc} alt="torch not found" style={{
                         transform: torchLeft ? 'none' : 'scaleX(-1)'
                     }}/>
@@ -717,10 +842,12 @@ const Maze: React.FC = () => {
                     <button id="item_trigger" disabled={itemSrc === empty} className="item_trigger" style={{...itemHitbox,
                         right: !itemLeft? `${itemHitbox.left}` : "",
                         left: itemLeft ? `${itemHitbox.left}` : "",
-                        zIndex: itemHitbox != null? "51": "0",
+                        zIndex: itemHitbox != null && heldItem == null ? "51": "0",
                     }} onClick={item_interact}/>
                     <img id="front_item" className="front_item" src={frontItemSrc} alt="item not found" style={{
-                        transform: `${frontItemStair ? "" : "translate(-50%, -50%) scale(45%) translateY(-6%) translateX(1%)"} ${frontItemLeft ? '' : 'scaleX(-1)'}`
+                        transform: `${frontItemStair ? "" : "translate(-50%, -50%) scale(45%) translateY(-6%) translateX(1%)"} ${frontItemLeft ? '' : 'scaleX(-1)'}`,
+                        top: `${frontItemStair ? "" : "50%"}`,
+                        left: `${frontItemStair ? "" : "50%"}`
                     }}/>
                     <div id="inventory" className="inventory" style={{
                         transform: inventoryOpen ? "translateX(-85%)" : "none",
@@ -729,7 +856,7 @@ const Maze: React.FC = () => {
                         <ul className="inventory_list">
                             {inventory.map((item) => (
                                 <li key={item} className="inventory_slot">
-                                    <button className="inventory_slot_trigger" onClick={() => inventory_hold_item(item)} disabled={heldItem === null}/>
+                                    <button className="inventory_slot_trigger" onClick={() => inventory_hold_item(item)} disabled={heldItem !== null}/>
                                     <img className="inventory_slot_icon" src={maze_item_dictionary[item]} alt="item"/></li>
                             ))}
                         </ul>
@@ -742,6 +869,8 @@ const Maze: React.FC = () => {
                                 transition: 'transform 1s ease'
                             }}/>
                         </button>
+                        <img id="map" className="map" alt="map_binder" src={sessionStorage.getItem("map") === "true" ? backpack_map : empty}/>
+                        <img id="compass" className="compass" alt="compass_hanger" src={sessionStorage.getItem("compass") === "true" ? backpack_compass : empty}/>
                     </div>
                 </div>
             </div>
