@@ -18,6 +18,7 @@ import {Interactable_types} from "../enums/interactable_types.ts";
 import {Lightlevel} from "../enums/lightlevel.ts";
 import {item} from "../enums/items.ts";
 import maze_item_dictionary from "../dictionary's/maze_item_dictionary.ts";
+import maze_snake from "../dictionary's/maze_snake.ts"
 import hitbox_dictionary from "../dictionary's/maze_interactable_hitbox.ts";
 
 const Maze: React.FC = () => {
@@ -26,10 +27,12 @@ const Maze: React.FC = () => {
     const [inventory, setInventory] = useState<item[]>([]);
     const navigate = useNavigate();
     const [currentRoom, setCurrentRoom] = useState(maze_layout[8])
+    const [nextRoom, setNextRoom] = useState(maze_layout[9]);
     const [facing, setFacing] = useState(Direction.N)
-    //let snake_location:number[] = []
-    //const snake_origin:number = 30
-    //const snake_path:number[] = []
+    const [snakeBody, setSnakeBody] = useState<number[]>([])
+    const [snakeStyle, setSnakeStyle] = useState<React.CSSProperties>(
+        hitbox_dictionary[0]
+    )
     const [leftWallSrc, setLeftWallSrc] = useState(empty);
     const [rightWallSrc, setRightWallSrc] = useState(empty);
     const [wallSrc, setWallSrc] = useState(empty);
@@ -58,7 +61,10 @@ const Maze: React.FC = () => {
     const [itemSrc, setItemSrc] = useState(empty);
     const [frontItemSrc, setFrontItemSrc] = useState(empty);
     const [currentRoomLightLevel, setCurrentRoomLightLevel] = useState(Lightlevel.normal);
+    const [nextRoomLightLevel, setNextRoomLightLevel] = useState(Lightlevel.normal)
     const [heldItem, setHeldItem] = useState<item | null>(null);
+    const [snakeLeft, setSnakeLeft] = useState(empty);
+    const [snakeRight, setSnakeRight] = useState(empty);
     const [itemHitbox, setItemHitbox] = useState<React.CSSProperties>(
         hitbox_dictionary[Interactable_types.chest]["front"]);
 
@@ -78,15 +84,70 @@ const Maze: React.FC = () => {
         }
     }
 
-    const inventory_remove_item = (item:item)=> {
-        setInventory(inventory.splice(inventory.indexOf(item)))
-        sessionStorage.setItem("items", JSON.stringify(inventory))
-    }
-
     const inventory_hold_item = (item:item)=> {
         document.body.style.cursor = `url(${maze_item_dictionary[item]}), auto`;
         setHeldItem(item)
     }
+
+    function relativeDirection(from: Direction, to: Direction): number {
+        return (to - from + 4) % 4;
+    }
+    
+    const navigate_player = useCallback((direction:Direction)=>{
+        switch(direction){
+            case Direction.N:
+            {
+                if (!Y) {
+                    console.error("Missing parameters");
+                    return;
+                }
+                const y = parseInt(Y, 10);
+                if ( isNaN(y)) {
+                    console.error("Invalid X or Y");
+                    return;
+                }
+                navigate(`/maze/${X}/${y+1}`)
+                break; }
+
+            case Direction.E:
+            { if (!X) {
+                console.error("Missing parameters");
+                return;
+            }
+                const x = parseInt(X, 10);
+                if ( isNaN(x)) {
+                    console.error("Invalid X or Y");
+                    return;
+                }
+                navigate(`/maze/${x+1}/${Y}`)
+                break; }
+
+            case Direction.S:
+            { if (!Y) {
+                console.error("Missing parameters");
+                return;
+            }
+                const y = parseInt(Y, 10);
+                if ( isNaN(y)) {
+                    console.error("Invalid X or Y");
+                    return;
+                }
+                navigate(`/maze/${X}/${y-1}`)
+                break; }
+            case Direction.W:
+            { if (!X) {
+                console.error("Missing parameters");
+                return;
+            }
+                const x = parseInt(X, 10);
+                if ( isNaN(x)) {
+                    console.error("Invalid X or Y");
+                    return;
+                }
+                navigate(`/maze/${x-1}/${Y}`)
+                break; }
+        }
+    }, [X, Y, navigate])
 
     const move = useCallback((forwards:boolean) => {
         let direction = facing
@@ -107,82 +168,12 @@ const Maze: React.FC = () => {
             }
         }
         const wall = currentRoom.getWall(direction)
-        if(wall === wall_types.gate || wall === wall_types.hall){
-            switch(facing){
-                case Direction.N: 
-                    {
-                        if (!Y) {
-                            console.error("Missing parameters");
-                            return;
-                        }
-                        const y = parseInt(Y, 10);
-                        if ( isNaN(y)) {
-                            console.error("Invalid X or Y");
-                            return;
-                        }
-                        if (forwards){
-                            navigate(`/maze/${X}/${y+1}`)
-                        }
-                        else{
-                            navigate(`/maze/${X}/${y-1}`)
-                        }
-                    break; }
-                
-                case Direction.E:
-                    { if (!X) {
-                        console.error("Missing parameters");
-                        return;
-                    }
-                        const x = parseInt(X, 10);
-                        if ( isNaN(x)) {
-                            console.error("Invalid X or Y");
-                            return;
-                        }
-                        if (forwards){
-                            navigate(`/maze/${x+1}/${Y}`)
-                        }
-                        else{
-                            navigate(`/maze/${x-1}/${Y}`)
-                        }
-                        break; }
-                
-                case Direction.S:
-                    { if (!Y) {
-                        console.error("Missing parameters");
-                        return;
-                    }
-                        const y = parseInt(Y, 10);
-                        if ( isNaN(y)) {
-                            console.error("Invalid X or Y");
-                            return;
-                        }
-                        if (forwards) {
-                            navigate(`/maze/${X}/${y-1}`)
-                        }
-                        else{
-                            navigate(`/maze/${X}/${y+1}`)
-                        }
-                        break; }
-                case Direction.W:
-                    { if (!X) {
-                        console.error("Missing parameters");
-                        return;
-                    }
-                        const x = parseInt(X, 10);
-                        if ( isNaN(x)) {
-                            console.error("Invalid X or Y");
-                            return;
-                        }
-                        if(forwards){
-                            navigate(`/maze/${x-1}/${Y}`)
-                        }
-                        else{
-                            navigate(`/maze/${x+1}/${Y}`)
-                        }
-                        break; }
-            }
+        const room = get_next_room(direction, currentRoom.index_number)
+        if(wall === wall_types.gate && !snakeBody.includes(room.index_number)
+            || wall === wall_types.hall && !snakeBody.includes(room.index_number)){
+            navigate_player(direction)
         }
-    },[X, Y, currentRoom, facing, navigate])
+    },[currentRoom, facing, navigate_player, snakeBody])
 
     const get_next_room = (direction:Direction, location:number) => {
         switch(direction){
@@ -245,96 +236,43 @@ const Maze: React.FC = () => {
                 }
             }
             else{
+                const dir = relativeDirection(facing,item.orientation)
                 if(item.interactable == Interactable_types.chest
                     && sessionStorage.getItem("chest"+currentRoom.index_number) == "open"){
-                    if(item.orientation === facing){
-                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["front_open"])
-                    }
-                    else if(facing != Direction.N && facing != Direction.W){
-                        if(item.orientation === facing-1){
-                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
-                        }
-                        else if(item.orientation === facing+1){
+                    switch(dir){
+                        case 0:
+                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["front_open"])
+                            break;
+                        case 1:
                             setItemLeft(false)
                             setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
-                        }
-                        else{
+                            break;
+                        case 2:
                             setItemSrc(empty)
-                        }
+                            break;
+                        case 3:
+                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
+                            break;
                     }
-                    else if(facing === Direction.N){
-                        if(item.orientation === Direction.E){
+                }
+                else {
+                    switch (dir) {
+                        case 0:
+                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["front"])
+                            setItemHitbox(hitbox_dictionary[item.interactable]["front"])
+                            break;
+                        case 1:
                             setItemLeft(false)
-                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
-                        }
-                        else if(item.orientation === Direction.W){
-                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
-                        }
-                        else{
+                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
+                            setItemHitbox(hitbox_dictionary[item.interactable]["side"])
+                            break;
+                        case 2:
                             setItemSrc(empty)
-                        }
-                    }
-                    else{
-                        if(item.orientation === Direction.S){
-                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
-                        }
-                        else if(item.orientation === Direction.N){
-                            setItemLeft(false)
-                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side_open"])
-                        }
-                        else{
-                            setItemSrc(empty)
-                        }
-
-                    }
-                }
-                else if(item.orientation === facing){
-                    setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["front"])
-                    setItemHitbox(hitbox_dictionary[item.interactable]["front"])
-                }
-                else if(facing != Direction.N && facing != Direction.W){
-                    if(item.orientation === facing-1){
-                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
-                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
-                    }
-                    else if(item.orientation === facing+1){
-                        setItemLeft(false)
-                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
-                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
-                    }
-                    else{
-                        setItemSrc(empty)
-                        //setItemHitbox("")
-                    }
-                }
-                else if(facing === Direction.N){
-                    if(item.orientation === Direction.E){
-                        setItemLeft(false)
-                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
-                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
-                    }
-                    else if(item.orientation === Direction.W){
-                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
-                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
-                    }
-                    else{
-                        setItemSrc(empty)
-                        //setItemHitbox("")
-                    }
-                }
-                else{
-                    if(item.orientation === Direction.S){
-                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
-                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
-                    }
-                    else if(item.orientation === Direction.N){
-                        setItemLeft(false)
-                        setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
-                        setItemHitbox(hitbox_dictionary[item.interactable]["side"])
-                    }
-                    else{
-                        setItemSrc(empty)
-                        //setItemHitbox("")
+                            break;
+                        case 3:
+                            setItemSrc(maze_dictionary[item.interactable][currentRoomLightLevel]["side"])
+                            setItemHitbox(hitbox_dictionary[item.interactable]["side"])
+                            break;
                     }
                 }
             }
@@ -358,48 +296,224 @@ const Maze: React.FC = () => {
         }
     }
 
+    const renderSnake = useCallback((snake_body: number[], nextRoom: room) => {
+        const facing_wall = currentRoom.getWall(facing)
+        if(facing_wall === wall_types.gate && snake_body.includes(nextRoom.index_number)
+            || facing_wall === wall_types.hall && snake_body.includes(nextRoom.index_number)){
+            let snakeTurned:boolean = false;
+            if(nextRoom.index_number === snake_body[0]){
+                setSnakeRight(empty)
+                let snake_dir:Direction
+                if(snake_body[0]+1 === snake_body[1]){
+                    snake_dir = Direction.E
+                }
+                else if(snake_body[0]-1 === snake_body[1]){
+                    snake_dir = Direction.W
+                }
+                else if(snake_body[0]+7 === snake_body[1]){
+                    snake_dir = Direction.N
+                }
+                else{
+                    snake_dir=Direction.S
+                }
+                const dir = relativeDirection(facing, snake_dir)
+                switch (dir){
+                    case 0:
+                        setSnakeLeft(maze_snake["left"]["head"]["front"][nextRoomLightLevel])
+                        break;
+                    case 1:
+                        if(nextRoom.getWall(snake_dir) === wall_types.gate){
+                            setSnakeLeft(maze_snake["left"]["head"]["side"]["door"][nextRoomLightLevel])
+                        }
+                        else{
+                            setSnakeLeft(maze_snake["left"]["head"]["side"]["normal"][nextRoomLightLevel])
+                        }
+                        break;
+                    case 2:
+                        setSnakeLeft(empty)
+                        break;
+                    case 3:
+                        snakeTurned = true
+                        if(nextRoom.getWall(snake_dir) === wall_types.gate){
+                            setSnakeLeft(maze_snake["left"]["head"]["side"]["door"][nextRoomLightLevel])
+                        }
+                        else{
+                            setSnakeLeft(maze_snake["left"]["head"]["side"]["normal"][nextRoomLightLevel])
+                        }
+                        break;
+                }
+                if (snakeTurned) {
+                    setSnakeStyle(hitbox_dictionary[1]["turned"])
+                }
+                else{
+                    setSnakeStyle(hitbox_dictionary[1]["normal"])
+                }
+            }
+            else if(nextRoom.index_number === snake_body[5]){
+                setSnakeRight(empty)
+                let snake_dir:Direction
+                if(snake_body[5]+1 === snake_body[4]){
+                    snake_dir = Direction.E
+                }
+                else if(snake_body[5]-1 === snake_body[4]){
+                    snake_dir = Direction.W
+                }
+                else if(snake_body[5]+7 === snake_body[4]){
+                    snake_dir = Direction.N
+                }
+                else{
+                    snake_dir=Direction.S
+                }
+                const dir = relativeDirection(facing, snake_dir)
+                switch (dir){
+                    case 0:
+                        setSnakeLeft(maze_snake["left"]["tail"]["front"][nextRoomLightLevel])
+                        break;
+                    case 1:
+                        snakeTurned = true
+                        if(nextRoom.getWall(snake_dir) === wall_types.gate){
+                            setSnakeLeft(maze_snake["left"]["tail"]["side"]["door"][nextRoomLightLevel])
+                        }
+                        else{
+                            setSnakeLeft(maze_snake["left"]["tail"]["side"]["normal"][nextRoomLightLevel])
+                        }
+                        break;
+                    case 2:
+                        setSnakeLeft(empty)
+                        break;
+                    case 3:
+                        if(nextRoom.getWall(snake_dir) === wall_types.gate){
+                            setSnakeLeft(maze_snake["left"]["tail"]["side"]["door"][nextRoomLightLevel])
+                        }
+                        else{
+                            setSnakeLeft(maze_snake["left"]["tail"]["side"]["normal"][nextRoomLightLevel])
+                        }
+                        break;
+                }
+                if (snakeTurned) {
+                    setSnakeStyle(hitbox_dictionary[1]["turned"])
+                }
+                else{
+                    setSnakeStyle(hitbox_dictionary[1]["normal"])
+                }
+            }
+            else{
+                const visible_snake = snake_body.indexOf(nextRoom.index_number)
+                const snake_from = visible_snake+1
+                let snake_right:Direction
+                if(snake_body[visible_snake]+1 === snake_body[snake_from]){
+                    snake_right = Direction.E
+                }
+                else if(snake_body[visible_snake]-1 === snake_body[snake_from]){
+                    snake_right = Direction.W
+                }
+                else if(snake_body[visible_snake]+7 === snake_body[snake_from]){
+                    snake_right = Direction.N
+                }
+                else{
+                    snake_right=Direction.S
+                }
+                const right_dir = relativeDirection(facing, snake_right)
+                switch (right_dir){
+                    case 0:
+                        setSnakeRight(maze_snake["right"]["body"]["turn"][nextRoomLightLevel])
+                        break;
+                    case 1:
+                        if(nextRoom.getWall(snake_right) === wall_types.gate){
+                            setSnakeRight(maze_snake["right"]["body"]["door"][nextRoomLightLevel])
+                        }
+                        else{
+                            setSnakeRight(maze_snake["right"]["body"]["normal"][nextRoomLightLevel])
+                        }
+                        break;
+                    case 2:
+                        setSnakeRight(empty)
+                        break;
+                    case 3:
+                        snakeTurned = true
+                        if(nextRoom.getWall(snake_right) === wall_types.gate){
+                            setSnakeRight(maze_snake["right"]["body"]["door"][nextRoomLightLevel])
+                        }
+                        else{
+                            setSnakeRight(maze_snake["right"]["body"]["normal"][nextRoomLightLevel])
+                        }
+                        break;
+                }
+
+                const snake_to = visible_snake-1
+                let snake_left:Direction
+                if(snake_body[visible_snake]+1 === snake_body[snake_to]){
+                    snake_left = Direction.E
+                }
+                else if(snake_body[visible_snake]-1 === snake_body[snake_to]){
+                    snake_left = Direction.W
+                }
+                else if(snake_body[visible_snake]+7 === snake_body[snake_to]){
+                    snake_left = Direction.N
+                }
+                else{
+                    snake_left=Direction.S
+                }
+                const left_dir = relativeDirection(facing, snake_left)
+                switch (left_dir){
+                    case 0:
+                        setSnakeLeft(maze_snake["left"]["body"]["turn"][nextRoomLightLevel])
+                        break;
+                    case 1:
+                        snakeTurned = true
+                        if(nextRoom.getWall(snake_left) === wall_types.gate){
+                            setSnakeLeft(maze_snake["left"]["body"]["door"][nextRoomLightLevel])
+                        }
+                        else{
+                            setSnakeLeft(maze_snake["left"]["body"]["normal"][nextRoomLightLevel])
+                        }
+                        break;
+                    case 2:
+                        setSnakeLeft(empty)
+                        break;
+                    case 3:
+                        if(nextRoom.getWall(snake_left) === wall_types.gate){
+                            setSnakeLeft(maze_snake["left"]["body"]["door"][nextRoomLightLevel])
+                        }
+                        else{
+                            setSnakeLeft(maze_snake["left"]["body"]["normal"][nextRoomLightLevel])
+                        }
+                        break;
+                }
+                if (snakeTurned) {
+                    setSnakeStyle(hitbox_dictionary[visible_snake]["turned"])
+                }
+                else{
+                    setSnakeStyle(hitbox_dictionary[visible_snake]["normal"])
+                }
+            }
+        }
+        else{
+            setSnakeLeft(empty)
+            setSnakeRight(empty)
+        }
+    },[currentRoom, facing])
+
     const updateRoom = useCallback(() => {
         const set_current_room_torch = () =>{
             if(currentRoom.torch !== null){
                 const torch = currentRoom.torch
                 setTorchDirection(true)
-                if(torch.orientation == facing)
-                    setTorchSrc(maze_dictionary["torch"][torch.lit]["front"])
-                else if(facing != Direction.N && facing != Direction.W){
-                    if(torch.orientation === facing-1){
-                        setTorchSrc(maze_dictionary["torch"][torch.lit]["side"])
-                    }
-                    else if(torch.orientation === facing+1){
+                const dir = relativeDirection(facing, torch.orientation)
+                switch(dir){
+                    case 0:
+                        setTorchSrc(maze_dictionary["torch"][torch.lit]["front"])
+                        break;
+                    case 1:
                         setTorchDirection(false)
                         setTorchSrc(maze_dictionary["torch"][torch.lit]["side"])
-                    }
-                    else{
+                        break;
+                    case 2:
                         setTorchSrc(empty)
-                    }
-                }
-                else if(facing === Direction.N){
-                    if(torch.orientation === Direction.E){
-                        setTorchDirection(false)
-                        setTorchSrc(maze_dictionary["torch"][torch.lit]["side"]) //right
-                    }
-                    else if(torch.orientation === Direction.W){
+                        break;
+                    case 3:
                         setTorchSrc(maze_dictionary["torch"][torch.lit]["side"])
-                    }
-                    else{
-                        setTorchSrc(empty)
-                    }
-                }
-                else{
-                    if(torch.orientation === Direction.S){
-                        setTorchSrc(maze_dictionary["torch"][torch.lit]["side"])
-                    }
-                    else if(torch.orientation === Direction.N){
-                        setTorchDirection(false)
-                        setTorchSrc(maze_dictionary["torch"][torch.lit]["side"])
-                    }
-                    else{
-                        setTorchSrc(empty)
-                    }
+                        break;
                 }
             }
             else{
@@ -412,26 +526,21 @@ const Maze: React.FC = () => {
                 const torch = next_room.torch
                 setFrontTorchDirection(true)
                 if(nextRoomLightLevel != Lightlevel.dark){
-                    if(torch.orientation != facing){
-                        if(torch.orientation === facing-1 ||
-                            facing === Direction.N && torch.orientation === Direction.W){
-                            setFrontTorch(maze_dictionary["torch"][torch.lit]["side"])
-                        }
-                        else{
+                    const dir = relativeDirection(facing, torch.orientation)
+                    switch(dir){
+                        case 0:
+                            setFrontTorch(maze_dictionary["torch"][torch.lit]["front"])
+                            break;
+                        case 1:
                             setFrontTorchDirection(false)
                             setFrontTorch(maze_dictionary["torch"][torch.lit]["side"])
-                        }
-                    }
-                    else{
-                        setFrontTorch(maze_dictionary["torch"][torch.lit]["front"])
-                    }
-                }
-                else{
-                    if(torch.orientation != facing){
-                        setFrontTorch(maze_dictionary["torch"][Lightlevel.dark]["side"])
-                    }
-                    else{
-                        setFrontTorch(maze_dictionary["torch"][Lightlevel.dark]["front"])
+                            break;
+                        case 2:
+                            setFrontTorch(empty)
+                            break;
+                        case 3:
+                            setFrontTorch(maze_dictionary["torch"][torch.lit]["side"])
+                            break;
                     }
                 }
             }
@@ -450,35 +559,40 @@ const Maze: React.FC = () => {
                 }
                 else{
                     setFrontItemStair(false)
+                    const dir = relativeDirection(facing, item.orientation)
                     if(item.interactable === Interactable_types.chest &&
                         sessionStorage.getItem("chest"+next_room.index_number) == "open"){
-                        if(item.orientation != facing){
-                            if(item.orientation === facing-1 ||
-                                facing === Direction.N && item.orientation === Direction.W){
-                                setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side_open"])
-                            }
-                            else{
+                        switch(dir){
+                            case 0:
+                                setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["front_open"])
+                                break;
+                            case 1:
                                 setFrontItemLeft(false)
                                 setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side_open"])
-                            }
-                        }
-                        else{
-                            setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["front_open"])
+                                break;
+                            case 2:
+                                setFrontItemSrc(empty)
+                                break;
+                            case 3:
+                                setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side_open"])
+                                break;
                         }
                     }
                     else{
-                        if(item.orientation != facing){
-                            if(item.orientation === facing-1 ||
-                                facing === Direction.N && item.orientation === Direction.W){
-                                setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side"])
-                            }
-                            else{
+                        switch(dir){
+                            case 0:
+                                setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["front"])
+                                break;
+                            case 1:
                                 setFrontItemLeft(false)
                                 setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side"])
-                            }
-                        }
-                        else{
-                            setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["front"])
+                                break;
+                            case 2:
+                                setFrontItemSrc(empty)
+                                break;
+                            case 3:
+                                setFrontItemSrc(maze_dictionary[item.interactable][nextRoomLightLevel]["side"])
+                                break;
                         }
                     }
                 }
@@ -550,9 +664,9 @@ const Maze: React.FC = () => {
                 const leftWall = currentRoom.getWall(left_wall_direction)
                 setLeftWallSrc(maze_wall_dictionary[leftWall][currentRoomLightLevel]["side"]);
                 if (leftWall === wall_types.gate || leftWall === wall_types.hall){
-                    const next_room = get_next_room(left_wall_direction,currentRoom.index_number)
-                    const nextRoomLightLevel = get_light_level(next_room)
-                    const leftBackWall = next_room.getWall(facing)
+                    const left_room = get_next_room(left_wall_direction,currentRoom.index_number)
+                    const nextRoomLightLevel = get_light_level(left_room)
+                    const leftBackWall = left_room.getWall(facing)
                     setLeftBackWallSrc(maze_wall_dictionary[leftBackWall][nextRoomLightLevel]["front"])
                     if (leftBackWall === wall_types.hall && wall !== wall_types.hall){
                         setLeftFrontSideWallSrc(empty)
@@ -572,9 +686,9 @@ const Maze: React.FC = () => {
                 const right_wall = currentRoom.getWall(right_wall_direction)
                 setRightWallSrc(maze_wall_dictionary[right_wall][currentRoomLightLevel]["side"]);
                 if (right_wall === wall_types.gate || right_wall === wall_types.hall){
-                    const next_room = get_next_room(right_wall_direction,currentRoom.index_number)
-                    const nextRoomLightLevel = get_light_level(next_room)
-                    const rightBackWall = next_room.getWall(facing)
+                    const right_room = get_next_room(right_wall_direction,currentRoom.index_number)
+                    const nextRoomLightLevel = get_light_level(right_room)
+                    const rightBackWall = right_room.getWall(facing)
                     setRightBackWallSrc(maze_wall_dictionary[rightBackWall][nextRoomLightLevel]["front"])
                     if (rightBackWall === wall_types.hall && wall !== wall_types.hall){
                         setRightFrontSideWallSrc(empty)
@@ -590,30 +704,39 @@ const Maze: React.FC = () => {
 
                 setWallSrc(maze_wall_dictionary[wall][currentRoomLightLevel]["front"]);
                 if(wall === wall_types.gate || wall === wall_types.hall){
-                    const next_room = get_next_room(facing,currentRoom.index_number)
-                    const nextRoomLightLevel = get_light_level(next_room)
-                    setWallFrontSrc(maze_wall_dictionary[next_room.getWall(facing)][nextRoomLightLevel]["front"])
+                    const nextRoom = get_next_room(facing,currentRoom.index_number)
+                    setNextRoom(nextRoom)
+                    const nextRoomLightLevel = get_light_level(nextRoom)
+                    setWallFrontSrc(maze_wall_dictionary[nextRoom.getWall(facing)][nextRoomLightLevel]["front"])
                     if(wall === wall_types.hall){
-                        const leftFrontWall = next_room.getWall(left_wall_direction)
+                        const leftFrontWall = nextRoom.getWall(left_wall_direction)
                         setLeftFrontWallSrc(maze_wall_dictionary[leftFrontWall][nextRoomLightLevel]["side"])
                         if(leftFrontWall === wall_types.hall || leftFrontWall === wall_types.gate){
-                            const leftSideRoom = get_next_room(left_wall_direction,next_room.index_number)
+                            const leftSideRoom = get_next_room(left_wall_direction,nextRoom.index_number)
                             const leftSideRoomLightLevel = get_light_level(leftSideRoom)
                             setLeftFrontSideWallSrc(maze_wall_dictionary[leftSideRoom.getWall(facing)][leftSideRoomLightLevel]["front"])
                             setLeftFrontSideWallCeilingSrc(maze_wall_dictionary[leftSideRoom.getWall(facing)][leftSideRoomLightLevel]["ceiling_front"])
                         }
-                        const rightFrontWall = next_room.getWall(right_wall_direction)
+                        else{
+                            setLeftFrontSideWallSrc(empty)
+                            setLeftFrontSideWallCeilingSrc(empty)
+                        }
+                        const rightFrontWall = nextRoom.getWall(right_wall_direction)
                         setRightFrontWallSrc(maze_wall_dictionary[rightFrontWall][nextRoomLightLevel]["side"])
-                        if(rightFrontWall === wall_types.hall){
-                            const rightNextRoom = get_next_room(right_wall_direction,next_room.index_number)
+                        if(rightFrontWall === wall_types.hall || rightFrontWall === wall_types.gate){
+                            const rightNextRoom = get_next_room(right_wall_direction,nextRoom.index_number)
                             const rightNextRoomLightLevel = get_light_level(rightNextRoom)
                             setRightFrontSideWallSrc(maze_wall_dictionary[rightNextRoom.getWall(facing)][rightNextRoomLightLevel]["front"])
                             setRightFrontSideWallCeilingSrc(maze_wall_dictionary[rightNextRoom.getWall(facing)][rightNextRoomLightLevel]["ceiling_front"])
                         }
-                        if(!next_room.Ceiling || !currentRoom.Ceiling){
-                            setLeftFrontCeilingSrc(maze_wall_dictionary[next_room.getWall(left_wall_direction)][nextRoomLightLevel]["ceiling_side"])
-                            setRightFrontCeilingSrc(maze_wall_dictionary[next_room.getWall(right_wall_direction)][nextRoomLightLevel]["ceiling_side"])
-                            setWallFrontCeilingSrc(maze_wall_dictionary[next_room.getWall(facing)][nextRoomLightLevel]["ceiling_front"])
+                        else{
+                            setRightFrontSideWallSrc(empty)
+                            setRightFrontSideWallCeilingSrc(empty)
+                        }
+                        if(!nextRoom.Ceiling || !currentRoom.Ceiling){
+                            setLeftFrontCeilingSrc(maze_wall_dictionary[nextRoom.getWall(left_wall_direction)][nextRoomLightLevel]["ceiling_side"])
+                            setRightFrontCeilingSrc(maze_wall_dictionary[nextRoom.getWall(right_wall_direction)][nextRoomLightLevel]["ceiling_side"])
+                            setWallFrontCeilingSrc(maze_wall_dictionary[nextRoom.getWall(facing)][nextRoomLightLevel]["ceiling_front"])
                         }
                         else if(leftFrontCeilingSrc !== empty || rightFrontCeilingSrc !== empty){
                             setLeftFrontCeilingSrc(empty)
@@ -621,8 +744,9 @@ const Maze: React.FC = () => {
                             setWallFrontCeilingSrc(empty)
                         }
                     }
-                    set_next_room_torch(next_room,nextRoomLightLevel)
-                    set_next_room_item(next_room,nextRoomLightLevel)
+                    set_next_room_torch(nextRoom,nextRoomLightLevel)
+                    set_next_room_item(nextRoom,nextRoomLightLevel)
+                    renderSnake(snakeBody, nextRoom)
                 }
                 else if(wallFrontSrc !== empty) {
                     setWallFrontSrc(empty)
@@ -635,7 +759,8 @@ const Maze: React.FC = () => {
                     setLeftFrontCeilingSrc(empty)
                     setRightFrontCeilingSrc(empty)
                     setWallFrontCeilingSrc(empty)
-
+                    setSnakeLeft(empty)
+                    setSnakeRight(empty)
                 }
                 setFloorSrc(maze_dictionary["floor"])
                 if(currentRoom.Ceiling){
@@ -649,20 +774,122 @@ const Maze: React.FC = () => {
                 setCurrentRoom(maze_layout[current_location])
             }
         }
-    }, [X, Y, currentRoom, currentRoomLightLevel, facing, leftFrontCeilingSrc, rightFrontCeilingSrc, set_current_room_item, wallFrontSrc])
+    }, [X, Y, currentRoom, currentRoomLightLevel, facing, leftFrontCeilingSrc, renderSnake, rightFrontCeilingSrc, set_current_room_item, snakeBody, wallFrontSrc])
 
-    //const updateSnake = () => {
-    //    let snake_location:number | null = localStorage.getItem("Snake")
-    //    if (snake_location === null)
-    //    {
-    //        snake_location = snake_origin
-    //        localStorage.setItem("snake", snake_location)
-    //    }
-    //    else
-    //    {
-    //        snake_location = snake_path[snake_path.indexOf(snake_location)+1]
-    //    }
-    //}
+    const updateSnake = useCallback(() => {
+
+        const move_player = (snake_direction:Direction) => {
+            let direction:Direction
+            switch(snake_direction){
+                case Direction.N:
+                    direction = Direction.S
+                    break;
+                case Direction.E:
+                    direction = Direction.W
+                    break;
+                case Direction.S:
+                    direction = Direction.N
+                    break;
+                case Direction.W:
+                    direction = Direction.E
+                    break;
+            }
+            let wall = currentRoom.getWall(direction)
+            if(wall !== wall_types.gate && wall !== wall_types.hall){
+                switch(snake_direction){
+                    case Direction.N:
+                        direction = Direction.W
+                        break;
+                    case Direction.E:
+                        direction = Direction.N
+                        break;
+                    case Direction.S:
+                        direction = Direction.E
+                        break;
+                    case Direction.W:
+                        direction = Direction.S
+                        break;
+                }
+            }
+            wall = currentRoom.getWall(direction)
+            if(wall !== wall_types.gate && wall !== wall_types.hall){
+                switch(snake_direction){
+                    case Direction.N:
+                        direction = Direction.E
+                        break;
+                    case Direction.E:
+                        direction = Direction.S
+                        break;
+                    case Direction.S:
+                        direction = Direction.W
+                        break;
+                    case Direction.W:
+                        direction = Direction.N
+                        break;
+                }
+            }
+            navigate_player(direction)
+        }
+        
+        const snake_path:number[] = [41,40,39,38,31,30,23,16,17,18,19,20,27,34]
+        let snake_body: number[]
+        if(snakeBody.length === 0){
+
+            const snake_body_raw = sessionStorage.getItem("snake")
+            snake_body = snake_body_raw ? JSON.parse(snake_body_raw) : [];
+        }
+        else{
+            snake_body = snakeBody
+        }
+        if (snake_body.length === 0 || snake_body.includes(Number('null')))
+        {
+            for (let i=0;i<6;i++){
+                snake_body.push(snake_path[i])
+            }
+        }
+        else
+        {
+            for (let i=0;i<6;i++){
+                const s = snake_path.indexOf(snake_body[i])
+                if(s-1 > snake_path.length){
+                    snake_body[i] = snake_path[s-snake_path.length]
+                }
+                else if(s === 0){
+                    snake_body[i] = snake_path[snake_path.length-1]
+                }
+                else{
+                    snake_body[i] = snake_path[s-1]
+                }
+            }
+        }
+        sessionStorage.setItem("snake", JSON.stringify(snake_body))
+        setSnakeBody(snake_body)
+        if(snake_body.includes(currentRoom.index_number)){
+            let snake_direction:Direction
+            if(snake_body[1] === currentRoom.index_number+1){
+                snake_direction = Direction.E
+            }
+            else if(snake_body[1] === currentRoom.index_number-7){
+                snake_direction = Direction.S
+            }
+            else if(snake_body[1] === currentRoom.index_number-1){
+                snake_direction = Direction.W
+            }
+            else{
+                snake_direction = Direction.N
+            }
+            move_player(snake_direction)
+        }
+        renderSnake(snake_body, nextRoom)
+    }, [currentRoom, navigate_player, nextRoom, renderSnake, snakeBody])
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            updateSnake();
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [updateSnake]);
 
     const turn = useCallback((direction:boolean) => {
         if(!direction){
@@ -684,6 +911,11 @@ const Maze: React.FC = () => {
     },[facing])
 
     useEffect(() => {
+        const inventory_remove_item = (item:item)=> {
+            setInventory(inventory.splice(inventory.indexOf(item)))
+            sessionStorage.setItem("items", JSON.stringify(inventory))
+        }
+        
         const clickHandler = () => {
             const wall = currentRoom.getWall(facing)
             if (wall === wall_types.door1 && heldItem === item.key1){
@@ -692,6 +924,7 @@ const Maze: React.FC = () => {
                 setHeldItem(null)
                 maze_layout[43].E_wall = wall_types.gate
                 maze_layout[44].W_Wall = wall_types.gate
+                updateRoom()
             }
             else if (wall === wall_types.door2 && heldItem === item.key2){
                 sessionStorage.setItem("door2","open")
@@ -699,6 +932,7 @@ const Maze: React.FC = () => {
                 setHeldItem(null)
                 maze_layout[22].E_wall = wall_types.gate
                 maze_layout[23].W_Wall = wall_types.gate
+                updateRoom()
             }
             else if (wall === wall_types.door3 && heldItem === item.key3){
                 sessionStorage.setItem("door3","open")
@@ -706,14 +940,26 @@ const Maze: React.FC = () => {
                 setHeldItem(null)
                 maze_layout[24].E_wall = wall_types.gate
                 maze_layout[25].W_Wall = wall_types.gate
+                updateRoom()
             }
             else if (heldItem === item.matches && currentRoom.torch?.lit === torch_state.off) {
-                sessionStorage.setItem("torch"+currentRoom.index_number,"lit")
+                let litTorchCount:number | null
+                const count = sessionStorage.getItem("litTorches")
+                if(count === null) {
+                    litTorchCount = 1
+                    sessionStorage.setItem("litTorches", "1")
+                }
+                else{
+                    litTorchCount = +count
+                    sessionStorage.setItem("litTorches", String(litTorchCount += 1))
+                }
+                sessionStorage.setItem("torch"+litTorchCount,currentRoom.index_number.toString())
                 setHeldItem(null)
                 const torch = maze_layout[currentRoom.index_number].torch;
                 if (torch != null) {
                     torch.lit = torch_state.on;
                 }
+                updateRoom()
             }
             else{
                 setHeldItem(null)
@@ -739,6 +985,15 @@ const Maze: React.FC = () => {
             }
         }
 
+        window.addEventListener("keydown", keyDownHandler);
+        window.addEventListener("mousedown", clickHandler);
+        return () => {
+            window.removeEventListener("keydown", keyDownHandler);
+            window.removeEventListener("mousedown", clickHandler);
+        }
+    }, [currentRoom, facing, heldItem, inventory, inventoryOpen, move, turn, updateRoom]);
+    
+    useEffect(() => {
         const initGameData = () =>{
             if (sessionStorage.getItem("door1") === "open"){
                 maze_layout[43].E_wall = wall_types.gate
@@ -755,21 +1010,23 @@ const Maze: React.FC = () => {
             const raw = sessionStorage.getItem("items");
             const parsed: item[] = raw ? JSON.parse(raw) : [];
             setInventory(parsed)
+            const count = sessionStorage.getItem("litTorches")
+            const litTorches = count !== null ? +count : 0
+            for(let i = litTorches; i > 0; i--){
+                const roomNumber = sessionStorage.getItem("torch"+i)
+                if (roomNumber !== null){
+                    const torch = maze_layout[+roomNumber].torch;
+                    if (torch != null) {
+                        torch.lit = torch_state.on;
+                    }
+                }
+            }
         }
         
         initGameData()
+        updateSnake()
         updateRoom()
-        //const items = JSON.parse(localStorage.getItem('items') as string);
-        //if (items) {
-            //setInventory(items);
-        //}
-        window.addEventListener("keydown", keyDownHandler);
-        window.addEventListener("mousedown", clickHandler);
-        return () => {
-            window.removeEventListener("keydown", keyDownHandler);
-            window.removeEventListener("mousedown", clickHandler);
-        }
-    }, [currentRoom, facing, heldItem, inventoryOpen, move, turn, updateRoom], );
+    }, []);
 
     useEffect(() => {
         updateRoom()
@@ -836,13 +1093,16 @@ const Maze: React.FC = () => {
                          style={{
                              transform: `translate(-50%, -50%) scale(45%) translateY(-6%) translateX(1%) ${frontTorchLeft ? '' : 'scaleX(-1)'}`
                          }}/>
+                    <img id="snake_left" className="snake_left" src={snakeLeft} alt="snake not found" style={snakeStyle}/>
+                    <img id="snake_right" className="snake_right" src={snakeRight} alt="snake not found" style={snakeStyle}/>
                     <img id="item" className="item" src={itemSrc} alt="item not found" style={{
                         transform: `${itemLeft ? '' : 'scaleX(-1)'}`
                     }}/>
-                    <button id="item_trigger" disabled={itemSrc === empty} className="item_trigger" style={{...itemHitbox,
-                        right: !itemLeft? `${itemHitbox.left}` : "",
+                    <button id="item_trigger" disabled={itemSrc === empty} className="item_trigger" style={{
+                        ...itemHitbox,
+                        right: !itemLeft ? `${itemHitbox.left}` : "",
                         left: itemLeft ? `${itemHitbox.left}` : "",
-                        zIndex: itemHitbox != null && heldItem == null ? "51": "0",
+                        zIndex: itemHitbox != null && heldItem == null ? "51" : "0",
                     }} onClick={item_interact}/>
                     <img id="front_item" className="front_item" src={frontItemSrc} alt="item not found" style={{
                         transform: `${frontItemStair ? "" : "translate(-50%, -50%) scale(45%) translateY(-6%) translateX(1%)"} ${frontItemLeft ? '' : 'scaleX(-1)'}`,
@@ -856,8 +1116,10 @@ const Maze: React.FC = () => {
                         <ul className="inventory_list">
                             {inventory.map((item) => (
                                 <li key={item} className="inventory_slot">
-                                    <button className="inventory_slot_trigger" onClick={() => inventory_hold_item(item)} disabled={heldItem !== null}/>
-                                    <img className="inventory_slot_icon" src={maze_item_dictionary[item]} alt="item"/></li>
+                                    <button className="inventory_slot_trigger" onClick={() => inventory_hold_item(item)}
+                                            disabled={heldItem !== null}/>
+                                    <img className="inventory_slot_icon" src={maze_item_dictionary[item]} alt="item"/>
+                                </li>
                             ))}
                         </ul>
                         <img id="inventory_background" className="inventory_background" alt="inventory"
@@ -869,8 +1131,10 @@ const Maze: React.FC = () => {
                                 transition: 'transform 1s ease'
                             }}/>
                         </button>
-                        <img id="map" className="map" alt="map_binder" src={sessionStorage.getItem("map") === "true" ? backpack_map : empty}/>
-                        <img id="compass" className="compass" alt="compass_hanger" src={sessionStorage.getItem("compass") === "true" ? backpack_compass : empty}/>
+                        <img id="map" className="map" alt="map_binder"
+                             src={sessionStorage.getItem("map") === "true" ? backpack_map : empty}/>
+                        <img id="compass" className="compass" alt="compass_hanger"
+                             src={sessionStorage.getItem("compass") === "true" ? backpack_compass : empty}/>
                     </div>
                 </div>
             </div>

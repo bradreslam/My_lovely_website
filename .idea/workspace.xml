@@ -4,17 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added an inventory and fixed some visual bugs">
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/backpack_compass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/backpack_map.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/left_tower_background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/telescope_view.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/LeftTower.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/RightTower.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styling/LeftTower.css" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added the left tower, lighter functionality, and fixed varius bugs">
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_front.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_head.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_head_door.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_door.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_door_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_door.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_turn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_tail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_tail_front.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dictionary's/maze_snake.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/back_darkness.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_darkness.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/key1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/key1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/key3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/key3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_interactable_hitbox.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_interactable_hitbox.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enums/interactable_types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/interactable_types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styling/Maze.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Maze.css" afterDir="false" />
     </list>
@@ -26,9 +36,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="CSS File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -288,7 +298,33 @@
       <workItem from="1755367467933" duration="583000" />
       <workItem from="1755415395315" duration="4214000" />
       <workItem from="1755423164433" duration="431000" />
-      <workItem from="1755430944531" duration="2488000" />
+      <workItem from="1755430944531" duration="2826000" />
+      <workItem from="1755446114866" duration="259000" />
+      <workItem from="1755455175082" duration="357000" />
+      <workItem from="1755505174613" duration="1788000" />
+      <workItem from="1755512952607" duration="792000" />
+      <workItem from="1755544005296" duration="99000" />
+      <workItem from="1755692091216" duration="790000" />
+      <workItem from="1755770776035" duration="99000" />
+      <workItem from="1755776992864" duration="1215000" />
+      <workItem from="1755796943539" duration="1112000" />
+      <workItem from="1755948536195" duration="2321000" />
+      <workItem from="1755956282575" duration="1494000" />
+      <workItem from="1755962003278" duration="910000" />
+      <workItem from="1756031215874" duration="1975000" />
+      <workItem from="1756036213894" duration="554000" />
+      <workItem from="1756045625095" duration="1133000" />
+      <workItem from="1756103919560" duration="1353000" />
+      <workItem from="1756116903391" duration="554000" />
+      <workItem from="1756149305217" duration="666000" />
+      <workItem from="1756193394132" duration="2890000" />
+      <workItem from="1756210894264" duration="1417000" />
+      <workItem from="1756228642366" duration="1748000" />
+      <workItem from="1756231302054" duration="856000" />
+      <workItem from="1756281467774" duration="2127000" />
+      <workItem from="1756284504185" duration="1127000" />
+      <workItem from="1756287597567" duration="327000" />
+      <workItem from="1756291357159" duration="310000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -626,7 +662,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755069466995</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="added the left tower, lighter functionality, and fixed varius bugs">
+      <option name="closed" value="true" />
+      <created>1755433797823</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1755433797823</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +688,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed game player having no height at small screens" />
     <MESSAGE value="added a fullscreen options to the img slider." />
     <MESSAGE value="altered the fullscreen icon when going full screen." />
     <MESSAGE value="Made a small adjustment to make the footer disappear at a certain height." />
@@ -669,6 +712,7 @@
     <MESSAGE value="finished maze rendering, it now renders an extra room so you can look forwards one room, and it renders darkness to block your view" />
     <MESSAGE value="added lighting and torches to the maze" />
     <MESSAGE value="added an inventory and fixed some visual bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="added an inventory and fixed some visual bugs" />
+    <MESSAGE value="added the left tower, lighter functionality, and fixed varius bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the left tower, lighter functionality, and fixed varius bugs" />
   </component>
 </project>

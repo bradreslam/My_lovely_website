@@ -1,5 +1,5 @@
 export enum Interactable_types {
-    stair,
+    stair= 10,
     chest,
     nest,
 }
