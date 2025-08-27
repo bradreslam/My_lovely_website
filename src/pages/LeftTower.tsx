@@ -53,7 +53,7 @@ const LeftTower: React.FC = () => {
                     left: telescopeOn ? "0" : "35%",
                     zIndex: heldItem == null ? "" : "-2"
                 }}/>
-                <button className="stairs" onClick={() => navigate("/maze/2/7")} style={{
+                <button className="stairs_left" onClick={() => navigate("/maze/2/7")} style={{
                     zIndex: heldItem == null ? "" : "-2"
                 }}/>
                 <button className="lighter" onClick={() => inventory_add_item(item.matches)}

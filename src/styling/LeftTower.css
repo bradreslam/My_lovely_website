@@ -1,4 +1,4 @@
-.telescope, .stairs, .lighter{
+.telescope, .stairs_left, .stairs_right, .lighter{
     all: unset;
     display: inline-block;
     cursor: pointer;
@@ -7,8 +7,10 @@
 
 .telescope:focus,
 .telescope:active,
-.stairs:focus,
-.stairs:active,
+.stairs_left:focus,
+.stairs_left:active,
+.stairs_right:focus,
+.stairs_right:active,
 .lighter:active,
 .lighter:focus {
     outline: none;
@@ -31,12 +33,21 @@
     z-index: 5;
 }
 
-.stairs {
+.stairs_left, .stairs_right {
+    right: 0;
+    z-index: 4;
+}
+
+.stairs_left {
+    bottom: 5%;
     width: 30%;
     height: 20%;
-    right: 0;
-    bottom: 5%;
-    z-index: 4;
+}
+
+.stairs_right {
+    width: 19%;
+    height: 14%;
+    bottom: 22%;
 }
 
 .lighter {

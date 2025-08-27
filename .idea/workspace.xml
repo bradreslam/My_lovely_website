@@ -4,29 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added the left tower, lighter functionality, and fixed varius bugs">
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_front.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_head.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_head_door.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_door.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_door_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_door.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_turn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_tail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_tail_front.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dictionary's/maze_snake.ts" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="implemented the snake">
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/right_tower_background.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/back_darkness.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_darkness.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/key1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/key1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/key3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/key3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_interactable_hitbox.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_interactable_hitbox.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enums/interactable_types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/interactable_types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LeftTower.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LeftTower.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styling/Maze.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Maze.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/RightTower.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RightTower.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/LeftTower.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/LeftTower.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +309,8 @@
       <workItem from="1756281467774" duration="2127000" />
       <workItem from="1756284504185" duration="1127000" />
       <workItem from="1756287597567" duration="327000" />
-      <workItem from="1756291357159" duration="310000" />
+      <workItem from="1756291357159" duration="870000" />
+      <workItem from="1756301447759" duration="661000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -670,7 +656,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755433797823</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="implemented the snake">
+      <option name="closed" value="true" />
+      <created>1756292181334</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1756292181334</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -688,7 +682,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added a fullscreen options to the img slider." />
     <MESSAGE value="altered the fullscreen icon when going full screen." />
     <MESSAGE value="Made a small adjustment to make the footer disappear at a certain height." />
     <MESSAGE value="Added a new segment to the introduction listing my experiences" />
@@ -713,6 +706,7 @@
     <MESSAGE value="added lighting and torches to the maze" />
     <MESSAGE value="added an inventory and fixed some visual bugs" />
     <MESSAGE value="added the left tower, lighter functionality, and fixed varius bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the left tower, lighter functionality, and fixed varius bugs" />
+    <MESSAGE value="implemented the snake" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented the snake" />
   </component>
 </project>

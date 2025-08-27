@@ -707,6 +707,7 @@ const Maze: React.FC = () => {
                     const nextRoom = get_next_room(facing,currentRoom.index_number)
                     setNextRoom(nextRoom)
                     const nextRoomLightLevel = get_light_level(nextRoom)
+                    setNextRoomLightLevel(nextRoomLightLevel)
                     setWallFrontSrc(maze_wall_dictionary[nextRoom.getWall(facing)][nextRoomLightLevel]["front"])
                     if(wall === wall_types.hall){
                         const leftFrontWall = nextRoom.getWall(left_wall_direction)
