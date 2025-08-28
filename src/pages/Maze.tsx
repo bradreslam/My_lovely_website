@@ -3,7 +3,7 @@ import {Direction} from "../enums/direction.ts";
 import maze_dictionary from "../dictionary's/maze_dictionary.ts"
 import maze_wall_dictionary from "../dictionary's/maze_wall_dictionary.ts";
 import maze_layout from "../dictionary's/maze_layout.ts";
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 import ceiling_darkness from "../assets/maze_assets/no_ceiling_darkness.png";
 import ceiling_side_darkness from "../assets/maze_assets/ceiling_side_darkness.png";
 import back_darkness from "../assets/maze_assets/back_darkness.png";
@@ -914,13 +914,20 @@ const Maze: React.FC = () => {
         renderSnake(snake_body, nextRoom)
     }, [currentRoom, navigate_player, nextRoom, renderSnake, snakeBody])
 
+    const updateSnakeRef = useRef(updateSnake);
+
+    useEffect(() => {
+        updateSnakeRef.current = updateSnake;
+    }, [updateSnake]);
+
+
     useEffect(() => {
         const interval = setInterval(() => {
-            updateSnake();
+            updateSnakeRef.current();
         }, 2000);
 
         return () => clearInterval(interval);
-    }, [updateSnake]);
+    }, []);
 
     const turn = useCallback((direction:boolean) => {
         if(!direction){
