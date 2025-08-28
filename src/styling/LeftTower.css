@@ -50,11 +50,13 @@
     bottom: 22%;
 }
 
-.lighter {
-    width: 10%;
-    height: 10%;
-    left: 23%;
-    top: 45.5%;
-    background-image: url("../assets/maze_assets/flint.png");
-    background-repeat: no-repeat;
+.lighter, .lighter_img {
+    width: 4%;
+    height: 4%;
+    left: 22.5%;
+    top: 45%;
+}
+
+.lighter_img {
+    position: absolute;
 }
