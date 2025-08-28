@@ -14,35 +14,35 @@ const chestSideHitbox: React.CSSProperties = {
     height: "26%",
 }
 const snakeSize1: React.CSSProperties = {
-    transform: "scale(50%) translateY(-56%) translateX(1%)"
+    transform: "scale(50%) translateY(-62%) translateX(1%)"
 }
 
 const snakeSize1Turned: React.CSSProperties = {
-    transform: "scale(50%) translateY(-56%) translateX(1%) scaleX(-1)"
+    transform: "scale(50%) translateY(-62%) translateX(-1%) scaleX(-1)"
 }
 
 const snakeSize2: React.CSSProperties = {
-    transform: "scale(50%) translateY(-58%) translateX(1%) scaleY(80%)"
+    transform: "scale(50%) translateY(-64%) translateX(1%) scaleY(80%)"
 }
 
 const snakeSize2Turned: React.CSSProperties = {
-    transform: "scale(50%) translateY(-58%) translateX(1%) scaleX(-1) scaleY(80%)"
+    transform: "scale(50%) translateY(-64%) translateX(-1%) scaleX(-1) scaleY(80%)"
 }
 
 const snakeSize3: React.CSSProperties = {
-    transform: "scale(50%) translateY(-60%) translateX(1%) scaleY(60%)"
+    transform: "scale(50%) translateY(-66%) translateX(1%) scaleY(60%)"
 }
 
 const snakeSize3Turned: React.CSSProperties = {
-    transform: "scale(50%) translateY(-60%) translateX(1%) scaleX(-1) scaleY(60%)"
+    transform: "scale(50%) translateY(-66%) translateX(-1%) scaleX(-1) scaleY(60%)"
 }
 
 const snakeSize4: React.CSSProperties = {
-    transform: "scale(50%) translateY(-62%) translateX(1%) scaleY(40%)"
+    transform: "scale(50%) translateY(-68%) translateX(1%) scaleY(40%)"
 }
 
 const snakeSize4Turned: React.CSSProperties = {
-    transform: "scale(50%) translateY(-62%) translateX(1%) scaleX(-1) scaleY(40%)"
+    transform: "scale(50%) translateY(-68%) translateX(-1%) scaleX(-1) scaleY(40%)"
 }
 
 const hitbox_dictionary:{[key:number]:{[key:string]:React.CSSProperties}} = {
