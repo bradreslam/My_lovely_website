@@ -30,9 +30,11 @@ const Maze: React.FC = () => {
     const [nextRoom, setNextRoom] = useState(maze_layout[9]);
     const [facing, setFacing] = useState(Direction.N)
     const [snakeBody, setSnakeBody] = useState<number[]>([])
-    const [snakeStyle, setSnakeStyle] = useState<React.CSSProperties>(
-        hitbox_dictionary[0]
-    )
+    const [snakeRender, setSnakeRender] = useState({
+        left: empty,
+        right: empty,
+        style: hitbox_dictionary[1]["normal"],
+    })
     const [leftWallSrc, setLeftWallSrc] = useState(empty);
     const [rightWallSrc, setRightWallSrc] = useState(empty);
     const [wallSrc, setWallSrc] = useState(empty);
@@ -63,8 +65,6 @@ const Maze: React.FC = () => {
     const [currentRoomLightLevel, setCurrentRoomLightLevel] = useState(Lightlevel.normal);
     const [nextRoomLightLevel, setNextRoomLightLevel] = useState(Lightlevel.normal)
     const [heldItem, setHeldItem] = useState<item | null>(null);
-    const [snakeLeft, setSnakeLeft] = useState(empty);
-    const [snakeRight, setSnakeRight] = useState(empty);
     const [itemHitbox, setItemHitbox] = useState<React.CSSProperties>(
         hitbox_dictionary[Interactable_types.chest]["front"]);
 
@@ -301,8 +301,9 @@ const Maze: React.FC = () => {
         if(facing_wall === wall_types.gate && snake_body.includes(nextRoom.index_number)
             || facing_wall === wall_types.hall && snake_body.includes(nextRoom.index_number)){
             let snakeTurned:boolean = false;
+            let snakeLeft:string = empty
+            let snakeRight:string = empty
             if(nextRoom.index_number === snake_body[0]){
-                setSnakeRight(empty)
                 let snake_dir:Direction
                 if(snake_body[0]+1 === snake_body[1]){
                     snake_dir = Direction.E
@@ -319,38 +320,45 @@ const Maze: React.FC = () => {
                 const dir = relativeDirection(facing, snake_dir)
                 switch (dir){
                     case 0:
-                        setSnakeLeft(maze_snake["left"]["head"]["front"][nextRoomLightLevel])
+                        snakeLeft = maze_snake["left"]["head"]["front"][nextRoomLightLevel]
                         break;
                     case 1:
                         if(nextRoom.getWall(snake_dir) === wall_types.gate){
-                            setSnakeLeft(maze_snake["left"]["head"]["side"]["door"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["head"]["side"]["door"][nextRoomLightLevel]
                         }
                         else{
-                            setSnakeLeft(maze_snake["left"]["head"]["side"]["normal"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["head"]["side"]["normal"][nextRoomLightLevel]
                         }
                         break;
                     case 2:
-                        setSnakeLeft(empty)
+                        snakeLeft = empty
                         break;
                     case 3:
                         snakeTurned = true
                         if(nextRoom.getWall(snake_dir) === wall_types.gate){
-                            setSnakeLeft(maze_snake["left"]["head"]["side"]["door"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["head"]["side"]["door"][nextRoomLightLevel]
                         }
                         else{
-                            setSnakeLeft(maze_snake["left"]["head"]["side"]["normal"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["head"]["side"]["normal"][nextRoomLightLevel]
                         }
                         break;
                 }
                 if (snakeTurned) {
-                    setSnakeStyle(hitbox_dictionary[1]["turned"])
+                    setSnakeRender({
+                        left:snakeLeft,
+                        right:empty,
+                        style:hitbox_dictionary[1]["turned"]
+                    })
                 }
                 else{
-                    setSnakeStyle(hitbox_dictionary[1]["normal"])
+                    setSnakeRender({
+                        left:snakeLeft,
+                        right:empty,
+                        style:hitbox_dictionary[1]["normal"]
+                    })
                 }
             }
             else if(nextRoom.index_number === snake_body[5]){
-                setSnakeRight(empty)
                 let snake_dir:Direction
                 if(snake_body[5]+1 === snake_body[4]){
                     snake_dir = Direction.E
@@ -367,34 +375,42 @@ const Maze: React.FC = () => {
                 const dir = relativeDirection(facing, snake_dir)
                 switch (dir){
                     case 0:
-                        setSnakeLeft(maze_snake["left"]["tail"]["front"][nextRoomLightLevel])
+                        snakeLeft = maze_snake["left"]["tail"]["front"][nextRoomLightLevel]
                         break;
                     case 1:
                         snakeTurned = true
                         if(nextRoom.getWall(snake_dir) === wall_types.gate){
-                            setSnakeLeft(maze_snake["left"]["tail"]["side"]["door"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["tail"]["side"]["door"][nextRoomLightLevel]
                         }
                         else{
-                            setSnakeLeft(maze_snake["left"]["tail"]["side"]["normal"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["tail"]["side"]["normal"][nextRoomLightLevel]
                         }
                         break;
                     case 2:
-                        setSnakeLeft(empty)
+                        snakeLeft = empty
                         break;
                     case 3:
                         if(nextRoom.getWall(snake_dir) === wall_types.gate){
-                            setSnakeLeft(maze_snake["left"]["tail"]["side"]["door"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["tail"]["side"]["door"][nextRoomLightLevel]
                         }
                         else{
-                            setSnakeLeft(maze_snake["left"]["tail"]["side"]["normal"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["tail"]["side"]["normal"][nextRoomLightLevel]
                         }
                         break;
                 }
                 if (snakeTurned) {
-                    setSnakeStyle(hitbox_dictionary[1]["turned"])
+                    setSnakeRender({
+                        left:snakeLeft,
+                        right:empty,
+                        style:hitbox_dictionary[1]["turned"]
+                    })
                 }
                 else{
-                    setSnakeStyle(hitbox_dictionary[1]["normal"])
+                    setSnakeRender({
+                        left:snakeLeft,
+                        right:empty,
+                        style:hitbox_dictionary[1]["normal"]
+                    })
                 }
             }
             else{
@@ -416,26 +432,26 @@ const Maze: React.FC = () => {
                 const right_dir = relativeDirection(facing, snake_right)
                 switch (right_dir){
                     case 0:
-                        setSnakeRight(maze_snake["right"]["body"]["turn"][nextRoomLightLevel])
+                        snakeRight = maze_snake["right"]["body"]["turn"][nextRoomLightLevel]
                         break;
                     case 1:
                         if(nextRoom.getWall(snake_right) === wall_types.gate){
-                            setSnakeRight(maze_snake["right"]["body"]["door"][nextRoomLightLevel])
+                            snakeRight = maze_snake["right"]["body"]["door"][nextRoomLightLevel]
                         }
                         else{
-                            setSnakeRight(maze_snake["right"]["body"]["normal"][nextRoomLightLevel])
+                            snakeRight = maze_snake["right"]["body"]["normal"][nextRoomLightLevel]
                         }
                         break;
                     case 2:
-                        setSnakeRight(empty)
+                        snakeRight = empty
                         break;
                     case 3:
                         snakeTurned = true
                         if(nextRoom.getWall(snake_right) === wall_types.gate){
-                            setSnakeRight(maze_snake["right"]["body"]["door"][nextRoomLightLevel])
+                            snakeRight = maze_snake["right"]["body"]["door"][nextRoomLightLevel]
                         }
                         else{
-                            setSnakeRight(maze_snake["right"]["body"]["normal"][nextRoomLightLevel])
+                            snakeRight = maze_snake["right"]["body"]["normal"][nextRoomLightLevel]
                         }
                         break;
                 }
@@ -457,42 +473,53 @@ const Maze: React.FC = () => {
                 const left_dir = relativeDirection(facing, snake_left)
                 switch (left_dir){
                     case 0:
-                        setSnakeLeft(maze_snake["left"]["body"]["turn"][nextRoomLightLevel])
+                        snakeLeft = maze_snake["left"]["body"]["turn"][nextRoomLightLevel]
                         break;
                     case 1:
                         snakeTurned = true
                         if(nextRoom.getWall(snake_left) === wall_types.gate){
-                            setSnakeLeft(maze_snake["left"]["body"]["door"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["body"]["door"][nextRoomLightLevel]
                         }
                         else{
-                            setSnakeLeft(maze_snake["left"]["body"]["normal"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["body"]["normal"][nextRoomLightLevel]
                         }
                         break;
                     case 2:
-                        setSnakeLeft(empty)
+                        snakeLeft = empty
                         break;
                     case 3:
                         if(nextRoom.getWall(snake_left) === wall_types.gate){
-                            setSnakeLeft(maze_snake["left"]["body"]["door"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["body"]["door"][nextRoomLightLevel]
                         }
                         else{
-                            setSnakeLeft(maze_snake["left"]["body"]["normal"][nextRoomLightLevel])
+                            snakeLeft = maze_snake["left"]["body"]["normal"][nextRoomLightLevel]
                         }
                         break;
                 }
                 if (snakeTurned) {
-                    setSnakeStyle(hitbox_dictionary[visible_snake]["turned"])
+                    setSnakeRender({
+                        left:snakeLeft,
+                        right:snakeRight,
+                        style:hitbox_dictionary[visible_snake]["turned"]
+                    })
                 }
                 else{
-                    setSnakeStyle(hitbox_dictionary[visible_snake]["normal"])
+                    setSnakeRender({
+                        left:snakeLeft,
+                        right:snakeRight,
+                        style:hitbox_dictionary[visible_snake]["normal"]
+                    })
                 }
             }
         }
         else{
-            setSnakeLeft(empty)
-            setSnakeRight(empty)
+            setSnakeRender({
+                left:empty,
+                right:empty,
+                style:hitbox_dictionary[0]
+            })
         }
-    },[currentRoom, facing])
+    },[currentRoom, facing, nextRoomLightLevel])
 
     const updateRoom = useCallback(() => {
         const set_current_room_torch = () =>{
@@ -760,8 +787,11 @@ const Maze: React.FC = () => {
                     setLeftFrontCeilingSrc(empty)
                     setRightFrontCeilingSrc(empty)
                     setWallFrontCeilingSrc(empty)
-                    setSnakeLeft(empty)
-                    setSnakeRight(empty)
+                    setSnakeRender({
+                        left:empty,
+                        right:empty,
+                        style:hitbox_dictionary[0]
+                    })
                 }
                 setFloorSrc(maze_dictionary["floor"])
                 if(currentRoom.Ceiling){
@@ -1094,8 +1124,8 @@ const Maze: React.FC = () => {
                          style={{
                              transform: `translate(-50%, -50%) scale(45%) translateY(-6%) translateX(1%) ${frontTorchLeft ? '' : 'scaleX(-1)'}`
                          }}/>
-                    <img id="snake_left" className="snake_left" src={snakeLeft} alt="snake not found" style={snakeStyle}/>
-                    <img id="snake_right" className="snake_right" src={snakeRight} alt="snake not found" style={snakeStyle}/>
+                    <img id="snake_left" className="snake_left" src={snakeRender.left} alt="snake not found" style={snakeRender.style}/>
+                    <img id="snake_right" className="snake_right" src={snakeRender.right} alt="snake not found" style={snakeRender.style}/>
                     <img id="item" className="item" src={itemSrc} alt="item not found" style={{
                         transform: `${itemLeft ? '' : 'scaleX(-1)'}`
                     }}/>
