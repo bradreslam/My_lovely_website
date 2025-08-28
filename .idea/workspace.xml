@@ -4,21 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added lighting and torches to the maze">
-      <change afterPath="$PROJECT_DIR$/src/enums/torch_state.ts" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="implemented the right tower">
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_head_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_head_door_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_head_front_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_door_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_turn_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_tail_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_tail_door.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_tail_door_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_tail_front_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/back_wall_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_wall_dark.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/back_wall_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/back_wall_light.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_dark.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_gate_light.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_hall_light.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/side_wall_dark.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/torch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/torch.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/text_field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text_field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/snake_head_door.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_head_door.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/snake_right.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_door.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_door.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_snake.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_snake.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styling/Maze.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Maze.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="CSS File" />
+        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -66,7 +70,7 @@
     &quot;JavaScript Debug.JSDebug.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bradr/source/repos/My_lovely_website&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bradr/source/repos/codect-frontend&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -86,6 +90,11 @@
       <recent name="C:\Users\bradr\source\repos\My_lovely_website\src\pages" />
       <recent name="C:\Users\bradr\source\repos\My_lovely_website\src\styling" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="[Lightlevel.normal]" />
+    </option>
   </component>
   <component name="RunManager" selected="npm.npm dev">
     <configuration name="JSDebug" type="JavascriptDebugType" uri="http://localhost:5173/" useFirstLineBreakpoints="true">
@@ -241,7 +250,80 @@
       <workItem from="1754207211408" duration="1632000" />
       <workItem from="1754237217067" duration="2579000" />
       <workItem from="1754292908880" duration="1716000" />
-      <workItem from="1754389521963" duration="1968000" />
+      <workItem from="1754389521963" duration="2403000" />
+      <workItem from="1754469266888" duration="554000" />
+      <workItem from="1754482686162" duration="656000" />
+      <workItem from="1754485828321" duration="1521000" />
+      <workItem from="1754505184795" duration="2474000" />
+      <workItem from="1754542390381" duration="1294000" />
+      <workItem from="1754563675532" duration="1281000" />
+      <workItem from="1754575077762" duration="188000" />
+      <workItem from="1754588796002" duration="1107000" />
+      <workItem from="1754637179893" duration="2686000" />
+      <workItem from="1754640765573" duration="1083000" />
+      <workItem from="1754648767570" duration="336000" />
+      <workItem from="1754649288797" duration="244000" />
+      <workItem from="1754662381357" duration="2109000" />
+      <workItem from="1754738262546" duration="933000" />
+      <workItem from="1754764796046" duration="787000" />
+      <workItem from="1754765938892" duration="1101000" />
+      <workItem from="1754811018634" duration="964000" />
+      <workItem from="1754815653062" duration="1990000" />
+      <workItem from="1754823656520" duration="997000" />
+      <workItem from="1754825497739" duration="10000" />
+      <workItem from="1754828270491" duration="412000" />
+      <workItem from="1754850998407" duration="1076000" />
+      <workItem from="1754897626507" duration="2217000" />
+      <workItem from="1754905553573" duration="600000" />
+      <workItem from="1754915890519" duration="197000" />
+      <workItem from="1754932164561" duration="950000" />
+      <workItem from="1754987127152" duration="2105000" />
+      <workItem from="1754991080384" duration="307000" />
+      <workItem from="1754997202424" duration="1299000" />
+      <workItem from="1755012302278" duration="743000" />
+      <workItem from="1755021794557" duration="314000" />
+      <workItem from="1755025556439" duration="1414000" />
+      <workItem from="1755068285780" duration="2634000" />
+      <workItem from="1755075501574" duration="283000" />
+      <workItem from="1755092607699" duration="1703000" />
+      <workItem from="1755154377454" duration="3207000" />
+      <workItem from="1755167075127" duration="1476000" />
+      <workItem from="1755174219029" duration="709000" />
+      <workItem from="1755182063244" duration="412000" />
+      <workItem from="1755345737021" duration="868000" />
+      <workItem from="1755367467933" duration="583000" />
+      <workItem from="1755415395315" duration="4214000" />
+      <workItem from="1755423164433" duration="431000" />
+      <workItem from="1755430944531" duration="2826000" />
+      <workItem from="1755446114866" duration="259000" />
+      <workItem from="1755455175082" duration="357000" />
+      <workItem from="1755505174613" duration="1788000" />
+      <workItem from="1755512952607" duration="792000" />
+      <workItem from="1755544005296" duration="99000" />
+      <workItem from="1755692091216" duration="790000" />
+      <workItem from="1755770776035" duration="99000" />
+      <workItem from="1755776992864" duration="1215000" />
+      <workItem from="1755796943539" duration="1112000" />
+      <workItem from="1755948536195" duration="2321000" />
+      <workItem from="1755956282575" duration="1494000" />
+      <workItem from="1755962003278" duration="910000" />
+      <workItem from="1756031215874" duration="1975000" />
+      <workItem from="1756036213894" duration="554000" />
+      <workItem from="1756045625095" duration="1133000" />
+      <workItem from="1756103919560" duration="1353000" />
+      <workItem from="1756116903391" duration="554000" />
+      <workItem from="1756149305217" duration="666000" />
+      <workItem from="1756193394132" duration="2890000" />
+      <workItem from="1756210894264" duration="1417000" />
+      <workItem from="1756228642366" duration="1748000" />
+      <workItem from="1756231302054" duration="856000" />
+      <workItem from="1756281467774" duration="2127000" />
+      <workItem from="1756284504185" duration="1127000" />
+      <workItem from="1756287597567" duration="327000" />
+      <workItem from="1756291357159" duration="870000" />
+      <workItem from="1756301447759" duration="880000" />
+      <workItem from="1756313889900" duration="1366000" />
+      <workItem from="1756361904312" duration="3178000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -563,7 +645,47 @@
       <option name="project" value="LOCAL" />
       <updated>1753971049887</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="added lighting and torches to the maze">
+      <option name="closed" value="true" />
+      <created>1754391792614</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1754391792614</updated>
+    </task>
+    <task id="LOCAL-00042" summary="added an inventory and fixed some visual bugs">
+      <option name="closed" value="true" />
+      <created>1755069466995</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1755069466995</updated>
+    </task>
+    <task id="LOCAL-00043" summary="added the left tower, lighter functionality, and fixed varius bugs">
+      <option name="closed" value="true" />
+      <created>1755433797823</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1755433797823</updated>
+    </task>
+    <task id="LOCAL-00044" summary="implemented the snake">
+      <option name="closed" value="true" />
+      <created>1756292181334</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1756292181334</updated>
+    </task>
+    <task id="LOCAL-00045" summary="implemented the right tower">
+      <option name="closed" value="true" />
+      <created>1756302330658</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1756302330658</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,10 +703,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Improved the styling of the play button and added a fullscreen button." />
-    <MESSAGE value="fixed game player having no height at small screens" />
-    <MESSAGE value="added a fullscreen options to the img slider." />
-    <MESSAGE value="altered the fullscreen icon when going full screen." />
     <MESSAGE value="Made a small adjustment to make the footer disappear at a certain height." />
     <MESSAGE value="Added a new segment to the introduction listing my experiences" />
     <MESSAGE value="Added some more experiences and a hyperlink in place of the fontys in my introduction that goes to the fontys website." />
@@ -606,6 +724,10 @@
     <MESSAGE value="added walls to the left and right in the second room the player can see" />
     <MESSAGE value="finished maze rendering, it now renders an extra room so you can look forwards one room, and it renders darkness to block your view" />
     <MESSAGE value="added lighting and torches to the maze" />
-    <option name="LAST_COMMIT_MESSAGE" value="added lighting and torches to the maze" />
+    <MESSAGE value="added an inventory and fixed some visual bugs" />
+    <MESSAGE value="added the left tower, lighter functionality, and fixed varius bugs" />
+    <MESSAGE value="implemented the snake" />
+    <MESSAGE value="implemented the right tower" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented the right tower" />
   </component>
 </project>

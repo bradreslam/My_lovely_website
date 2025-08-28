@@ -5,7 +5,6 @@ import React, {useState, useEffect} from 'react';
 const Footer: React.FC = () => {
     const navigate = useNavigate();
     const [doorPosition, setDoorPosition] = useState(0)
-    const [clickCount, setClickCount] = useState(0);
     const [doorOpen, setDoorOpen] = useState(false);
 
     useEffect(() => {
@@ -15,9 +14,6 @@ const Footer: React.FC = () => {
     const handleClick = () => {
         if(doorOpen){
             navigate('/maze/1/2');
-        }
-        if(clickCount < 4){
-            setClickCount(clickCount+1)
         }
         else{
             setDoorOpen(true);
