@@ -9,6 +9,7 @@ import maze_dictionary from "../dictionary's/maze_dictionary.ts";
 import backpack_map from "../assets/maze_assets/backpack_map.png";
 import empty from "../assets/maze_assets/empty.png";
 import backpack_compass from "../assets/maze_assets/backpack_compass.png";
+import lighter from "../assets/maze_assets/flint.png"
 import {item} from "../enums/items.ts";
 
 const LeftTower: React.FC = () => {
@@ -58,8 +59,11 @@ const LeftTower: React.FC = () => {
                 }}/>
                 <button className="lighter" onClick={() => inventory_add_item(item.matches)}
                         style={{
-                            zIndex: inventory.includes(item.matches) ? "-2" : "5"
+                            zIndex: inventory.includes(item.matches) || telescopeOn ? "-2" : "6"
                 }} />
+                <img className="lighter_img" src={lighter} alt="lighter" style={{
+                    zIndex: inventory.includes(item.matches) || telescopeOn ? "-2" : "5"
+                }}/>
                 <div id="inventory" className="inventory" style={{
                     transform: inventoryOpen ? "translateX(-85%)" : "none",
                     transition: 'transform 1s ease',
