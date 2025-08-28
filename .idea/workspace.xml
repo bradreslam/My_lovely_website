@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="added some missing snake sprites">
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="updated one snake sprite, alterd the snake position, and fixed the snake not moving when turning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_turn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_turn.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_turn_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_right_turn_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_interactable_hitbox.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_interactable_hitbox.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,7 +312,9 @@
       <workItem from="1756301447759" duration="880000" />
       <workItem from="1756313889900" duration="1366000" />
       <workItem from="1756361904312" duration="3405000" />
-      <workItem from="1756371719880" duration="1306000" />
+      <workItem from="1756371719880" duration="1437000" />
+      <workItem from="1756379408973" duration="924000" />
+      <workItem from="1756390223034" duration="1526000" />
     </task>
     <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
       <option name="closed" value="true" />
@@ -681,7 +684,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756365435693</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="updated one snake sprite, alterd the snake position, and fixed the snake not moving when turning">
+      <option name="closed" value="true" />
+      <created>1756373168433</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1756373168433</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -699,7 +710,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added a new segment to the introduction listing my experiences" />
     <MESSAGE value="Added some more experiences and a hyperlink in place of the fontys in my introduction that goes to the fontys website." />
     <MESSAGE value="Added a new project segment containing my waiting room game" />
     <MESSAGE value="fixed a small error in my game" />
@@ -724,6 +734,7 @@
     <MESSAGE value="implemented the snake" />
     <MESSAGE value="implemented the right tower" />
     <MESSAGE value="added some missing snake sprites" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some missing snake sprites" />
+    <MESSAGE value="updated one snake sprite, alterd the snake position, and fixed the snake not moving when turning" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated one snake sprite, alterd the snake position, and fixed the snake not moving when turning" />
   </component>
 </project>

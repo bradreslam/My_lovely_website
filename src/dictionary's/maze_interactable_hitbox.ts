@@ -22,27 +22,27 @@ const snakeSize1Turned: React.CSSProperties = {
 }
 
 const snakeSize2: React.CSSProperties = {
-    transform: "scale(50%) translateY(-64%) translateX(1%) scaleY(80%)"
+    transform: "scale(50%) translateY(-64%) translateX(1%) scaleY(83%)"
 }
 
 const snakeSize2Turned: React.CSSProperties = {
-    transform: "scale(50%) translateY(-64%) translateX(-1%) scaleX(-1) scaleY(80%)"
+    transform: "scale(50%) translateY(-64%) translateX(-1%) scaleX(-1) scaleY(83%)"
 }
 
 const snakeSize3: React.CSSProperties = {
-    transform: "scale(50%) translateY(-66%) translateX(1%) scaleY(60%)"
+    transform: "scale(50%) translateY(-66%) translateX(1%) scaleY(66%)"
 }
 
 const snakeSize3Turned: React.CSSProperties = {
-    transform: "scale(50%) translateY(-66%) translateX(-1%) scaleX(-1) scaleY(60%)"
+    transform: "scale(50%) translateY(-66%) translateX(-1%) scaleX(-1) scaleY(66%)"
 }
 
 const snakeSize4: React.CSSProperties = {
-    transform: "scale(50%) translateY(-68%) translateX(1%) scaleY(40%)"
+    transform: "scale(50%) translateY(-68%) translateX(1%) scaleY(49%)"
 }
 
 const snakeSize4Turned: React.CSSProperties = {
-    transform: "scale(50%) translateY(-68%) translateX(-1%) scaleX(-1) scaleY(40%)"
+    transform: "scale(50%) translateY(-68%) translateX(-1%) scaleX(-1) scaleY(49%)"
 }
 
 const hitbox_dictionary:{[key:number]:{[key:string]:React.CSSProperties}} = {
