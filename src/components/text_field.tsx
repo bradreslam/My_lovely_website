@@ -16,7 +16,8 @@ const TextField: React.FC = () => {
                 <div className="introduction">
                     <img className="profile" alt="portrait"/>
                     <p>Hello my name is Bram. I am a software development student from
-                        <a href="https://www.fontys.nl/Studeren/Opleidingen/HBO-ICT.htm" target="_blank"> Fontys</a> in the Netherlands.
+                        <a href="https://www.fontys.nl/Studeren/Opleidingen/HBO-ICT.htm" target="_blank"> Fontys</a> in
+                        the Netherlands.
                     </p>
                     <p>
                         <br/><b>Experience:</b><br/>&#9679; Writing in C#, Python, Html, Typescript, and css<br/>
@@ -40,7 +41,16 @@ const TextField: React.FC = () => {
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
-                    <Game_player gameName = "nyctophobia"></Game_player>
+                    <Game_player gameName="pallaleo"></Game_player>
+                    <p>I made this small demo of a game named Pallaleo during my first internship.
+                        The final game is supposed to be 3 chapters long with a slow buildup leading up to the end.
+                        So a lot of the final plan isn't pressent in this demo,
+                        but it still contains some gameplay that would have been part of the final game.
+                    </p>
+                </div>
+                <div className="line"/>
+                <div className="project_segment">
+                    <Game_player gameName="nyctophobia"></Game_player>
                     <p>This is a small platformer game I made with a partner,
                         its called nyctophobia which means fear of the dark.
                         The original scope of the game was a lot bigger than this,
@@ -51,13 +61,13 @@ const TextField: React.FC = () => {
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
-                    <Game_player gameName = "the_waiting_room"></Game_player>
+                    <Game_player gameName="the_waiting_room"></Game_player>
                     <p>This is a game I made for a game jam in 4 days, the theme was "one room wonders".</p>
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
                     <Showreel></Showreel>
-                    <p>I put some drawings I made in this slider, so you can have a look at my art style.</p>
+                    <p>I put some drawings I made in this carousel, so you can have a look at my art style.</p>
                 </div>
             </div>
             <div className="text_field_right"></div>
