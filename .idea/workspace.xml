@@ -4,14 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="updated the snake turn">
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/nest.png" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="moved the .htaccess file to correct location">
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/nest_egg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/nest_snake.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_cannonball.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_cannonball_side.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_front_no_cannonBall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_head_side_no_cannonBall.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_left_turn_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/text_space_corner.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/text_space_corner.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/text_space_side.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/text_space_side.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/maze_room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/maze_room.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Image_showreel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Image_showreel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/text_field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text_field.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LeftTower.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LeftTower.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styling/LeftTower.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/LeftTower.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_interactable_hitbox.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_interactable_hitbox.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_item_dictionary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_item_dictionary.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_snake.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_snake.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styling/TextField.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/TextField.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +68,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;JavaScript Debug.JSDebug.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.JSDebug.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/bradr/source/repos/codect-frontend&quot;,
@@ -316,23 +328,22 @@
       <workItem from="1756371719880" duration="1437000" />
       <workItem from="1756379408973" duration="924000" />
       <workItem from="1756390223034" duration="1825000" />
-      <workItem from="1756400759198" duration="1114000" />
-    </task>
-    <task id="LOCAL-00001" summary="added mobile responsive, and added some temp text">
-      <option name="closed" value="true" />
-      <created>1743661280304</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1743661280304</updated>
-    </task>
-    <task id="LOCAL-00002" summary="added tab icon.">
-      <option name="closed" value="true" />
-      <created>1743663388977</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1743663388977</updated>
+      <workItem from="1756400759198" duration="1241000" />
+      <workItem from="1756448636474" duration="2257000" />
+      <workItem from="1756455762462" duration="531000" />
+      <workItem from="1756466572061" duration="413000" />
+      <workItem from="1756474189498" duration="116000" />
+      <workItem from="1756578522513" duration="562000" />
+      <workItem from="1756626851863" duration="2222000" />
+      <workItem from="1756629130511" duration="820000" />
+      <workItem from="1756646876597" duration="356000" />
+      <workItem from="1756709583519" duration="1272000" />
+      <workItem from="1756712459436" duration="629000" />
+      <workItem from="1756797764763" duration="1738000" />
+      <workItem from="1759391854971" duration="695000" />
+      <workItem from="1768823104999" duration="244000" />
+      <workItem from="1769348259218" duration="1149000" />
+      <workItem from="1769588724525" duration="1491000" />
     </task>
     <task id="LOCAL-00003" summary="fixed mobile responsiveness.">
       <option name="closed" value="true" />
@@ -702,7 +713,31 @@
       <option name="project" value="LOCAL" />
       <updated>1756392093619</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="fixed styling on the inventory button, the flint item, and altered the snake turn sprite.">
+      <option name="closed" value="true" />
+      <created>1756402007419</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1756402007419</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Added a new .htaccess file to stop the site from crashing.">
+      <option name="closed" value="true" />
+      <created>1759391952844</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1759391952844</updated>
+    </task>
+    <task id="LOCAL-00051" summary="moved the .htaccess file to correct location">
+      <option name="closed" value="true" />
+      <created>1759392548214</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1759392548214</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -720,9 +755,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added a new project segment containing my waiting room game" />
-    <MESSAGE value="fixed a small error in my game" />
-    <MESSAGE value="added a hint system to the game jam game." />
     <MESSAGE value="fixed game" />
     <MESSAGE value="added missing game files" />
     <MESSAGE value="Added some new assets for the maze, and started work on the maze." />
@@ -745,6 +777,9 @@
     <MESSAGE value="added some missing snake sprites" />
     <MESSAGE value="updated one snake sprite, alterd the snake position, and fixed the snake not moving when turning" />
     <MESSAGE value="updated the snake turn" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated the snake turn" />
+    <MESSAGE value="fixed styling on the inventory button, the flint item, and altered the snake turn sprite." />
+    <MESSAGE value="Added a new .htaccess file to stop the site from crashing." />
+    <MESSAGE value="moved the .htaccess file to correct location" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved the .htaccess file to correct location" />
   </component>
 </project>

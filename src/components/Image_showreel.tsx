@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import DrawingPart1 from '/DrawingPart1.jpg';
 import DrawingPart2 from '/DrawingPart2.jpg';
 import DrawingPart3 from '/DrawingPart3.jpg';
@@ -8,7 +8,6 @@ import SpaceSub from '/SpaceSub.jpg';
 import HeartSchematic from '/HeartSchematic.jpg';
 import MysteryLandscape from '/MysteryLandscape.jpg';
 
-// Example image sources (replace with your actual image paths)
 const images = [DrawingPart1, DrawingPart2, DrawingPart3, DrawingPart4, DrawingPart5,
     SpaceSub, HeartSchematic, MysteryLandscape];
 
