@@ -1,0 +1,17 @@
+.top_bar {
+    position: absolute;
+    width: 100%;
+    background-color: antiquewhite;
+    left: 0;
+    top: 0;
+    height: 10%;
+    z-index: 20;
+}
+
+.top_bar button {
+    border-radius: 0;
+    background-color: transparent;
+    height: 100%;
+    outline: #1a1a1a solid 1px;
+
+}

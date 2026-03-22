@@ -1,6 +1,6 @@
 import {item} from "../enums/items.ts";
 import key1 from "../assets/maze_assets/key1.png"
-import key2 from "../assets/maze_assets/key3.png"
+import key2 from "../assets/maze_assets/key2.png"
 import key3 from "../assets/maze_assets/key3.png"
 import egg from "../assets/maze_assets/egg.png"
 import cannon_ball from "../assets/maze_assets/cannon_ball.png"
