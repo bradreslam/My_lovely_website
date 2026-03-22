@@ -4,24 +4,140 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="Added a new demo to the website, and improved part of the styling">
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/nest_egg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/nest_snake.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_cannonball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_cannonball_side.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_front_no_cannonBall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/maze_assets/snake_head_side_no_cannonBall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/picture.jpeg" afterDir="false" />
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="Added the portfolio for my minor to the website">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/thumbnail_IMG_3158.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/maze_room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/maze_room.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_dictionary.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_interactable_hitbox.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_interactable_hitbox.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_item_dictionary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_item_dictionary.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_layout.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary's/maze_snake.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary's/maze_snake.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Maze.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Maze.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styling/Content.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styling/Content.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/D360Experimentation_big_paper.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/D360Experimentation_big_paper.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/D360Experimentation_small_paper.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/D360Experimentation_small_paper.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/arrow_left.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/arrow_left.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/arrow_right.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/arrow_right.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/15_zinnen.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/15_zinnen.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/50_vormen.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/50_vormen.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Aquarel_eindwerk.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Aquarel_eindwerk.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Aquarel_test.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Aquarel_test.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Boomhut_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Boomhut_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Boomhut_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Boomhut_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Boomhut_3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Boomhut_3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Boomhut_4.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Boomhut_4.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Boomhut_4_open.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Boomhut_4_open.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Boomhut_5.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Boomhut_5.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Emotie_vormen.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Emotie_vormen.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Ikigai.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Ikigai.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Karton_vormgeving_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Karton_vormgeving_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Karton_vormgeving_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Karton_vormgeving_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Bleef_zitten_in_groep_3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Bleef_zitten_in_groep_3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Ging_naar_de_basisschool.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Ging_naar_de_basisschool.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Ging_naar_design_360.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Ging_naar_design_360.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Ging_naar_fontys_met_vriend.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Ging_naar_fontys_met_vriend.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Ging_naar_havo_dicht.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Ging_naar_havo_dicht.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Ging_naar_havo_open.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Ging_naar_havo_open.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Groeide_op_in_laagveld.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Groeide_op_in_laagveld.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Had_moeite_met_frans_en_duits.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Had_moeite_met_frans_en_duits.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Maakte_nieuwe_vrienden_groep.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Maakte_nieuwe_vrienden_groep.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Maakte_video_game_als_eindproject.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Maakte_video_game_als_eindproject.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Semester_game_design.gif" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Semester_game_design.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/Werd_geboren.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/Werd_geboren.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/cude_destruction.gif" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/cude_destruction.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/ging_naar_vanmearlant.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/ging_naar_vanmearlant.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/kreeg_dyslexie_verklaring.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/kreeg_dyslexie_verklaring.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Long_story_short/ontmoete_beste_vriend_in_kleuterklas.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Long_story_short/ontmoete_beste_vriend_in_kleuterklas.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Masker_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Masker_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Masker_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Masker_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Masker_3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Masker_3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Masker_manga.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Masker_manga.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Masker_manga_potloot.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Masker_manga_potloot.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Masker_prototype_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Masker_prototype_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Mixed_media_poster.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Mixed_media_poster.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Patronen_mok.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Patronen_mok.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Pattern_tile_inspiration.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Pattern_tile_inspiration.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Reflectie_interview.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Reflectie_interview.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Reflectie_modellen.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Reflectie_modellen.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Rood_kapje_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Rood_kapje_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Rood_kapje_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Rood_kapje_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Rood_kapje_3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Rood_kapje_3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Skull_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Skull_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Skull_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Skull_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Skull_3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Skull_3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Skull_4.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Skull_4.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Skull_5.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Skull_5.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Skull_line_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Skull_line_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Skull_line_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Skull_line_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Sky_design.mpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Sky_design.mpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/Treehouse_background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/Treehouse_background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/accidental_art_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/accidental_art_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/accidental_art_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/accidental_art_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/dubbel_portret.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/dubbel_portret.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/feeling_blue.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/feeling_blue.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/foto_experiment_1.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/foto_experiment_1.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/foto_experiment_2.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/foto_experiment_2.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/foto_experiment_3.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/foto_experiment_3.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/foto_experiment_4.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/foto_experiment_4.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/foto_experiment_5.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/foto_experiment_5.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/fotograpje.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/fotograpje.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/houtskool_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/houtskool_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/houtskool_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/houtskool_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/houtskool_3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/houtskool_3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/houtskool_4.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/houtskool_4.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/houtskool_5.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/houtskool_5.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/houtskool_6.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/houtskool_6.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/houtskool_7.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/houtskool_7.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/houtskool_8.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/houtskool_8.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/interventie_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/interventie_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/interventie_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/interventie_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/interventie_3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/interventie_3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/interventie_4.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/interventie_4.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/interventie_5.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/interventie_5.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/mixed_media.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/mixed_media.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/museum_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/museum_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/museum_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/museum_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/museum_3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/museum_3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/patronen_experiment_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/patronen_experiment_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/patronen_experiment_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/patronen_experiment_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/patronen_vel_1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/patronen_vel_1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/patronen_vel_2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/patronen_vel_2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/pattern_tile_onderzoek.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/pattern_tile_onderzoek.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/piranha_plant_wax.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/piranha_plant_wax.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/spirit_animal_benen.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/spirit_animal_benen.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/spirit_animal_hoofd.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/spirit_animal_hoofd.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/spirit_animal_nek.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/spirit_animal_nek.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/spirit_animal_voeten.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/spirit_animal_voeten.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/personal_expedition/spirit_dier.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/personal_expedition/spirit_dier.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/grid_penicl.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/grid_penicl.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_10_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_10_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_10_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_10_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_11_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_11_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_11_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_11_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_12_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_12_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_12_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_12_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_13_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_13_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_13_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_13_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_14_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_14_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_14_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_14_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_15_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_15_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_15_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_15_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_16_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_16_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_16_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_16_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_1_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_1_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_1_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_1_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_2_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_2_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_2_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_2_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_3_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_3_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_3_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_3_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_4_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_4_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_4_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_4_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_5_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_5_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_5_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_5_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_6_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_6_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_6_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_6_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_7_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_7_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_7_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_7_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_8_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_8_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_8_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_8_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_9_coloured.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_9_coloured.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/assets/tiles/tile_9_empty.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/d360-assets/tiles/tile_9_empty.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/components/patern_tiles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/d360_portfolio/components/patern_tiles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/pages/personal_expedition.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/d360_portfolio/pages/personal_expedition.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/styling/patern_tiles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/d360_portfolio/styling/patern_tiles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/d360_portfolio/styling/project_space.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/d360_portfolio/styling/project_space.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -365,14 +481,8 @@
       <workItem from="1773835751079" duration="130000" />
       <workItem from="1773837778017" duration="1173000" />
       <workItem from="1773937925807" duration="338000" />
-    </task>
-    <task id="LOCAL-00004" summary="fixed a bunch of responsiveness issues">
-      <option name="closed" value="true" />
-      <created>1744645350112</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1744645350112</updated>
+      <workItem from="1774196992079" duration="1348000" />
+      <workItem from="1774198506819" duration="516000" />
     </task>
     <task id="LOCAL-00005" summary="put the video in the public directory so it gets included with vite build">
       <option name="closed" value="true" />
@@ -758,7 +868,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769590499965</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Added the portfolio for my minor to the website">
+      <option name="closed" value="true" />
+      <created>1774198320710</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1774198320711</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -776,7 +894,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added missing game files" />
     <MESSAGE value="Added some new assets for the maze, and started work on the maze." />
     <MESSAGE value="Fixed the layout of the maze images." />
     <MESSAGE value="altered the texture of the back wall" />
@@ -801,6 +918,7 @@
     <MESSAGE value="Added a new .htaccess file to stop the site from crashing." />
     <MESSAGE value="moved the .htaccess file to correct location" />
     <MESSAGE value="Added a new demo to the website, and improved part of the styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a new demo to the website, and improved part of the styling" />
+    <MESSAGE value="Added the portfolio for my minor to the website" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the portfolio for my minor to the website" />
   </component>
 </project>

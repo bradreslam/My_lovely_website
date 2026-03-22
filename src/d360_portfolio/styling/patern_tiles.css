@@ -1,7 +1,7 @@
 .tile_set {
     position: relative;
     display: grid;
-    background-image: url("../assets/tiles/grid_penicl.jpeg");
+    background-image: url("../../../public/d360-assets/tiles/grid_penicl.jpeg");
     background-repeat: no-repeat;
     background-size: contain;
     grid-template-columns: auto auto auto auto;

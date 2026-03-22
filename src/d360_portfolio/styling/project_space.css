@@ -46,13 +46,13 @@
 }
 
 .left_button i {
-    content: url("../assets/arrow_left.svg");
+    content: url("../../../public/d360-assets/arrow_left.svg");
     width: 20px;
     height: 20px;
 }
 
 .right_button i {
-    content: url("../assets/arrow_right.svg");
+    content: url("../../../public/d360-assets/arrow_right.svg");
     width: 20px;
     height: 20px;
 }
