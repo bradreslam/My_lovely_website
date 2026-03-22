@@ -1,8 +1,10 @@
 import head_side from "../assets/maze_assets/snake_head.png"
+import head_side_no_cannonball from "../assets/maze_assets/snake_head_side_no_cannonBall.png"
 import head_side_dark from "../assets/maze_assets/snake_head_dark.png"
 import snake_head_side_door from "../assets/maze_assets/snake_head_door.png"
 import snake_head_side_door_dark from "../assets/maze_assets/snake_head_door_dark.png"
 import head_front from "../assets/maze_assets/snake_front.png"
+import head_front_no_cannonball from "../assets/maze_assets/snake_front_no_cannonBall.png"
 import head_front_dark from "../assets/maze_assets/snake_head_front_dark.png"
 import tail_side from "../assets/maze_assets/snake_tail.png"
 import tail_side_dark from "../assets/maze_assets/snake_tail_dark.png"
@@ -22,6 +24,8 @@ import left_door from "../assets/maze_assets/snake_left_door.png"
 import right_door from "../assets/maze_assets/snake_right_door.png"
 import right_door_dark from "../assets/maze_assets/snake_right_door_dark.png"
 import left_door_dark from "../assets/maze_assets/snake_left_door_dark.png"
+import cannonball_front from "../assets/maze_assets/snake_cannonball.png"
+import cannonball_side from "../assets/maze_assets/snake_cannonball_side.png"
 import {Lightlevel} from "../enums/lightlevel.ts"
 
 
@@ -36,6 +40,7 @@ const maze_layout = {
                 [Lightlevel.light]: head_front, [Lightlevel.dark]: head_front_dark, [Lightlevel.normal]: head_front
             }
         },
+        "headNoCannonball": {"front": head_front_no_cannonball, "side":head_side_no_cannonball},
         "tail":{
             "side": {
                 "door":{[Lightlevel.light]: tail_side_door,[Lightlevel.dark]:tail_side_door_dark,[Lightlevel.normal]:tail_side_door},
@@ -57,6 +62,7 @@ const maze_layout = {
             "normal":{[Lightlevel.light]: right,[Lightlevel.dark]:right_dark,[Lightlevel.normal]:right},
             "turn":{[Lightlevel.light]: turn_right,[Lightlevel.dark]:turn_right_dark,[Lightlevel.normal]:turn_right}
         },
+        "cannonball":{"front": cannonball_front, "side": cannonball_side}
     }
 }
 export default maze_layout;

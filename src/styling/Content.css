@@ -8,7 +8,7 @@
 }
 
 .profile {
-    content:url("../assets/thumbnail_IMG_3158.jpg");
+    content:url("../assets/picture.jpeg");
     width: 150px;
     height: 100%;
     object-fit: cover;
@@ -36,6 +36,7 @@
 .project_segment video {
     width: 60%;
     height: 100%;
+    background-color: black;
 }
 
 .game_player {

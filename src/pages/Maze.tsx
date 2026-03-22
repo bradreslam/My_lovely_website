@@ -20,6 +20,7 @@ import {item} from "../enums/items.ts";
 import maze_item_dictionary from "../dictionary's/maze_item_dictionary.ts";
 import maze_snake from "../dictionary's/maze_snake.ts"
 import hitbox_dictionary from "../dictionary's/maze_interactable_hitbox.ts";
+import maze_interactable_hitbox from "../dictionary's/maze_interactable_hitbox.ts";
 
 const Maze: React.FC = () => {
 
@@ -35,6 +36,7 @@ const Maze: React.FC = () => {
         right: empty,
         style: hitbox_dictionary[1]["normal"],
     })
+    const [snakeMoving, setSnakeMoving] = useState(true)
     const [leftWallSrc, setLeftWallSrc] = useState(empty);
     const [rightWallSrc, setRightWallSrc] = useState(empty);
     const [wallSrc, setWallSrc] = useState(empty);
@@ -235,6 +237,19 @@ const Maze: React.FC = () => {
                     }
                 }
             }
+            else if(item.interactable === Interactable_types.nest){
+                const nestState = sessionStorage.getItem("nest")
+                setItemHitbox(maze_interactable_hitbox[item.interactable]["front"])
+                if(nestState === null){
+                    setItemSrc(maze_dictionary[Interactable_types.nest][0]["front"])
+                }
+                else if(+nestState === 1){
+                    setItemSrc(maze_dictionary[Interactable_types.nest][1]["front"])
+                }
+                else if(+nestState === 2){
+                    setItemSrc(maze_dictionary[Interactable_types.nest][2]["front"])
+                }
+            }
             else{
                 const dir = relativeDirection(facing,item.orientation)
                 if(item.interactable == Interactable_types.chest
@@ -318,55 +333,91 @@ const Maze: React.FC = () => {
                     snake_dir=Direction.S
                 }
                 const dir = relativeDirection(facing, snake_dir)
-                switch (dir){
-                    case 0:
-                        snakeLeft = maze_snake["left"]["head"]["front"][nextRoomLightLevel]
-                        break;
-                    case 1:
-                        if(nextRoom.getWall(snake_dir) === wall_types.gate){
-                            snakeLeft = maze_snake["left"]["head"]["side"]["door"][nextRoomLightLevel]
-                        }
-                        else{
-                            snakeLeft = maze_snake["left"]["head"]["side"]["normal"][nextRoomLightLevel]
-                        }
-                        break;
-                    case 2:
-                        snakeLeft = empty
-                        break;
-                    case 3:
-                        snakeTurned = true
-                        if(nextRoom.getWall(snake_dir) === wall_types.gate){
-                            snakeLeft = maze_snake["left"]["head"]["side"]["door"][nextRoomLightLevel]
-                        }
-                        else{
-                            snakeLeft = maze_snake["left"]["head"]["side"]["normal"][nextRoomLightLevel]
-                        }
-                        break;
-                }
-                if (snakeTurned) {
-                    setSnakeRender({
-                        left:snakeLeft,
-                        right:empty,
-                        style:hitbox_dictionary[1]["turned"]
-                    })
+                if(snakeMoving){
+                    switch (dir){
+                        case 0:
+                            snakeLeft = maze_snake["left"]["head"]["front"][nextRoomLightLevel]
+                            break;
+                        case 1:
+                            if(nextRoom.getWall(snake_dir) === wall_types.gate){
+                                snakeLeft = maze_snake["left"]["head"]["side"]["door"][nextRoomLightLevel]
+                            }
+                            else{
+                                snakeLeft = maze_snake["left"]["head"]["side"]["normal"][nextRoomLightLevel]
+                            }
+                            break;
+                        case 2:
+                            snakeLeft = empty
+                            break;
+                        case 3:
+                            snakeTurned = true
+                            if(nextRoom.getWall(snake_dir) === wall_types.gate){
+                                snakeLeft = maze_snake["left"]["head"]["side"]["door"][nextRoomLightLevel]
+                            }
+                            else{
+                                snakeLeft = maze_snake["left"]["head"]["side"]["normal"][nextRoomLightLevel]
+                            }
+                            break;
+                    }
+                    if (snakeTurned) {
+                        setSnakeRender({
+                            left:snakeLeft,
+                            right:empty,
+                            style:hitbox_dictionary[1]["turned"]
+                        })
+                    }
+                    else{
+                        setSnakeRender({
+                            left:snakeLeft,
+                            right:empty,
+                            style:hitbox_dictionary[1]["normal"]
+                        })
+                    }
                 }
                 else{
-                    setSnakeRender({
-                        left:snakeLeft,
-                        right:empty,
-                        style:hitbox_dictionary[1]["normal"]
-                    })
+                    switch (dir){
+                        case 0:
+                            snakeLeft = maze_snake["left"]["headNoCannonball"]["front"]
+                            snakeRight = maze_snake["right"]["cannonball"]["front"]
+                            break;
+                        case 1:
+                            snakeLeft = maze_snake["left"]["headNoCannonball"]["side"]
+                            snakeRight = maze_snake["right"]["cannonball"]["side"]
+                            break;
+                        case 2:
+                            snakeLeft = empty
+                            break;
+                        case 3:
+                            snakeTurned = true
+                            snakeLeft = maze_snake["left"]["headNoCannonball"]["side"]
+                            snakeRight = maze_snake["right"]["cannonball"]["side"]
+                            break;
+                    }
+                    if (snakeTurned) {
+                        setSnakeRender({
+                            left:snakeLeft,
+                            right:snakeRight,
+                            style:hitbox_dictionary[snake_body.length]["still_turned"]
+                        })
+                    }
+                    else{
+                        setSnakeRender({
+                            left:snakeLeft,
+                            right:snakeRight,
+                            style:hitbox_dictionary[snake_body.length]["still_normal"]
+                        })
+                    }
                 }
             }
-            else if(nextRoom.index_number === snake_body[5]){
+            else if(nextRoom.index_number === snake_body[snake_body.length-1]){
                 let snake_dir:Direction
-                if(snake_body[5]+1 === snake_body[4]){
+                if(snake_body[snake_body.length-1]+1 === snake_body[4]){
                     snake_dir = Direction.E
                 }
-                else if(snake_body[5]-1 === snake_body[4]){
+                else if(snake_body[snake_body.length-1]-1 === snake_body[4]){
                     snake_dir = Direction.W
                 }
-                else if(snake_body[5]+7 === snake_body[4]){
+                else if(snake_body[snake_body.length-1]+7 === snake_body[4]){
                     snake_dir = Direction.N
                 }
                 else{
@@ -513,13 +564,14 @@ const Maze: React.FC = () => {
             }
         }
         else{
+
             setSnakeRender({
                 left:empty,
                 right:empty,
                 style:hitbox_dictionary[0]
             })
         }
-    },[currentRoom, facing, nextRoomLightLevel])
+    },[currentRoom, facing, nextRoomLightLevel, snakeMoving])
 
     const updateRoom = useCallback(() => {
         const set_current_room_torch = () =>{
@@ -583,6 +635,18 @@ const Maze: React.FC = () => {
                 if(item.interactable === Interactable_types.stair){
                     setFrontItemStair(true)
                     setFrontItemSrc(maze_dictionary[Interactable_types.stair][nextRoomLightLevel])
+                }
+                else if(item.interactable === Interactable_types.nest){
+                    const nestState = sessionStorage.getItem("nest")
+                    if(nestState === null){
+                        setFrontItemSrc(maze_dictionary[Interactable_types.nest][0]["front"])
+                    }
+                    else if(+nestState === 1){
+                        setFrontItemSrc(maze_dictionary[Interactable_types.nest][1]["front"])
+                    }
+                    else if(+nestState === 2){
+                        setFrontItemSrc(maze_dictionary[Interactable_types.nest][2]["front"])
+                    }
                 }
                 else{
                     setFrontItemStair(false)
@@ -862,60 +926,79 @@ const Maze: React.FC = () => {
             navigate_player(direction)
         }
         
-        const snake_path:number[] = [41,40,39,38,31,30,23,16,17,18,19,20,27,34]
-        let snake_body: number[]
-        if(snakeBody.length === 0){
+        if(snakeMoving){
+            const snake_path:number[] = [41,40,39,38,31,30,23,16,17,18,19,20,27,34]
+            let snake_body: number[]
+            if(snakeBody.length === 0){
 
-            const snake_body_raw = sessionStorage.getItem("snake")
-            snake_body = snake_body_raw ? JSON.parse(snake_body_raw) : [];
-        }
-        else{
-            snake_body = snakeBody
-        }
-        if (snake_body.length === 0 || snake_body.includes(Number('null')))
-        {
-            for (let i=0;i<6;i++){
-                snake_body.push(snake_path[i])
-            }
-        }
-        else
-        {
-            for (let i=0;i<6;i++){
-                const s = snake_path.indexOf(snake_body[i])
-                if(s-1 > snake_path.length){
-                    snake_body[i] = snake_path[s-snake_path.length]
-                }
-                else if(s === 0){
-                    snake_body[i] = snake_path[snake_path.length-1]
-                }
-                else{
-                    snake_body[i] = snake_path[s-1]
-                }
-            }
-        }
-        sessionStorage.setItem("snake", JSON.stringify(snake_body))
-        setSnakeBody(snake_body)
-        if(snake_body.includes(currentRoom.index_number)){
-            let snake_direction:Direction
-            if(snake_body[1] === currentRoom.index_number+1){
-                snake_direction = Direction.E
-            }
-            else if(snake_body[1] === currentRoom.index_number-7){
-                snake_direction = Direction.S
-            }
-            else if(snake_body[1] === currentRoom.index_number-1){
-                snake_direction = Direction.W
+                const snake_body_raw = sessionStorage.getItem("snake")
+                snake_body = snake_body_raw ? JSON.parse(snake_body_raw) : [];
             }
             else{
-                snake_direction = Direction.N
+                snake_body = snakeBody
             }
-            move_player(snake_direction)
+            if (snake_body.length === 0 || snake_body.includes(Number('null')))
+            {
+                for (let i=0;i<6;i++){
+                    snake_body.push(snake_path[i])
+                }
+            }
+            else
+            {
+                for (let i=0;i<6;i++){
+                    const s = snake_path.indexOf(snake_body[i])
+                    if(s-1 > snake_path.length){
+                        snake_body[i] = snake_path[s-snake_path.length]
+                    }
+                    else if(s === 0){
+                        snake_body[i] = snake_path[snake_path.length-1]
+                    }
+                    else{
+                        snake_body[i] = snake_path[s-1]
+                    }
+                }
+            }
+            sessionStorage.setItem("snake", JSON.stringify(snake_body))
+            setSnakeBody(snake_body)
+            if(maze_layout[snake_body[0]].Interactable?.interactable == Interactable_types.nest
+                && sessionStorage.getItem("nest") === "1"){
+                setSnakeMoving(false)
+                if(snake_body.includes(currentRoom.index_number)) {
+                    setFacing(Direction.N)
+                    move_player(Direction.N)
+                }
+            }
+            else{
+                if(snake_body.includes(currentRoom.index_number)) {
+                    let snake_direction: Direction
+                    if (snake_body[1] === currentRoom.index_number + 1) {
+                        snake_direction = Direction.E
+                    } else if (snake_body[1] === currentRoom.index_number - 7) {
+                        snake_direction = Direction.S
+                    } else if (snake_body[1] === currentRoom.index_number - 1) {
+                        snake_direction = Direction.W
+                    } else {
+                        snake_direction = Direction.N
+                    }
+                    move_player(snake_direction)
+                }
+            }
+            renderSnake(snake_body, nextRoom)
         }
-        renderSnake(snake_body, nextRoom)
-    }, [currentRoom, navigate_player, nextRoom, renderSnake, snakeBody])
+        renderSnake(snakeBody, nextRoom)
+    }, [currentRoom, navigate_player, nextRoom, renderSnake, snakeBody, snakeMoving])
 
     const updateSnakeRef = useRef(updateSnake);
+    const snakeMovingRef = useRef(snakeMoving);
+    const snakeBodyRef = useRef(snakeBody);
 
+    useEffect(() => {
+        snakeMovingRef.current = snakeMoving;
+    }, [snakeMoving]);
+
+    useEffect(() => {
+        snakeBodyRef.current = snakeBody;
+    }, [snakeBody]);
     useEffect(() => {
         updateSnakeRef.current = updateSnake;
     }, [updateSnake]);
@@ -923,7 +1006,13 @@ const Maze: React.FC = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            updateSnakeRef.current();
+            if(snakeMoving){
+                updateSnakeRef.current();
+            }
+            else if(snakeBody.length != 0){
+                const newBody = [...snakeBody]; newBody.splice(1,1); setSnakeBody(newBody);
+                updateSnakeRef.current();
+            }
         }, 2000);
 
         return () => clearInterval(interval);
@@ -950,7 +1039,7 @@ const Maze: React.FC = () => {
 
     useEffect(() => {
         const inventory_remove_item = (item:item)=> {
-            setInventory(inventory.splice(inventory.indexOf(item)))
+            setInventory(inventory => inventory.filter(x => x !== item))
             sessionStorage.setItem("items", JSON.stringify(inventory))
         }
         
@@ -961,15 +1050,15 @@ const Maze: React.FC = () => {
                 inventory_remove_item(heldItem)
                 setHeldItem(null)
                 maze_layout[43].E_wall = wall_types.gate
-                maze_layout[44].W_Wall = wall_types.gate
+                maze_layout[44].W_wall = wall_types.gate
                 updateRoom()
             }
             else if (wall === wall_types.door2 && heldItem === item.key2){
                 sessionStorage.setItem("door2","open")
                 inventory_remove_item(heldItem)
                 setHeldItem(null)
-                maze_layout[22].E_wall = wall_types.gate
-                maze_layout[23].W_Wall = wall_types.gate
+                maze_layout[15].N_wall = wall_types.gate
+                maze_layout[22].S_wall = wall_types.gate
                 updateRoom()
             }
             else if (wall === wall_types.door3 && heldItem === item.key3){
@@ -977,7 +1066,7 @@ const Maze: React.FC = () => {
                 inventory_remove_item(heldItem)
                 setHeldItem(null)
                 maze_layout[24].E_wall = wall_types.gate
-                maze_layout[25].W_Wall = wall_types.gate
+                maze_layout[25].W_wall = wall_types.gate
                 updateRoom()
             }
             else if (heldItem === item.matches && currentRoom.torch?.lit === torch_state.off) {
@@ -998,6 +1087,11 @@ const Maze: React.FC = () => {
                     torch.lit = torch_state.on;
                 }
                 updateRoom()
+            }
+            else if(currentRoom.Interactable?.interactable === Interactable_types.nest && heldItem === item.egg){
+                sessionStorage.setItem("nest","1")
+                set_current_room_item()
+                setHeldItem(null)
             }
             else{
                 setHeldItem(null)
@@ -1035,18 +1129,18 @@ const Maze: React.FC = () => {
         const initGameData = () =>{
             if (sessionStorage.getItem("door1") === "open"){
                 maze_layout[43].E_wall = wall_types.gate
-                maze_layout[44].W_Wall = wall_types.gate
+                maze_layout[44].W_wall = wall_types.gate
             }
             if (sessionStorage.getItem("door2") === "open"){
-                maze_layout[22].E_wall = wall_types.gate
-                maze_layout[23].W_Wall = wall_types.gate
+                maze_layout[15].N_wall = wall_types.gate
+                maze_layout[22].S_wall = wall_types.gate
             }
             if (sessionStorage.getItem("door3") === "open"){
                 maze_layout[24].E_wall = wall_types.gate
-                maze_layout[25].W_Wall = wall_types.gate
+                maze_layout[25].W_wall = wall_types.gate
             }
             const raw = sessionStorage.getItem("items");
-            const parsed: item[] = raw ? JSON.parse(raw) : [];
+            const parsed: item[] = raw ? JSON.parse(raw) : [5];
             setInventory(parsed)
             const count = sessionStorage.getItem("litTorches")
             const litTorches = count !== null ? +count : 0
@@ -1132,9 +1226,17 @@ const Maze: React.FC = () => {
                              transform: `translate(-50%, -50%) scale(45%) translateY(-6%) translateX(1%) ${frontTorchLeft ? '' : 'scaleX(-1)'}`
                          }}/>
                     <img id="snake_left" className="snake_left" src={snakeRender.left} alt="snake not found" style={snakeRender.style}/>
-                    <img id="snake_right" className="snake_right" src={snakeRender.right} alt="snake not found" style={snakeRender.style}/>
+                    <img id="snake_right" className="snake_right" src={snakeRender.right} alt="snake not found" style={{...snakeRender.style,
+                        ...(snakeMoving
+                            ? {}
+                            : {
+                                transform: "translateY(-20%)",
+                                transition: "transform 2s ease-in",
+                            }),
+                    }}/>
                     <img id="item" className="item" src={itemSrc} alt="item not found" style={{
-                        transform: `${itemLeft ? '' : 'scaleX(-1)'}`
+                        transform: `${itemLeft ? '' : 'scaleX(-1)'}`,
+                        zIndex: `${currentRoom.Interactable?.interactable === Interactable_types.nest ? '2':''}`
                     }}/>
                     <button id="item_trigger" disabled={itemSrc === empty} className="item_trigger" style={{
                         ...itemHitbox,
@@ -1145,7 +1247,8 @@ const Maze: React.FC = () => {
                     <img id="front_item" className="front_item" src={frontItemSrc} alt="item not found" style={{
                         transform: `${frontItemStair ? "" : "translate(-50%, -50%) scale(45%) translateY(-6%) translateX(1%)"} ${frontItemLeft ? '' : 'scaleX(-1)'}`,
                         top: `${frontItemStair ? "" : "50%"}`,
-                        left: `${frontItemStair ? "" : "50%"}`
+                        left: `${frontItemStair ? "" : "50%"}`,
+                        zIndex: `${nextRoom.Interactable?.interactable === Interactable_types.nest ? '2':''}`
                     }}/>
                     <div id="inventory" className="inventory" style={{
                         transform: inventoryOpen ? "translateX(-85%)" : "none",

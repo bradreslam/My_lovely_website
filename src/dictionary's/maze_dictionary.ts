@@ -20,6 +20,8 @@ import side_chest_dark from "../assets/maze_assets/chest_side_dark.png"
 import inventory from "../assets/maze_assets/inventory.png"
 import inventory_toggle from "../assets/maze_assets/inventory_open_button.png"
 import nest from "../assets/maze_assets/nest.png"
+import nest_egg from "../assets/maze_assets/nest_egg.png"
+import nest_snake from "../assets/maze_assets/nest_snake.png"
 import {torch_state} from "../enums/torch_state.ts"
 import {Interactable_types} from "../enums/interactable_types.ts"
 import {Lightlevel} from "../enums/lightlevel.ts"
@@ -51,9 +53,9 @@ const maze_dictionary = {
         [Lightlevel.light]:{"side": empty, "front": empty, "side_open": side_chest_open, "front_open":chest_open},
     },
     [Interactable_types.nest]:{
-        [Lightlevel.normal]:{"side": nest, "front": nest},
-        [Lightlevel.dark]:{"side": nest, "front": nest},
-        [Lightlevel.light]:{"side": nest, "front": nest},
+        0:{"side": nest, "front": nest},
+        1:{"side": nest_egg, "front": nest_egg},
+        2:{"side": nest_snake, "front": nest_snake},
         "hitbox":{"side": empty, "front":empty}
     }
 }
