@@ -64,11 +64,12 @@ const TextField: React.FC = () => {
                 <div className="line"/>
                 <div className="project_segment">
                     <Game_player gameName="the_waiting_room"></Game_player>
-                    <p>This is a game I made for a game jam in 4 days, the theme was "one room wonders".
-                    Because of the short timeframe I didn't have time to add any instructions inside the game,
-                        but I added a hint system later by clicking on the top right of the ceiling.<br/>
-                    <b>Controls:</b><br/>clicking and draging with the mouse</p><br/>
-                    <a href = "https://github.com/bradreslam/the-waiting-room">Github repository</a>
+                        <p>This is a game I made for a game jam in 4 days, the theme was "one room wonders".
+                        Because of the short timeframe I didn't have time to add any instructions inside the game,
+                            but I added a hint system later by clicking on the top right of the ceiling.<br/>
+                        <b>Controls:</b><br/>clicking and draging with the mouse<br/>
+                        <a href = "https://github.com/bradreslam/the-waiting-room">Github repository</a>
+                    </p>
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
@@ -79,8 +80,9 @@ const TextField: React.FC = () => {
                     <p>This project is called Codect, and served as a small game.
                         In this game you can create your own electrical components, and place them on a grid.
                         It was made using react, typescript, and C#.
-                        It is still a small prototype, and has quite a lot of lag. This is also my oldest project here.</p><br/>
-                    <a href="https://github.com/bradreslam/codect">Github repository</a>
+                        It is still a small prototype, and has quite a lot of lag. This is also my oldest project here.
+                        <br/><a href="https://github.com/bradreslam/codect">Github repository</a>
+                    </p>
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
