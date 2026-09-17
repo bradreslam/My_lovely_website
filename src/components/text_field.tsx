@@ -47,6 +47,17 @@ const TextField: React.FC = () => {
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
+                    <Game_player gameName="rusty_lake_invite"></Game_player>
+                    <p>This is a small game that I made as an example of my skills when I applied for an internship at Rusty Lake.
+                        I made it in about 3 weeks of work and it includes 2 puzzles, sound effects,
+                        voice acting (help), and an ending.<br/><b>Controls:</b><br/>
+                        Movement: A\D, Left\Right, or clicking on the arrows<br/>
+                        Puzzles: mouse or touchscreen
+                        <br/><a href="https://github.com/bradreslam/Rusty_lake_invitation">Github repository</a>
+                    </p>
+                </div>
+                <div className="line"/>
+                <div className="project_segment">
                     <Game_player gameName="nyctophobia"></Game_player>
                     <p>This is a small platformer game I made with a partner,
                         its called nyctophobia which means fear of the dark.
@@ -64,29 +75,16 @@ const TextField: React.FC = () => {
                 <div className="line"/>
                 <div className="project_segment">
                     <Game_player gameName="the_waiting_room"></Game_player>
-                        <p>This is a game I made for a game jam in 4 days, the theme was "one room wonders".
+                    <p>This is a game I made for a game jam in 4 days, the theme was "one room wonders".
                         Because of the short timeframe I didn't have time to add any instructions inside the game,
-                            but I added a hint system later by clicking on the top right of the ceiling.<br/>
+                        but I added a hint system later by clicking on the top right of the ceiling.<br/>
                         <b>Controls:</b><br/>clicking and draging with the mouse<br/>
-                        <a href = "https://github.com/bradreslam/the-waiting-room">Github repository</a>
+                        <a href="https://github.com/bradreslam/the-waiting-room">Github repository</a>
                     </p>
                 </div>
                 <div className="line"/>
                 <div className="project_segment">
-                    <video controls playsInline={true} poster="/Codect_thumbnail.png">
-                        <source src="/codect_showcase.mp4" type="video/mp4"></source>
-                        Your browser does not support the video tag.
-                    </video>
-                    <p>This project is called Codect, and served as a small game.
-                        In this game you can create your own electrical components, and place them on a grid.
-                        It was made using react, typescript, and C#.
-                        It is still a small prototype, and has quite a lot of lag. This is also my oldest project here.
-                        <br/><a href="https://github.com/bradreslam/codect">Github repository</a>
-                    </p>
-                </div>
-                <div className="line"/>
-                <div className="project_segment">
-                <Showreel></Showreel>
+                    <Showreel></Showreel>
                     <p>I put some drawings I made in this carousel, so you can have a look at my art style.</p>
                 </div>
             </div>
