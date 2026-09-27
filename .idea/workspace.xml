@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="Fixed some link placement">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/codect_showcase.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/text_field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text_field.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="79bb7f7e-d650-45cc-8f2e-716657fb0019" name="Changes" comment="Added a new project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -364,14 +360,7 @@
       <workItem from="1781682604407" duration="22000" />
       <workItem from="1788446244325" duration="447000" />
       <workItem from="1789573887952" duration="299000" />
-    </task>
-    <task id="LOCAL-00008" summary="Added a new styled dropdown containing links to different websites.">
-      <option name="closed" value="true" />
-      <created>1745081271047</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1745081271047</updated>
+      <workItem from="1789627306431" duration="284000" />
     </task>
     <task id="LOCAL-00009" summary="Added a small cog to the link dropdown, and changed its title.">
       <option name="closed" value="true" />
@@ -757,7 +746,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788446691621</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Added a new project">
+      <option name="closed" value="true" />
+      <created>1789627591184</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1789627591184</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -775,7 +772,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added the layout off the maze and all the classes, etc to store the info" />
     <MESSAGE value="Worked some more on the maze code" />
     <MESSAGE value="auto update workspace.xml" />
     <MESSAGE value="Updated my maze code and blocked of the maze entrance." />
@@ -800,6 +796,7 @@
     <MESSAGE value="Moved d360 to public" />
     <MESSAGE value="Removed my d360 portfolio, and improved the homepage." />
     <MESSAGE value="Fixed some link placement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some link placement" />
+    <MESSAGE value="Added a new project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a new project" />
   </component>
 </project>

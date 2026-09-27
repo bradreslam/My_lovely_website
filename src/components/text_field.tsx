@@ -30,10 +30,21 @@ const TextField: React.FC = () => {
                     </p>
                 </div>
                 <div className="line"/>
-
+                <div className="project_segment">
+                    <Game_player gameName="rusty_lake_invite"></Game_player>
+                    <p>This is a small game that I made as an example of my skills when I applied for an internship at
+                        Rusty Lake.
+                        I made it in about 3 weeks of work and it includes 2 puzzles, sound effects,
+                        voice acting (help), and an ending.<br/><b>Controls:</b><br/>
+                        Movement: A\D, Left\Right, or clicking on the arrows<br/>
+                        Puzzles: mouse or touchscreen
+                        <br/><a href="https://github.com/bradreslam/Rusty_lake_invitation">Github repository</a>
+                    </p>
+                </div>
+                <div className="line"/>
                 <div className="project_segment">
                     <Game_player gameName="pallaleo"></Game_player>
-                    <p>I made this small demo of a game named Pallaleo during my first internship.
+                    <p>I made this demo of a game named Pallaleo during my first internship.
                         The final game is supposed to be 3 chapters long with a slow buildup leading up to the end.
                         So a lot of the final plan isn't present in this demo,
                         but it still contains some gameplay that would have been part of the final game.<br/>
@@ -43,17 +54,6 @@ const TextField: React.FC = () => {
                         Interact: W or up<br/>
                         Minigames can use the mouse<br/>
                         <a href="https://github.com/bradreslam/pallaleo">Github repository</a>
-                    </p>
-                </div>
-                <div className="line"/>
-                <div className="project_segment">
-                    <Game_player gameName="rusty_lake_invite"></Game_player>
-                    <p>This is a small game that I made as an example of my skills when I applied for an internship at Rusty Lake.
-                        I made it in about 3 weeks of work and it includes 2 puzzles, sound effects,
-                        voice acting (help), and an ending.<br/><b>Controls:</b><br/>
-                        Movement: A\D, Left\Right, or clicking on the arrows<br/>
-                        Puzzles: mouse or touchscreen
-                        <br/><a href="https://github.com/bradreslam/Rusty_lake_invitation">Github repository</a>
                     </p>
                 </div>
                 <div className="line"/>
